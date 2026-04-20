@@ -1,0 +1,2588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The International Data Reserve — The People's Reserve for the AI Economy</title>
+<meta name="description" content="The International Data Reserve (IDR) is a decentralized autonomous organization establishing data ownership, sovereignty, and savings for the AI economy." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Narrow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy: #0A0E3F;
+  --navy-2: #12174F;
+  --navy-3: #1A1F6A;
+  --magenta: #EC2F8E;
+  --magenta-deep: #C21A6E;
+  --cream: #F4EFE4;
+  --cream-2: #EAE2D0;
+  --paper: #FAF7F0;
+  --ink: #0A0E3F;
+  --ink-soft: #2A2F60;
+  --line: rgba(10, 14, 63, 0.15);
+  --line-light: rgba(10, 14, 63, 0.08);
+  --accent-lime: #D4FF3A;
+  --grid: rgba(236, 47, 142, 0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Archivo', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Utility */
+.mono { font-family: 'JetBrains Mono', monospace; }
+.serif { font-family: 'Fraunces', serif; }
+.sans { font-family: 'Archivo', sans-serif; }
+.narrow { font-family: 'Archivo Narrow', sans-serif; }
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--magenta);
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* ===== ANNOUNCEMENT BAR ===== */
+.announcement {
+  background: var(--navy);
+  color: var(--cream);
+  overflow: hidden;
+  border-bottom: 1px solid rgba(244, 239, 228, 0.1);
+}
+
+.announcement-track {
+  display: flex;
+  animation: scroll 40s linear infinite;
+  white-space: nowrap;
+  padding: 10px 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.announcement-track span {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 32px;
+}
+
+.announcement-track .dot {
+  width: 4px;
+  height: 4px;
+  background: var(--magenta);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ===== NAVBAR ===== */
+.nav-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line-light);
+  backdrop-filter: blur(12px);
+  background: rgba(250, 247, 240, 0.92);
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding: 18px 32px;
+  gap: 48px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.logo-mark {
+  width: 42px;
+  height: 24px;
+  position: relative;
+}
+
+.logo-mark svg {
+  width: 100%;
+  height: 100%;
+}
+
+.logo-text {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.logo-text .small {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: 3px;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  justify-content: center;
+  list-style: none;
+}
+
+.nav-links > li {
+  position: relative;
+}
+
+.nav-links a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  padding: 10px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+  border-radius: 4px;
+}
+
+.nav-links a:hover {
+  color: var(--magenta);
+}
+
+.nav-links .has-menu > a::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  margin-top: -4px;
+  transition: transform 0.2s;
+}
+
+.nav-links .has-menu:hover > a::after {
+  transform: rotate(225deg);
+  margin-top: 2px;
+}
+
+/* Mega menu */
+.mega {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  min-width: 520px;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+  box-shadow: 0 32px 64px rgba(10, 14, 63, 0.12);
+}
+
+.mega-wide { min-width: 680px; }
+
+.has-menu:hover .mega {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.mega-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line-light);
+}
+
+.region-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+
+.region-item {
+  display: grid !important;
+  grid-template-columns: 32px 1fr auto;
+  gap: 12px;
+  padding: 12px !important;
+  align-items: center;
+  border-radius: 2px;
+  transition: background 0.15s;
+}
+
+.region-item:hover {
+  background: rgba(236, 47, 142, 0.06);
+  color: var(--ink) !important;
+}
+
+.region-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--magenta);
+  font-weight: 600;
+}
+
+.region-info strong {
+  display: block;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--ink);
+}
+
+.region-info em {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--ink-soft);
+  font-style: normal;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+.region-status {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  padding: 2px 6px;
+  border-radius: 2px;
+  letter-spacing: 0.1em;
+}
+
+.status-live { background: var(--magenta); color: var(--paper); }
+.status-forming { background: var(--cream-2); color: var(--ink-soft); }
+.status-planned { background: transparent; color: var(--ink-soft); border: 1px solid var(--line); }
+
+.nav-cta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-signin {
+  font-size: 13px;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-family: 'Archivo', sans-serif;
+}
+
+.btn-magenta {
+  background: var(--magenta);
+  color: var(--paper);
+}
+
+.btn-magenta:hover {
+  background: var(--magenta-deep);
+  transform: translateY(-1px);
+}
+
+.btn-navy {
+  background: var(--navy);
+  color: var(--cream);
+}
+
+.btn-navy:hover {
+  background: var(--navy-3);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+}
+
+.btn-outline:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.btn-outline-cream {
+  background: transparent;
+  color: var(--cream);
+  border: 1.5px solid var(--cream);
+}
+
+.btn-outline-cream:hover {
+  background: var(--cream);
+  color: var(--navy);
+}
+
+.arrow {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s;
+}
+
+.btn:hover .arrow { transform: translateX(3px); }
+
+/* ===== HERO ===== */
+.hero {
+  background: var(--paper);
+  padding: 48px 0 0;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 64px;
+  align-items: flex-start;
+}
+
+.hero-left .eyebrow { margin-bottom: 28px; }
+
+.hero-headline {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: clamp(56px, 8vw, 128px);
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  margin-bottom: 28px;
+  font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 0;
+}
+
+.hero-headline em {
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  color: var(--magenta);
+  font-weight: 300;
+}
+
+.hero-headline .accent-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.hero-headline .accent-underline::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 6px;
+  height: 3px;
+  background: var(--magenta);
+}
+
+.hero-sub {
+  font-size: 17px;
+  line-height: 1.55;
+  max-width: 540px;
+  color: var(--ink-soft);
+  margin-bottom: 36px;
+  font-weight: 400;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+
+.hero-stat .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+
+.hero-stat .value {
+  font-family: 'Fraunces', serif;
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variation-settings: "opsz" 96;
+}
+
+.hero-stat .value sup {
+  font-size: 20px;
+  color: var(--magenta);
+}
+
+.hero-stat .note {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--ink-soft);
+  margin-top: 6px;
+  letter-spacing: 0.02em;
+}
+
+/* Hero right: Live ledger / data counter */
+.hero-right {
+  position: relative;
+  padding: 0;
+}
+
+.ledger {
+  background: var(--navy);
+  color: var(--cream);
+  padding: 28px 28px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ledger::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.ledger-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(244, 239, 228, 0.15);
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.ledger-head .title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-lime);
+  border-radius: 50%;
+  animation: pulse-live 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse-live {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(212, 255, 58, 0.6); }
+  50% { opacity: 0.6; box-shadow: 0 0 0 8px rgba(212, 255, 58, 0); }
+}
+
+.ledger-head .time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: rgba(244, 239, 228, 0.6);
+  letter-spacing: 0.08em;
+}
+
+.counter-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(244, 239, 228, 0.6);
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.counter-big {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: "opsz" 144;
+  font-size: 52px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 4px;
+  position: relative;
+  color: var(--accent-lime);
+}
+
+.counter-big .currency {
+  font-size: 28px;
+  color: var(--cream);
+  opacity: 0.7;
+  margin-right: 4px;
+  vertical-align: top;
+  line-height: 1.8;
+}
+
+.counter-delta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--accent-lime);
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.ledger-feed {
+  position: relative;
+  margin-top: 24px;
+  border-top: 1px solid rgba(244, 239, 228, 0.15);
+  padding-top: 16px;
+  max-height: 180px;
+  overflow: hidden;
+}
+
+.feed-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(244, 239, 228, 0.6);
+  margin-bottom: 12px;
+}
+
+.feed-item {
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  gap: 12px;
+  padding: 8px 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  border-bottom: 1px dashed rgba(244, 239, 228, 0.08);
+  animation: feed-in 0.5s ease-out;
+}
+
+@keyframes feed-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.feed-item .code {
+  color: var(--magenta);
+}
+
+.feed-item .desc { color: var(--cream); opacity: 0.85; }
+
+.feed-item .val { color: var(--accent-lime); text-align: right; }
+
+/* Ticker */
+.ticker-section {
+  background: var(--navy);
+  color: var(--cream);
+  overflow: hidden;
+  position: relative;
+  padding: 20px 0;
+  border-top: 1px solid rgba(244, 239, 228, 0.1);
+}
+
+.ticker-label {
+  position: absolute;
+  left: 0; top: 50%;
+  transform: translateY(-50%);
+  background: var(--magenta);
+  color: var(--paper);
+  padding: 8px 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ticker-track {
+  display: flex;
+  animation: scroll 60s linear infinite;
+  white-space: nowrap;
+  padding-left: 180px;
+}
+
+.ticker-track span {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 28px;
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-variation-settings: "opsz" 72;
+  letter-spacing: -0.01em;
+}
+
+.ticker-track em {
+  font-style: italic;
+  color: var(--magenta);
+  font-variation-settings: "opsz" 72, "SOFT" 100, "WONK" 1;
+}
+
+.ticker-track .sep {
+  color: rgba(244, 239, 228, 0.3);
+  font-family: 'Archivo', sans-serif;
+  font-size: 12px;
+}
+
+/* ===== PROBLEM SECTION ===== */
+.problem {
+  background: var(--cream);
+  padding: 120px 0;
+  position: relative;
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.problem-number {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 1;
+  font-size: clamp(140px, 18vw, 280px);
+  font-weight: 300;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: var(--magenta);
+  font-style: italic;
+}
+
+.problem-number .currency {
+  font-size: 0.4em;
+  vertical-align: top;
+  color: var(--ink);
+  margin-right: 8px;
+  font-style: normal;
+  line-height: 1;
+}
+
+.problem-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-top: 12px;
+}
+
+.problem-content h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  font-variation-settings: "opsz" 96;
+}
+
+.problem-content h2 em {
+  font-style: italic;
+  color: var(--magenta);
+  font-variation-settings: "opsz" 96, "SOFT" 100, "WONK" 1;
+}
+
+.problem-content p {
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin-bottom: 20px;
+  max-width: 520px;
+}
+
+.problem-source {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  margin-top: 24px;
+}
+
+/* ===== REGIONAL RESERVES ===== */
+.regions {
+  background: var(--navy);
+  color: var(--cream);
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.regions::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(236, 47, 142, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(236, 47, 142, 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+  pointer-events: none;
+}
+
+.regions-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  margin-bottom: 80px;
+  align-items: end;
+  position: relative;
+}
+
+.regions-head .eyebrow::before { background: var(--accent-lime); }
+
+.regions-head h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(44px, 5vw, 72px);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  margin-top: 20px;
+  font-variation-settings: "opsz" 144;
+}
+
+.regions-head h2 em {
+  font-style: italic;
+  color: var(--magenta);
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+}
+
+.regions-head p {
+  font-size: 16px;
+  line-height: 1.55;
+  color: rgba(244, 239, 228, 0.75);
+  max-width: 480px;
+}
+
+.regions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(244, 239, 228, 0.12);
+  border: 1px solid rgba(244, 239, 228, 0.12);
+  position: relative;
+}
+
+.region-card {
+  background: var(--navy);
+  padding: 28px 24px;
+  position: relative;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.region-card:hover {
+  background: var(--navy-2);
+}
+
+.region-card.featured {
+  background: var(--magenta);
+  color: var(--paper);
+}
+
+.region-card.featured:hover {
+  background: var(--magenta-deep);
+}
+
+.region-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.region-code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: rgba(244, 239, 228, 0.5);
+}
+
+.region-card.featured .region-code { color: rgba(250, 247, 240, 0.8); }
+
+.region-status-pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  padding: 3px 7px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.region-status-pill.live {
+  background: var(--accent-lime);
+  color: var(--navy);
+}
+.region-status-pill.forming {
+  background: rgba(244, 239, 228, 0.15);
+  color: var(--cream);
+}
+.region-status-pill.planned {
+  background: transparent;
+  color: rgba(244, 239, 228, 0.5);
+  border: 1px solid rgba(244, 239, 228, 0.2);
+}
+
+.region-card.featured .region-status-pill.live {
+  background: var(--paper);
+  color: var(--magenta);
+}
+
+.region-name {
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  font-variation-settings: "opsz" 144;
+}
+
+.region-territory {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: rgba(244, 239, 228, 0.5);
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+.region-card.featured .region-territory { color: rgba(250, 247, 240, 0.75); }
+
+.region-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(244, 239, 228, 0.12);
+}
+
+.region-card.featured .region-footer {
+  border-top-color: rgba(250, 247, 240, 0.3);
+}
+
+.region-hq {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: rgba(244, 239, 228, 0.6);
+  letter-spacing: 0.08em;
+}
+
+.region-card.featured .region-hq { color: rgba(250, 247, 240, 0.8); }
+
+.region-arrow {
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(244, 239, 228, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.region-card.featured .region-arrow { border-color: rgba(250, 247, 240, 0.5); }
+
+.region-card:hover .region-arrow {
+  background: var(--magenta);
+  border-color: var(--magenta);
+}
+
+.region-card.featured:hover .region-arrow {
+  background: var(--paper);
+  border-color: var(--paper);
+}
+
+.region-card.featured:hover .region-arrow svg { color: var(--magenta); }
+
+.region-arrow svg { width: 12px; height: 12px; }
+
+/* ===== DATA SAVINGS ACT ===== */
+.act {
+  background: var(--paper);
+  padding: 120px 0;
+  position: relative;
+}
+
+.act-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.act-text .eyebrow { margin-bottom: 28px; }
+
+.act-text h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(48px, 6vw, 96px);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin-bottom: 32px;
+  font-variation-settings: "opsz" 144;
+}
+
+.act-text h2 em {
+  font-style: italic;
+  color: var(--magenta);
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+}
+
+.act-text .lead {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  line-height: 1.4;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 20px;
+  font-variation-settings: "opsz" 72;
+}
+
+.act-text p {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin-bottom: 16px;
+  max-width: 500px;
+}
+
+.act-text .quote {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  line-height: 1.4;
+  font-style: italic;
+  color: var(--magenta);
+  border-left: 2px solid var(--magenta);
+  padding-left: 20px;
+  margin: 24px 0;
+  font-variation-settings: "opsz" 72, "SOFT" 100, "WONK" 1;
+}
+
+.act-cta { margin-top: 32px; }
+
+/* Countdown */
+.countdown {
+  background: var(--navy);
+  color: var(--cream);
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.countdown::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(236, 47, 142, 0.2), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(212, 255, 58, 0.1), transparent 40%);
+  pointer-events: none;
+}
+
+.countdown-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(244, 239, 228, 0.2);
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.countdown-head .title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.countdown-head .date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--magenta);
+  letter-spacing: 0.08em;
+}
+
+.countdown-title {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 32px;
+  letter-spacing: -0.02em;
+  position: relative;
+  font-variation-settings: "opsz" 96;
+}
+
+.countdown-title em {
+  font-style: italic;
+  color: var(--magenta);
+  font-variation-settings: "opsz" 96, "SOFT" 100, "WONK" 1;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  position: relative;
+}
+
+.countdown-unit {
+  background: rgba(244, 239, 228, 0.04);
+  border: 1px solid rgba(244, 239, 228, 0.1);
+  padding: 20px 12px;
+  text-align: center;
+}
+
+.countdown-unit .num {
+  font-family: 'Fraunces', serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--accent-lime);
+  font-variation-settings: "opsz" 144;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.countdown-unit .unit {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(244, 239, 228, 0.6);
+}
+
+.countdown-footer {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(244, 239, 228, 0.2);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: rgba(244, 239, 228, 0.7);
+  position: relative;
+  line-height: 1.6;
+}
+
+/* ===== HOW IDR WORKS ===== */
+.how {
+  background: var(--cream);
+  padding: 120px 0;
+}
+
+.how-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  margin-bottom: 64px;
+  align-items: end;
+}
+
+.how-head h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(44px, 5vw, 72px);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  margin-top: 20px;
+  font-variation-settings: "opsz" 144;
+}
+
+.how-head h2 em {
+  font-style: italic;
+  color: var(--magenta);
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+}
+
+.how-head p {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 440px;
+}
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.pillar {
+  padding: 40px 32px 40px 0;
+  border-right: 1px solid var(--line);
+  position: relative;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pillar:last-child { border-right: none; padding-right: 0; }
+.pillar:first-child { padding-left: 0; }
+.pillar:not(:first-child) { padding-left: 32px; }
+
+.pillar-num {
+  font-family: 'Fraunces', serif;
+  font-size: 64px;
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  font-style: italic;
+  color: var(--magenta);
+  line-height: 1;
+  margin-bottom: 32px;
+  font-weight: 300;
+}
+
+.pillar h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin-bottom: 16px;
+  font-variation-settings: "opsz" 96;
+}
+
+.pillar p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  flex: 1;
+}
+
+.pillar-list {
+  list-style: none;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--line);
+}
+
+.pillar-list li {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  padding: 4px 0;
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pillar-list li::before {
+  content: '→';
+  color: var(--magenta);
+}
+
+/* ===== COMMITTEES ===== */
+.committees {
+  background: var(--paper);
+  padding: 120px 0;
+  border-top: 1px solid var(--line);
+}
+
+.committees-head {
+  margin-bottom: 64px;
+  max-width: 640px;
+}
+
+.committees-head h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(44px, 5vw, 72px);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  margin-top: 20px;
+  font-variation-settings: "opsz" 144;
+}
+
+.committees-head h2 em {
+  font-style: italic;
+  color: var(--magenta);
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+}
+
+.committee-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.committee {
+  background: var(--paper);
+  padding: 28px;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.2s;
+}
+
+.committee:hover { background: var(--cream); }
+
+.committee-code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--magenta);
+  margin-bottom: 16px;
+}
+
+.committee h4 {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+  font-variation-settings: "opsz" 72;
+}
+
+.committee p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  flex: 1;
+}
+
+/* ===== STORIES ===== */
+.stories {
+  background: var(--navy);
+  color: var(--cream);
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.stories::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(244, 239, 228, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 239, 228, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.stories-head {
+  margin-bottom: 64px;
+  position: relative;
+  max-width: 700px;
+}
+
+.stories-head .eyebrow::before { background: var(--accent-lime); }
+
+.stories-head h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(44px, 5vw, 72px);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  margin-top: 20px;
+  font-variation-settings: "opsz" 144;
+}
+
+.stories-head h2 em {
+  font-style: italic;
+  color: var(--magenta);
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  position: relative;
+}
+
+.story {
+  background: rgba(244, 239, 228, 0.04);
+  border: 1px solid rgba(244, 239, 228, 0.12);
+  padding: 32px;
+  transition: all 0.3s;
+}
+
+.story:hover {
+  background: rgba(244, 239, 228, 0.08);
+  transform: translateY(-4px);
+}
+
+.story-age {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  font-style: italic;
+  color: var(--magenta);
+  font-size: 72px;
+  font-weight: 300;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.story-name {
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 6px;
+  font-variation-settings: "opsz" 96;
+}
+
+.story-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: rgba(244, 239, 228, 0.6);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(244, 239, 228, 0.12);
+}
+
+.story p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(244, 239, 228, 0.8);
+  margin-bottom: 20px;
+}
+
+.story-balance {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 20px;
+  border-top: 1px solid rgba(244, 239, 228, 0.12);
+  margin-top: 20px;
+}
+
+.story-balance .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: rgba(244, 239, 228, 0.6);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.story-balance .amount {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--accent-lime);
+  font-variation-settings: "opsz" 96;
+}
+
+/* ===== CTA ===== */
+.cta {
+  background: var(--magenta);
+  color: var(--paper);
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  top: -50%; right: -20%;
+  width: 80%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(250, 247, 240, 0.1), transparent 60%);
+  pointer-events: none;
+}
+
+.cta-content {
+  max-width: 900px;
+  position: relative;
+}
+
+.cta h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(56px, 8vw, 128px);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+  margin-bottom: 32px;
+  font-variation-settings: "opsz" 144;
+}
+
+.cta h2 em {
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  font-weight: 300;
+}
+
+.cta p {
+  font-size: 18px;
+  line-height: 1.5;
+  max-width: 560px;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.cta-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 56px;
+}
+
+.cta .btn-primary {
+  background: var(--navy);
+  color: var(--paper);
+  padding: 16px 28px;
+  font-size: 14px;
+}
+
+.cta .btn-primary:hover { background: var(--ink); }
+
+.cta .btn-secondary {
+  background: transparent;
+  color: var(--paper);
+  border: 1.5px solid var(--paper);
+  padding: 14.5px 28px;
+  font-size: 14px;
+}
+
+.cta .btn-secondary:hover { background: var(--paper); color: var(--magenta); }
+
+.cta-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(250, 247, 240, 0.3);
+  position: relative;
+}
+
+.cta-stat .num {
+  font-family: 'Fraunces', serif;
+  font-size: 44px;
+  line-height: 1;
+  font-variation-settings: "opsz" 144;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+
+.cta-stat .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--navy);
+  color: var(--cream);
+  padding: 80px 0 40px;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.3fr 2fr;
+  gap: 80px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(244, 239, 228, 0.15);
+  margin-bottom: 32px;
+}
+
+.footer-brand h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 20px 0;
+  font-variation-settings: "opsz" 144;
+}
+
+.footer-brand h3 em {
+  font-style: italic;
+  color: var(--magenta);
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(244, 239, 228, 0.7);
+  max-width: 400px;
+  margin-bottom: 24px;
+}
+
+.newsletter {
+  display: flex;
+  border: 1px solid rgba(244, 239, 228, 0.3);
+  max-width: 400px;
+}
+
+.newsletter input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 14px 16px;
+  color: var(--cream);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  outline: none;
+}
+
+.newsletter input::placeholder { color: rgba(244, 239, 228, 0.4); }
+
+.newsletter button {
+  background: var(--magenta);
+  border: none;
+  color: var(--paper);
+  padding: 0 20px;
+  font-family: 'Archivo', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.newsletter button:hover { background: var(--magenta-deep); }
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.footer-col h5 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(244, 239, 228, 0.6);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.footer-col ul { list-style: none; }
+
+.footer-col li {
+  margin-bottom: 10px;
+}
+
+.footer-col a {
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover { color: var(--magenta); }
+
+.footer-bottom {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 32px;
+  align-items: center;
+  padding-top: 24px;
+}
+
+.footer-bottom .copy {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: rgba(244, 239, 228, 0.5);
+  letter-spacing: 0.04em;
+}
+
+.footer-bottom .locations {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer-bottom .locations span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(244, 239, 228, 0.6);
+}
+
+.footer-bottom .locations span::after {
+  content: '•';
+  margin-left: 20px;
+  color: var(--magenta);
+}
+
+.footer-bottom .locations span:last-child::after { display: none; }
+
+.footer-legal {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-legal a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(244, 239, 228, 0.5);
+  text-decoration: none;
+}
+
+.footer-legal a:hover { color: var(--magenta); }
+
+/* Confidential stripe */
+.draft-stripe {
+  background: var(--accent-lime);
+  color: var(--navy);
+  padding: 8px 0;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+  .nav-links { display: none; }
+  .hero-grid, .problem-grid, .act-grid, .regions-head, .how-head, .footer-top { grid-template-columns: 1fr; gap: 48px; }
+  .regions-grid { grid-template-columns: repeat(2, 1fr); }
+  .pillars { grid-template-columns: repeat(2, 1fr); }
+  .committee-grid { grid-template-columns: repeat(2, 1fr); }
+  .story-grid { grid-template-columns: 1fr; }
+  .footer-links { grid-template-columns: repeat(2, 1fr); }
+  .cta-stats { grid-template-columns: repeat(2, 1fr); }
+  .hero-stats { grid-template-columns: 1fr; }
+  .pillar { border-right: none; border-bottom: 1px solid var(--line); }
+  .pillar:nth-child(odd) { padding-left: 0; }
+  .pillar:nth-child(even) { padding-left: 32px; border-left: 1px solid var(--line); }
+}
+
+@media (max-width: 640px) {
+  .container { padding: 0 20px; }
+  .nav { padding: 16px 20px; gap: 16px; }
+  .regions-grid, .committee-grid, .pillars { grid-template-columns: 1fr; }
+  .countdown-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-bottom { grid-template-columns: 1fr; }
+  .footer-links { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Draft Stripe -->
+<div class="draft-stripe">
+  DRAFT CONCEPT — REFERENCE MATERIAL TO PROJECT TEAM
+</div>
+
+<!-- Announcement Bar -->
+<div class="announcement">
+  <div class="announcement-track">
+    <span><span class="dot"></span> DATA SAVINGS ACT RATIFICATION — 7 REGIONS</span>
+    <span><span class="dot"></span> DATA EMANCIPATION DAY — JUNE 18, 2029</span>
+    <span><span class="dot"></span> 2026 IDR AWARD NOMINATIONS OPEN</span>
+    <span><span class="dot"></span> NEW ECONOMIC RESEARCH PAPER PUBLISHED</span>
+    <span><span class="dot"></span> DATA SAVINGS ACT RATIFICATION — 7 REGIONS</span>
+    <span><span class="dot"></span> DATA EMANCIPATION DAY — JUNE 18, 2029</span>
+    <span><span class="dot"></span> 2026 IDR AWARD NOMINATIONS OPEN</span>
+    <span><span class="dot"></span> NEW ECONOMIC RESEARCH PAPER PUBLISHED</span>
+  </div>
+</div>
+
+<!-- Navbar -->
+<div class="nav-wrapper">
+  <nav class="nav">
+    <a class="logo" href="#">
+      <span class="logo-mark">
+        <svg viewBox="0 0 42 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Infinity made of stars -->
+          <g fill="currentColor">
+            <circle cx="6" cy="12" r="1"/>
+            <circle cx="10" cy="7" r="1"/>
+            <circle cx="16" cy="5" r="1"/>
+            <circle cx="21" cy="8" r="1.4"/>
+            <circle cx="21" cy="12" r="2" fill="#EC2F8E"/>
+            <circle cx="21" cy="16" r="1.4"/>
+            <circle cx="16" cy="19" r="1"/>
+            <circle cx="10" cy="17" r="1"/>
+            <circle cx="6" cy="12" r="1"/>
+            <circle cx="26" cy="5" r="1"/>
+            <circle cx="32" cy="7" r="1"/>
+            <circle cx="36" cy="12" r="1"/>
+            <circle cx="32" cy="17" r="1"/>
+            <circle cx="26" cy="19" r="1"/>
+          </g>
+        </svg>
+      </span>
+      <span class="logo-text">
+        International Data Reserve
+        <span class="small">IDR · The People's Reserve</span>
+      </span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#about">About IDR</a></li>
+      <li class="has-menu">
+        <a href="#regions">Regional Reserves</a>
+        <div class="mega mega-wide">
+          <div class="mega-title">7 Regional Data Reserves — IDR System Members</div>
+          <div class="region-grid">
+            <a class="region-item" href="#">
+              <span class="region-num">01</span>
+              <span class="region-info"><strong>American Data Reserve</strong><em>North America · HQ Washington</em></span>
+              <span class="region-status status-live">Live</span>
+            </a>
+            <a class="region-item" href="#">
+              <span class="region-num">02</span>
+              <span class="region-info"><strong>Brazilian Data Reserve</strong><em>LATAM + MEX · HQ São Paulo</em></span>
+              <span class="region-status status-live">Live</span>
+            </a>
+            <a class="region-item" href="#">
+              <span class="region-num">03</span>
+              <span class="region-info"><strong>Levant Data Reserve</strong><em>Middle East · HQ Dubai</em></span>
+              <span class="region-status status-forming">Forming</span>
+            </a>
+            <a class="region-item" href="#">
+              <span class="region-num">04</span>
+              <span class="region-info"><strong>South Asia Data Reserve</strong><em>South Asia · HQ Bengaluru</em></span>
+              <span class="region-status status-forming">Forming</span>
+            </a>
+            <a class="region-item" href="#">
+              <span class="region-num">05</span>
+              <span class="region-info"><strong>European Data Reserve</strong><em>EU + C. Asia · HQ Lisbon</em></span>
+              <span class="region-status status-forming">Forming</span>
+            </a>
+            <a class="region-item" href="#">
+              <span class="region-num">06</span>
+              <span class="region-info"><strong>African Data Reserve</strong><em>S. Africa · HQ Johannesburg</em></span>
+              <span class="region-status status-planned">Planned</span>
+            </a>
+            <a class="region-item" href="#">
+              <span class="region-num">07</span>
+              <span class="region-info"><strong>Pacific Data Reserve</strong><em>East P. Asia · HQ Singapore</em></span>
+              <span class="region-status status-planned">Planned</span>
+            </a>
+            <a class="region-item" href="#" style="background: rgba(236, 47, 142, 0.08);">
+              <span class="region-num" style="color: var(--ink);">∞</span>
+              <span class="region-info"><strong>IDR HQ — Baar, Switzerland</strong><em>DAO · Governance</em></span>
+              <span class="region-status" style="background: var(--navy); color: var(--paper);">Core</span>
+            </a>
+          </div>
+        </div>
+      </li>
+      <li class="has-menu">
+        <a href="#act">Data Savings Act</a>
+        <div class="mega">
+          <div class="mega-title">The People's Reserve Declaration</div>
+          <div style="display: grid; grid-template-columns: 1fr; gap: 2px;">
+            <a class="region-item" href="#" style="grid-template-columns: 1fr auto;">
+              <span class="region-info"><strong>The Declaration</strong><em>Full text of the People's Reserve manifesto</em></span>
+              <span class="region-status status-live">Read</span>
+            </a>
+            <a class="region-item" href="#" style="grid-template-columns: 1fr auto;">
+              <span class="region-info"><strong>Data Emancipation — June 18, 2029</strong><em>Every child born shall own their data</em></span>
+              <span class="region-status status-forming">Countdown</span>
+            </a>
+            <a class="region-item" href="#" style="grid-template-columns: 1fr auto;">
+              <span class="region-info"><strong>Data Savings Accounts</strong><em>How households open and grow data wealth</em></span>
+              <span class="region-status status-planned">Guide</span>
+            </a>
+            <a class="region-item" href="#" style="grid-template-columns: 1fr auto;">
+              <span class="region-info"><strong>Ratification Tracker</strong><em>State-by-state and country-by-country progress</em></span>
+              <span class="region-status status-planned">Live</span>
+            </a>
+          </div>
+        </div>
+      </li>
+      <li><a href="#regulation">Regulation</a></li>
+      <li><a href="#award">2026 Award</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#membership">Membership</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a href="#" class="nav-signin">Sign In</a>
+      <a href="#" class="btn btn-navy">
+        Subscribe
+        <svg class="arrow" viewBox="0 0 14 14" fill="none"><path d="M3 7h8m0 0L7.5 3.5M11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5"/></svg>
+      </a>
+    </div>
+  </nav>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <span class="eyebrow">A Decentralized Autonomous Organization · Baar, Switzerland</span>
+
+        <h1 class="hero-headline">
+          Data is the <em>new proxy</em> for value in the <span class="accent-underline">AI economy</span>.
+        </h1>
+
+        <p class="hero-sub">
+          The International Data Reserve is the standard-setter for data ownership, sovereignty and savings. We coordinate seven regional reserves, build trust in data, and make data part of everyone's life — the way central banks once made money part of everyone's life.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#act" class="btn btn-magenta">
+            Read the Declaration
+            <svg class="arrow" viewBox="0 0 14 14" fill="none"><path d="M3 7h8m0 0L7.5 3.5M11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5"/></svg>
+          </a>
+          <a href="#membership" class="btn btn-outline">
+            Become a Member
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="label">Regional Reserves</div>
+            <div class="value">07</div>
+            <div class="note">Operational + forming + planned</div>
+          </div>
+          <div class="hero-stat">
+            <div class="label">Data Agents</div>
+            <div class="value">142<sup>+</sup></div>
+            <div class="note">Authorized & audited worldwide</div>
+          </div>
+          <div class="hero-stat">
+            <div class="label">Emancipation in</div>
+            <div class="value" id="hero-days">—</div>
+            <div class="note">Days until June 18, 2029</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="ledger">
+          <div class="ledger-head">
+            <div class="title"><span class="live-dot"></span> IDR Live Ledger</div>
+            <div class="time" id="ledger-time">—</div>
+          </div>
+          <div class="counter-label">Data value returned to individuals (YTD)</div>
+          <div class="counter-big"><span class="currency">US$</span><span id="counter">0</span></div>
+          <div class="counter-delta" id="delta">+ $0 in the last 60 seconds</div>
+
+          <div class="ledger-feed">
+            <div class="feed-title">Recent transactions — IDR Named Schema System</div>
+            <div id="feed"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<section class="ticker-section">
+  <div class="ticker-label"><span class="live-dot"></span> Live</div>
+  <div class="ticker-track">
+    <span><em>Data sovereignty</em> <span class="sep">/</span> resolved by NSS</span>
+    <span><em>Data valuation</em> <span class="sep">/</span> standardized metrics</span>
+    <span><em>Data ownership</em> <span class="sep">/</span> inviolable right</span>
+    <span><em>Data fragmentation</em> <span class="sep">/</span> coordinated identifiers</span>
+    <span><em>Data savings</em> <span class="sep">/</span> alternative model</span>
+    <span><em>Data emancipation</em> <span class="sep">/</span> June 18, 2029</span>
+    <span><em>Data sovereignty</em> <span class="sep">/</span> resolved by NSS</span>
+    <span><em>Data valuation</em> <span class="sep">/</span> standardized metrics</span>
+    <span><em>Data ownership</em> <span class="sep">/</span> inviolable right</span>
+    <span><em>Data fragmentation</em> <span class="sep">/</span> coordinated identifiers</span>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem" id="about">
+  <div class="container">
+    <div class="problem-grid">
+      <div>
+        <span class="eyebrow">The problem</span>
+        <div class="problem-number"><span class="currency">US$</span>1,570</div>
+        <div class="problem-sub">Annual per-person cost — global data processing</div>
+      </div>
+
+      <div class="problem-content">
+        <h2>People don't know they're paying <em>to be processed.</em></h2>
+        <p>
+          Every individual generates, on average, enough data to represent <strong>US$1,570 of compute cost per year</strong> — processed and monetized by companies, with almost none of the value returning to the person who produced it.
+        </p>
+        <p>
+          If consumers are already paying to process roughly half the world's data, they are entitled to at least half of the value that data creates. The IDR exists to make that transfer possible — technically, legally, and economically.
+        </p>
+        <div class="problem-source">Source: IDR Economic Research Paper N°7 — "The Marginal Social Cost of the Individual"</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGIONAL RESERVES -->
+<section class="regions" id="regions">
+  <div class="container">
+    <div class="regions-head">
+      <div>
+        <span class="eyebrow">Regional Data Reserves</span>
+        <h2>Seven regions.<br>One <em>interoperable</em> standard.</h2>
+      </div>
+      <p>
+        The IDR system is designed to expand to seven Regional Data Reserves — each a standard-setter for its territory, each a member of the Committee of Data Agents Supervision (CDAS). Like the BIS coordinates central banks, IDR coordinates data reserves.
+      </p>
+    </div>
+
+    <div class="regions-grid">
+      <a class="region-card featured" href="#">
+        <div>
+          <div class="region-head">
+            <span class="region-code">REG · 01</span>
+            <span class="region-status-pill live">Live</span>
+          </div>
+          <div class="region-name">American<br>Data Reserve</div>
+          <div class="region-territory">North America</div>
+        </div>
+        <div class="region-footer">
+          <span class="region-hq">HQ · Washington</span>
+          <span class="region-arrow">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a class="region-card" href="#">
+        <div>
+          <div class="region-head">
+            <span class="region-code">REG · 02</span>
+            <span class="region-status-pill live">Live</span>
+          </div>
+          <div class="region-name">Brazilian<br>Data Reserve</div>
+          <div class="region-territory">LATAM + MEX</div>
+        </div>
+        <div class="region-footer">
+          <span class="region-hq">HQ · São Paulo</span>
+          <span class="region-arrow">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a class="region-card" href="#">
+        <div>
+          <div class="region-head">
+            <span class="region-code">REG · 03</span>
+            <span class="region-status-pill forming">Forming</span>
+          </div>
+          <div class="region-name">Levant<br>Data Reserve</div>
+          <div class="region-territory">Middle East</div>
+        </div>
+        <div class="region-footer">
+          <span class="region-hq">HQ · Dubai</span>
+          <span class="region-arrow">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a class="region-card" href="#">
+        <div>
+          <div class="region-head">
+            <span class="region-code">REG · 04</span>
+            <span class="region-status-pill forming">Forming</span>
+          </div>
+          <div class="region-name">South Asia<br>Data Reserve</div>
+          <div class="region-territory">South Asia</div>
+        </div>
+        <div class="region-footer">
+          <span class="region-hq">HQ · Bengaluru</span>
+          <span class="region-arrow">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a class="region-card" href="#">
+        <div>
+          <div class="region-head">
+            <span class="region-code">REG · 05</span>
+            <span class="region-status-pill forming">Forming</span>
+          </div>
+          <div class="region-name">European<br>Data Reserve</div>
+          <div class="region-territory">EU + C. Asia</div>
+        </div>
+        <div class="region-footer">
+          <span class="region-hq">HQ · Lisbon</span>
+          <span class="region-arrow">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a class="region-card" href="#">
+        <div>
+          <div class="region-head">
+            <span class="region-code">REG · 06</span>
+            <span class="region-status-pill planned">Planned</span>
+          </div>
+          <div class="region-name">African<br>Data Reserve</div>
+          <div class="region-territory">S. Africa</div>
+        </div>
+        <div class="region-footer">
+          <span class="region-hq">HQ · Johannesburg</span>
+          <span class="region-arrow">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a class="region-card" href="#">
+        <div>
+          <div class="region-head">
+            <span class="region-code">REG · 07</span>
+            <span class="region-status-pill planned">Planned</span>
+          </div>
+          <div class="region-name">Pacific<br>Data Reserve</div>
+          <div class="region-territory">East P. Asia</div>
+        </div>
+        <div class="region-footer">
+          <span class="region-hq">HQ · Singapore</span>
+          <span class="region-arrow">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a class="region-card" href="#" style="background: var(--navy-2);">
+        <div>
+          <div class="region-head">
+            <span class="region-code">CORE · ∞</span>
+            <span class="region-status-pill forming" style="background: var(--accent-lime); color: var(--navy);">DAO</span>
+          </div>
+          <div class="region-name">IDR<br>Headquarters</div>
+          <div class="region-territory">Global coordination</div>
+        </div>
+        <div class="region-footer">
+          <span class="region-hq">HQ · Baar, Switzerland</span>
+          <span class="region-arrow">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M3 6h6m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- DATA SAVINGS ACT -->
+<section class="act" id="act">
+  <div class="container">
+    <div class="act-grid">
+      <div class="act-text">
+        <span class="eyebrow">The Data Savings Act</span>
+        <h2>The <em>People's</em> Reserve.</h2>
+        <p class="lead">
+          Money and data are indivisible in the AI economy. Our money is in the bank; our data is in the cloud — managed by others, monetized by others.
+        </p>
+        <p>
+          We declare that every individual retains the autonomy, benefit, and legacy of the value of the data they generate. Data ownership is not a feature. It is an extension of natural rights — inviolable, inalienable, universal.
+        </p>
+        <div class="quote">
+          "From June the 18th of the year 2029, every child born on this planet shall own their data from the moment they draw their first breath."
+        </div>
+        <p>
+          We invite civil society, governments, universities and multilateral organizations to co-author the ratification. This is the emancipation proclamation of the AI age.
+        </p>
+        <div class="act-cta">
+          <a href="#" class="btn btn-magenta">
+            Read the Full Declaration
+            <svg class="arrow" viewBox="0 0 14 14" fill="none"><path d="M3 7h8m0 0L7.5 3.5M11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="countdown">
+        <div class="countdown-head">
+          <div class="title">Countdown to Data Emancipation</div>
+          <div class="date">18.06.2029 · 00:00 UTC</div>
+        </div>
+        <div class="countdown-title">Every child born after this date shall <em>own their data</em> from first breath.</div>
+        <div class="countdown-grid">
+          <div class="countdown-unit">
+            <span class="num" id="cd-days">000</span>
+            <span class="unit">Days</span>
+          </div>
+          <div class="countdown-unit">
+            <span class="num" id="cd-hours">00</span>
+            <span class="unit">Hours</span>
+          </div>
+          <div class="countdown-unit">
+            <span class="num" id="cd-mins">00</span>
+            <span class="unit">Minutes</span>
+          </div>
+          <div class="countdown-unit">
+            <span class="num" id="cd-secs">00</span>
+            <span class="unit">Seconds</span>
+          </div>
+        </div>
+        <div class="countdown-footer">
+          RATIFICATION TRACKER — 7 / 7 REGIONS PENDING · 142 DATA AGENTS COMMITTED · OPEN TO STATE, CORPORATE AND CIVIL SIGNATORIES
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="regulation">
+  <div class="container">
+    <div class="how-head">
+      <div>
+        <span class="eyebrow">How IDR builds trust in data</span>
+        <h2>Four <em>pillars</em> of the monetization ecosystem.</h2>
+      </div>
+      <p>
+        IDR maintains the security, stability, interoperability, and audit of the international data monetization ecosystem. Some describe IDR as a hybrid between ICANN and the Bank for International Settlements — for data.
+      </p>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <h3>Enabling data transactions</h3>
+        <p>The IDR Named Schema System (NSS) coordinates unique identifiers — credentials and named schemas — so data wallets can find each other and transact at global scale.</p>
+        <ul class="pillar-list">
+          <li>Data sovereignty</li>
+          <li>Data fragmentation</li>
+          <li>Data valuation</li>
+          <li>Data ownership</li>
+        </ul>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <h3>Developing policies</h3>
+        <p>IDR develops policies for internationalization of the NSS, introduction of new standard named schemas (SNSs), and fair competition among data agents.</p>
+        <ul class="pillar-list">
+          <li>IDR Guides & Framework</li>
+          <li>Standard Named Schemas</li>
+          <li>Fair-competition rules</li>
+          <li>Valuation methodologies</li>
+        </ul>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <h3>Regulating the ecosystem</h3>
+        <p>IDR regulates data valuation metrics, trust ecosystem structure, specific named schemas, and Regional Data Reserves — a role comparable to ICANN and the BIS combined.</p>
+        <ul class="pillar-list">
+          <li>Committee of Data Agents Supervision</li>
+          <li>Regional Reserve oversight</li>
+          <li>Ecosystem audits</li>
+          <li>Asymmetry policy</li>
+        </ul>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-num">04</div>
+        <h3>Involving the public</h3>
+        <p>IDR holds events, webinars and training workshops, and includes public comment in its multistakeholder model — so individuals, not only institutions, shape the standards.</p>
+        <ul class="pillar-list">
+          <li>Public comment periods</li>
+          <li>Training workshops</li>
+          <li>Annual General Assembly</li>
+          <li>Civil society partnership</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMITTEES -->
+<section class="committees">
+  <div class="container">
+    <div class="committees-head">
+      <span class="eyebrow">Governance</span>
+      <h2>Five standing <em>committees.</em></h2>
+    </div>
+
+    <div class="committee-grid">
+      <div class="committee">
+        <div class="committee-code">CGF · 01</div>
+        <h4>Guides & Framework Committee</h4>
+        <p>Develops and maintains the IDR Guides and Framework — the evolving standard for data monetization worldwide.</p>
+      </div>
+      <div class="committee">
+        <div class="committee-code">DAC · 02</div>
+        <h4>Data Economy Committee</h4>
+        <p>Sets the IDR asymmetry policy and follows finance, market, and economic themes between General Assemblies.</p>
+      </div>
+      <div class="committee">
+        <div class="committee-code">CDAS · 03</div>
+        <h4>Data Agents Supervision</h4>
+        <p>Standard-setter for data monetization. Authorizes and audits data agents in each territory, akin to bank supervisors.</p>
+      </div>
+      <div class="committee">
+        <div class="committee-code">TSC · 04</div>
+        <h4>Technology & Standards</h4>
+        <p>Follows standards, rules, technology, innovation, and operations across the ecosystem between GAs.</p>
+      </div>
+      <div class="committee">
+        <div class="committee-code">EGC · 05</div>
+        <h4>Ethics & Governance</h4>
+        <p>Supports the Secretary General, oversees governance and data-ownership themes. Can convene Extraordinary GAs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORIES -->
+<section class="stories">
+  <div class="container">
+    <div class="stories-head">
+      <span class="eyebrow">Citizens of the Data Economy</span>
+      <h2>A <em>savings account</em> — for the data you already produce.</h2>
+    </div>
+
+    <div class="story-grid">
+      <div class="story">
+        <div class="story-age">03</div>
+        <div class="story-name">Josh</div>
+        <div class="story-meta">Age 3 · Northern California · Opened by Grandpa</div>
+        <p>Grandpa opened a Data Savings Account for Josh when he was three. By the time Josh enters the AI workforce, his account will have compounded for two decades — usable for personal, professional, and financial purposes.</p>
+        <div class="story-balance">
+          <div>
+            <div class="label">Projected balance · age 18</div>
+            <div class="amount">$48,220</div>
+          </div>
+          <span class="region-status-pill live">Live</span>
+        </div>
+      </div>
+
+      <div class="story">
+        <div class="story-age">00</div>
+        <div class="story-name">Rita</div>
+        <div class="story-meta">Age 1 · Atlanta · Opened at birth</div>
+        <p>Mommy and Daddy opened Rita's Data Savings Account on the day she was born. Her first data — birth records, early milestones — was saved, tokenized, and deposited. Rita is data-rich before she can walk.</p>
+        <div class="story-balance">
+          <div>
+            <div class="label">Projected balance · age 18</div>
+            <div class="amount">$64,900</div>
+          </div>
+          <span class="region-status-pill live">Live</span>
+        </div>
+      </div>
+
+      <div class="story">
+        <div class="story-age">18</div>
+        <div class="story-name">Stephanie</div>
+        <div class="story-meta">Age 18 · College freshman · Self-opened</div>
+        <p>Stephanie is taking control of her life — and her data. She opened her own account on her 18th birthday and is back-claiming value from the data trail she's generated since adolescence.</p>
+        <div class="story-balance">
+          <div>
+            <div class="label">Current balance</div>
+            <div class="amount">$12,840</div>
+          </div>
+          <span class="region-status-pill live">Live</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="membership">
+  <div class="container">
+    <div class="cta-content">
+      <span class="eyebrow" style="color: var(--paper);"><span style="background: var(--paper) !important;"></span> Join the Reserve</span>
+      <h2>Your life. Your story.<br><em>Your data.</em></h2>
+      <p>
+        Your money is in the bank. Your data is in the cloud. Start saving your data today — and join the coalition building the standard for the AI economy.
+      </p>
+      <div class="cta-actions">
+        <a href="#" class="btn btn-primary">
+          Become a Member
+          <svg class="arrow" viewBox="0 0 14 14" fill="none"><path d="M3 7h8m0 0L7.5 3.5M11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5"/></svg>
+        </a>
+        <a href="#" class="btn btn-secondary">
+          Download IDR Framework
+        </a>
+      </div>
+      <div class="cta-stats">
+        <div class="cta-stat">
+          <div class="num">7</div>
+          <div class="label">Regional Reserves</div>
+        </div>
+        <div class="cta-stat">
+          <div class="num">142+</div>
+          <div class="label">Data Agents</div>
+        </div>
+        <div class="cta-stat">
+          <div class="num">5</div>
+          <div class="label">Standing Committees</div>
+        </div>
+        <div class="cta-stat">
+          <div class="num">2029</div>
+          <div class="label">Emancipation Year</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo-mark" style="color: var(--cream);">
+          <svg viewBox="0 0 42 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="42" height="24">
+            <g fill="currentColor">
+              <circle cx="6" cy="12" r="1"/>
+              <circle cx="10" cy="7" r="1"/>
+              <circle cx="16" cy="5" r="1"/>
+              <circle cx="21" cy="8" r="1.4"/>
+              <circle cx="21" cy="12" r="2" fill="#EC2F8E"/>
+              <circle cx="21" cy="16" r="1.4"/>
+              <circle cx="16" cy="19" r="1"/>
+              <circle cx="10" cy="17" r="1"/>
+              <circle cx="26" cy="5" r="1"/>
+              <circle cx="32" cy="7" r="1"/>
+              <circle cx="36" cy="12" r="1"/>
+              <circle cx="32" cy="17" r="1"/>
+              <circle cx="26" cy="19" r="1"/>
+            </g>
+          </svg>
+        </span>
+        <h3>The International <em>Data Reserve.</em></h3>
+        <p>A decentralized autonomous organization overseen by and accountable to its members. Headquartered in Baar, Switzerland. Building trust in data for the AI economy.</p>
+
+        <form class="newsletter" onsubmit="event.preventDefault(); this.querySelector('input').value=''; alert('Subscribed.');">
+          <input type="email" placeholder="your@email.com" required />
+          <button type="submit">Subscribe →</button>
+        </form>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>About</h5>
+          <ul>
+            <li><a href="#">IDR Charter</a></li>
+            <li><a href="#">Leadership</a></li>
+            <li><a href="#">General Assembly</a></li>
+            <li><a href="#">Committees</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Regional Reserves</h5>
+          <ul>
+            <li><a href="#">American · REG 01</a></li>
+            <li><a href="#">Brazilian · REG 02</a></li>
+            <li><a href="#">Levant · REG 03</a></li>
+            <li><a href="#">South Asia · REG 04</a></li>
+            <li><a href="#">European · REG 05</a></li>
+            <li><a href="#">African · REG 06</a></li>
+            <li><a href="#">Pacific · REG 07</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Data Savings Act</h5>
+          <ul>
+            <li><a href="#">The Declaration</a></li>
+            <li><a href="#">Emancipation Day</a></li>
+            <li><a href="#">Savings Accounts</a></li>
+            <li><a href="#">Ratification</a></li>
+            <li><a href="#">Signatories</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Resources</h5>
+          <ul>
+            <li><a href="#">IDR Framework</a></li>
+            <li><a href="#">Named Schema System</a></li>
+            <li><a href="#">2026 Award</a></li>
+            <li><a href="#">Research Papers</a></li>
+            <li><a href="#">Press & Media</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="copy">© 2026 International Data Reserve. DAO registered in Baar, CH.</div>
+      <div class="locations">
+        <span>Baar</span>
+        <span>Washington</span>
+        <span>Palo Alto</span>
+        <span>Singapore</span>
+        <span>São Paulo</span>
+        <span>Lisbon</span>
+      </div>
+      <div class="footer-legal">
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+        <a href="#">Data Rights</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ===== Live ledger clock =====
+function updateClock() {
+  const d = new Date();
+  const pad = n => String(n).padStart(2, '0');
+  const time = pad(d.getUTCHours()) + ':' + pad(d.getUTCMinutes()) + ':' + pad(d.getUTCSeconds()) + ' UTC';
+  const el = document.getElementById('ledger-time');
+  if (el) el.textContent = time;
+}
+updateClock();
+setInterval(updateClock, 1000);
+
+// ===== Counter =====
+let counterVal = 48721392118; // starting "YTD" value
+const counterEl = document.getElementById('counter');
+const deltaEl = document.getElementById('delta');
+function fmt(n) { return n.toLocaleString('en-US'); }
+counterEl.textContent = fmt(counterVal);
+
+let lastSnapshot = counterVal;
+setInterval(() => {
+  const inc = Math.floor(1200 + Math.random() * 4800);
+  counterVal += inc;
+  counterEl.textContent = fmt(counterVal);
+}, 800);
+setInterval(() => {
+  const diff = counterVal - lastSnapshot;
+  deltaEl.textContent = '+ $' + fmt(diff) + ' in the last 60 seconds';
+  lastSnapshot = counterVal;
+}, 60000);
+// Kick an initial delta so it isn't $0
+setTimeout(() => {
+  const diff = counterVal - lastSnapshot;
+  deltaEl.textContent = '+ $' + fmt(diff) + ' in the last minute';
+}, 3000);
+
+// ===== Live feed =====
+const feedEl = document.getElementById('feed');
+const agents = ['DW.US.041', 'DW.BR.019', 'DW.EU.007', 'DW.IN.022', 'DW.AE.003', 'DW.SG.014', 'DW.ZA.002', 'DW.JP.011'];
+const schemas = ['health.vital.daily', 'loc.commute.v3', 'shop.basket.hash', 'ent.stream.session', 'fin.spend.anon', 'voice.cmd.v2', 'biometric.wear', 'edu.read.time'];
+function randomTx() {
+  const a = agents[Math.floor(Math.random() * agents.length)];
+  const s = schemas[Math.floor(Math.random() * schemas.length)];
+  const v = (Math.random() * 48 + 2).toFixed(2);
+  return { a, s, v };
+}
+function pushFeed() {
+  const tx = randomTx();
+  const row = document.createElement('div');
+  row.className = 'feed-item';
+  row.innerHTML = `<span class="code">${tx.a}</span><span class="desc">${tx.s}</span><span class="val">+$${tx.v}</span>`;
+  feedEl.prepend(row);
+  while (feedEl.children.length > 5) feedEl.removeChild(feedEl.lastChild);
+}
+for (let i = 0; i < 5; i++) pushFeed();
+setInterval(pushFeed, 1800);
+
+// ===== Countdown to June 18, 2029 =====
+const target = new Date(Date.UTC(2029, 5, 18, 0, 0, 0)); // month 5 = June
+function updateCountdown() {
+  const now = new Date();
+  let diff = target - now;
+  if (diff < 0) diff = 0;
+  const d = Math.floor(diff / (1000*60*60*24));
+  const h = Math.floor((diff / (1000*60*60)) % 24);
+  const m = Math.floor((diff / (1000*60)) % 60);
+  const s = Math.floor((diff / 1000) % 60);
+  const pad = (n, w=2) => String(n).padStart(w, '0');
+  const dEl = document.getElementById('cd-days'); if (dEl) dEl.textContent = pad(d, 4);
+  const hEl = document.getElementById('cd-hours'); if (hEl) hEl.textContent = pad(h);
+  const mEl = document.getElementById('cd-mins'); if (mEl) mEl.textContent = pad(m);
+  const sEl = document.getElementById('cd-secs'); if (sEl) sEl.textContent = pad(s);
+  const hd = document.getElementById('hero-days'); if (hd) hd.textContent = pad(d, 4);
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
