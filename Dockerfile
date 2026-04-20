@@ -1,3 +1,4 @@
 FROM nginx:alpine
-COPY drumwave-ai-users.html /usr/share/nginx/html/index.html
-COPY logo.avif /usr/share/nginx/html/logo.avif
+COPY index.html /usr/share/nginx/html/index.html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
