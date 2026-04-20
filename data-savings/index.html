@@ -1,0 +1,1518 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>The Data Savings Act — A Treaty of Detroit for the AI Economy</title>
+<meta name="description" content="A proposal to recognize individual data as a new savings asset — and build the institution that distributes AI-era wealth. Read, sign, and send to Washington." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..900;1,8..60,300..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#1a1613;
+    --ink-soft:#3a322c;
+    --ink-mute:#6e6358;
+    --paper:#f4efe6;
+    --paper-warm:#ece4d4;
+    --paper-deep:#dfd4bc;
+    --reserve:#a0341e;        /* oxblood / rubber-stamp red */
+    --reserve-deep:#7d2512;
+    --steel:#2e4355;
+    --rule:#c7ba9e;
+    --rule-soft:#d9cfb8;
+    --gold:#a88437;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);}
+  body{
+    font-family:"Source Serif 4", Georgia, serif;
+    font-size:19px;
+    line-height:1.55;
+    font-feature-settings:"onum" 1, "liga" 1;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  a{color:var(--reserve); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px; }
+  a:hover{color:var(--reserve-deep)}
+  hr{border:none; border-top:1px solid var(--rule); margin:3.5rem 0;}
+  .rule-double{border:none; border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); height:4px; margin:3rem 0;}
+  .mono{font-family:"JetBrains Mono", monospace; font-feature-settings:"tnum" 1;}
+  .serif-display{font-family:"Fraunces", "Source Serif 4", Georgia, serif; font-variation-settings:"opsz" 144, "SOFT" 30;}
+  .eyebrow{
+    font-family:"JetBrains Mono", monospace;
+    font-size:11px; letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--reserve); font-weight:500;
+  }
+  .eyebrow-ink{color:var(--ink-mute)}
+  .container{max-width:1180px; margin:0 auto; padding:0 40px;}
+  .narrow{max-width:720px; margin:0 auto; padding:0 40px;}
+  .wide{max-width:1320px; margin:0 auto; padding:0 40px;}
+
+  /* =========================== MASTHEAD =========================== */
+  .masthead{
+    position:sticky; top:0; z-index:60;
+    background:var(--paper);
+    border-bottom:1px solid var(--ink);
+    backdrop-filter: blur(6px);
+  }
+  .masthead-inner{
+    display:grid; grid-template-columns:1fr auto 1fr; align-items:center;
+    padding:14px 40px;
+    font-family:"JetBrains Mono", monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase;
+  }
+  .masthead-left{color:var(--ink-mute)}
+  .masthead-center{
+    font-family:"Fraunces", serif; font-style:italic;
+    font-size:18px; letter-spacing:0.01em; text-transform:none;
+    font-variation-settings:"opsz" 12;
+    color:var(--ink);
+  }
+  .masthead-right{text-align:right}
+  .masthead-right .sig-count{color:var(--reserve); font-weight:700;}
+  .masthead-right a{color:var(--ink); text-decoration:none; padding:6px 12px; border:1px solid var(--ink); margin-left:14px;}
+  .masthead-right a:hover{background:var(--ink); color:var(--paper);}
+
+  /* =========================== HERO =========================== */
+  .hero{
+    padding:100px 0 80px;
+    border-bottom:1px solid var(--ink);
+    background: var(--paper);
+    position:relative; overflow:hidden;
+  }
+  .hero::before{
+    content:""; position:absolute; inset:0;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(26,22,19,0.12) 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity:0.18; pointer-events:none;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns: 1fr; gap:40px; position:relative;
+  }
+  .hero .kicker{
+    display:flex; align-items:center; gap:14px; margin-bottom:40px;
+  }
+  .hero .kicker .seal{
+    width:56px; height:56px; border-radius:50%;
+    border:1px solid var(--reserve); color:var(--reserve);
+    display:grid; place-items:center;
+    font-family:"Fraunces", serif; font-style:italic; font-size:22px;
+    transform: rotate(-6deg);
+  }
+  .hero h1{
+    font-family:"Fraunces", serif;
+    font-variation-settings:"opsz" 144, "SOFT" 100, "wght" 380;
+    font-weight:380;
+    font-size: clamp(56px, 9.5vw, 156px);
+    line-height:0.92;
+    letter-spacing:-0.025em;
+    margin:0;
+    color:var(--ink);
+  }
+  .hero h1 em{
+    font-style:italic;
+    font-variation-settings:"opsz" 144, "SOFT" 100, "wght" 360;
+    color:var(--reserve);
+  }
+  .hero h1 .ampersand{
+    font-family:"Fraunces", serif;
+    font-style:italic;
+    font-size:0.85em;
+    font-variation-settings:"opsz" 144, "SOFT" 100, "wght" 300;
+    color:var(--ink-soft);
+    padding:0 0.05em;
+  }
+  .hero-sub{
+    margin-top:48px;
+    display:grid; grid-template-columns: 2fr 1fr; gap:60px;
+    align-items:start;
+  }
+  .hero-dek{
+    font-family:"Fraunces", serif; font-style:italic;
+    font-variation-settings:"opsz" 36, "SOFT" 80, "wght" 340;
+    font-size: clamp(22px, 2.2vw, 30px);
+    line-height:1.35; max-width:700px;
+    color:var(--ink-soft);
+  }
+  .hero-dek b{font-style:normal; color:var(--ink); font-weight:600;}
+  .hero-meta{
+    border-left:1px solid var(--rule);
+    padding-left:28px;
+    font-size:14px; color:var(--ink-mute); line-height:1.5;
+  }
+  .hero-meta dl{margin:0}
+  .hero-meta dt{font-family:"JetBrains Mono", monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--reserve); margin-top:16px;}
+  .hero-meta dt:first-child{margin-top:0}
+  .hero-meta dd{margin:3px 0 0 0; color:var(--ink);}
+  .hero-cta{
+    margin-top:56px;
+    display:flex; gap:16px; align-items:center; flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:14px 26px;
+    font-family:"JetBrains Mono", monospace;
+    font-size:11px; letter-spacing:0.2em; text-transform:uppercase;
+    text-decoration:none; font-weight:500;
+    border:1px solid var(--ink);
+    background:var(--ink); color:var(--paper);
+    transition: all .15s ease;
+  }
+  .btn:hover{background:var(--reserve); border-color:var(--reserve); color:var(--paper);}
+  .btn-ghost{background:transparent; color:var(--ink);}
+  .btn-ghost:hover{background:var(--ink); color:var(--paper); border-color:var(--ink);}
+  .btn .arrow{font-family:"Fraunces", serif; font-style:italic; font-size:16px; letter-spacing:0;}
+
+  /* =========================== SECTION HEADERS =========================== */
+  section{padding:120px 0; border-bottom:1px solid var(--rule);}
+  section.dark{background:var(--ink); color:var(--paper);}
+  section.dark .eyebrow{color:#e0a388}
+  section.dark a{color:#f3c7b6}
+  section.deep{background:var(--paper-warm);}
+  section.deeper{background:var(--paper-deep);}
+  .section-head{
+    display:grid; grid-template-columns: 200px 1fr; gap:60px; margin-bottom:72px; align-items:start;
+  }
+  .section-num{
+    font-family:"JetBrains Mono", monospace;
+    font-size:11px; letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--reserve);
+    padding-top:14px;
+    border-top:2px solid var(--reserve);
+  }
+  section.dark .section-num{color:#e0a388; border-color:#e0a388;}
+  .section-head h2{
+    font-family:"Fraunces", serif;
+    font-variation-settings:"opsz" 144, "SOFT" 60, "wght" 400;
+    font-size: clamp(40px, 5.5vw, 76px);
+    line-height:0.98;
+    letter-spacing:-0.02em;
+    margin:0;
+  }
+  .section-head h2 em{font-style:italic; color:var(--reserve); font-variation-settings:"opsz" 144, "SOFT" 100, "wght" 380;}
+  section.dark .section-head h2 em{color:#e0a388}
+
+  /* =========================== PROSE =========================== */
+  .prose{max-width:680px; margin:0 auto;}
+  .prose p{font-size:20px; line-height:1.6; margin:0 0 1.4em; color:var(--ink-soft);}
+  .prose p.lead::first-letter{
+    font-family:"Fraunces", serif;
+    font-variation-settings:"opsz" 144, "SOFT" 100, "wght" 380;
+    font-size:5.4em; line-height:0.85; float:left;
+    padding:8px 14px 0 0; color:var(--reserve);
+  }
+  .prose p b, .prose p strong{color:var(--ink); font-weight:600;}
+  .prose blockquote{
+    margin: 2.5em 0;
+    padding-left: 32px;
+    border-left: 2px solid var(--reserve);
+    font-family:"Fraunces", serif; font-style:italic;
+    font-variation-settings:"opsz" 36, "SOFT" 80;
+    font-size:24px; line-height:1.4;
+    color:var(--ink);
+  }
+  .prose blockquote cite{
+    display:block; margin-top:14px;
+    font-family:"JetBrains Mono", monospace; font-style:normal;
+    font-size:11px; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--ink-mute);
+  }
+
+  /* =========================== THE QUIET TRANSACTION =========================== */
+  .quiet-opener{
+    font-family:"Fraunces", serif;
+    font-variation-settings:"opsz" 144, "SOFT" 80, "wght" 350;
+    font-size: clamp(30px, 3.5vw, 46px);
+    line-height:1.15;
+    letter-spacing:-0.01em;
+    margin: 0 0 48px;
+    max-width:980px;
+  }
+  .quiet-opener em{font-style:italic; color:var(--reserve);}
+
+  /* =========================== STAT GRID =========================== */
+  .stats-grid{
+    display:grid; grid-template-columns: repeat(4, 1fr);
+    border-top:1px solid var(--ink);
+    border-left:1px solid var(--ink);
+  }
+  .stat{
+    padding:40px 28px;
+    border-right:1px solid var(--ink);
+    border-bottom:1px solid var(--ink);
+    background: var(--paper);
+    position:relative;
+  }
+  .stat .n{
+    font-family:"Fraunces", serif;
+    font-variation-settings:"opsz" 144, "SOFT" 80, "wght" 420;
+    font-size: clamp(52px, 5.5vw, 84px);
+    line-height:0.95;
+    color:var(--ink);
+    letter-spacing:-0.02em;
+  }
+  .stat .n .unit{
+    font-size:0.45em; color:var(--reserve); font-variation-settings:"opsz" 144, "SOFT" 100, "wght" 400; font-style:italic; padding-left:2px;
+  }
+  .stat .l{
+    margin-top:16px;
+    font-family:"Source Serif 4", serif;
+    font-size:16px; line-height:1.4; color:var(--ink-soft);
+  }
+  .stat .src{
+    margin-top:18px;
+    font-family:"JetBrains Mono", monospace;
+    font-size:10px; letter-spacing:0.15em; text-transform:uppercase;
+    color:var(--ink-mute);
+  }
+
+  /* =========================== TREATY TIMELINE =========================== */
+  .timeline{
+    display:grid; grid-template-columns: 160px 1fr;
+    gap:0;
+  }
+  .timeline-item{
+    display:contents;
+  }
+  .timeline-year{
+    font-family:"Fraunces", serif;
+    font-variation-settings:"opsz" 144, "SOFT" 80, "wght" 400;
+    font-size:48px;
+    line-height:1;
+    color:var(--reserve);
+    padding:28px 0 28px 0;
+    border-top:1px solid var(--rule);
+  }
+  .timeline-body{
+    padding:32px 0 32px 40px;
+    border-top:1px solid var(--rule);
+    border-left:1px solid var(--rule);
+    position:relative;
+  }
+  .timeline-body::before{
+    content:""; position:absolute; left:-5px; top:40px;
+    width:9px; height:9px; border-radius:50%;
+    background:var(--reserve);
+  }
+  .timeline-body h3{
+    margin:0 0 10px;
+    font-family:"Fraunces", serif;
+    font-variation-settings:"opsz" 36, "SOFT" 80, "wght" 500;
+    font-size:22px;
+  }
+  .timeline-body p{margin:0; color:var(--ink-soft); font-size:17px; line-height:1.55;}
+  .timeline-body p + p{margin-top:10px}
+  .timeline-body .pull{
+    display:inline-block; margin-top:12px;
+    font-family:"JetBrains Mono", monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--reserve); border:1px solid var(--reserve); padding:4px 10px;
+  }
+
+  /* =========================== PARALLEL TABLE =========================== */
+  .parallel-wrap{
+    border:1px solid var(--ink);
+    background:var(--paper);
+  }
+  .parallel-head{
+    display:grid; grid-template-columns: 1fr 1fr 1fr;
+    background:var(--ink); color:var(--paper);
+    font-family:"JetBrains Mono", monospace;
+    font-size:11px; letter-spacing:0.2em; text-transform:uppercase;
+  }
+  .parallel-head > div{padding:20px 24px;}
+  .parallel-head > div + div{border-left:1px solid var(--paper-warm);}
+  .parallel-head .era{
+    font-family:"Fraunces", serif; font-style:italic;
+    font-size:16px; letter-spacing:0; text-transform:none;
+    color:#e0a388; margin-top:6px;
+  }
+  .parallel-row{
+    display:grid; grid-template-columns: 1fr 1fr 1fr;
+    border-top:1px solid var(--rule);
+  }
+  .parallel-row:first-child{border-top:none}
+  .parallel-row > div{padding:26px 24px; font-size:16px; line-height:1.45; color:var(--ink-soft);}
+  .parallel-row > div + div{border-left:1px solid var(--rule);}
+  .parallel-row .dim{
+    font-family:"JetBrains Mono", monospace;
+    font-size:11px; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--ink); background:var(--paper-warm);
+    font-weight:500;
+  }
+  .parallel-row strong{color:var(--ink); font-weight:600;}
+  .parallel-row .era-note{
+    display:block; margin-top:6px;
+    font-family:"JetBrains Mono", monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--reserve);
+  }
+
+  /* =========================== BIG NUMBER CALLOUT =========================== */
+  .bignum{
+    padding:80px 0;
+    text-align:center;
+    background: var(--ink); color:var(--paper);
+    position:relative; overflow:hidden;
+  }
+  .bignum::before{
+    content:""; position:absolute; inset:0;
+    background-image: repeating-linear-gradient(135deg, rgba(244,239,230,0.03) 0 2px, transparent 2px 20px);
+    pointer-events:none;
+  }
+  .bignum .eyebrow{color:#e0a388}
+  .bignum .figure{
+    font-family:"Fraunces", serif;
+    font-variation-settings:"opsz" 144, "SOFT" 100, "wght" 340;
+    font-size: clamp(120px, 18vw, 280px);
+    line-height:0.9; letter-spacing:-0.03em;
+    color:var(--paper); margin:24px 0 16px;
+  }
+  .bignum .figure em{color:#e0a388; font-style:italic;}
+  .bignum .cap{
+    font-family:"Fraunces", serif; font-style:italic;
+    font-variation-settings:"opsz" 36, "SOFT" 80;
+    font-size:22px; line-height:1.35; max-width:800px; margin:0 auto;
+    color:#e7dfd2;
+  }
+  .bignum .src-line{
+    margin-top:24px;
+    font-family:"JetBrains Mono", monospace;
+    font-size:11px; letter-spacing:0.18em; text-transform:uppercase;
+    color:#a88437;
+  }
+
+  /* =========================== PILLARS =========================== */
+  .pillars{
+    display:grid; grid-template-columns: repeat(3, 1fr); gap:0;
+    border-top:1px solid var(--ink);
+    border-left:1px solid var(--ink);
+  }
+  .pillar{
+    padding:48px 36px;
+    border-right:1px solid var(--ink);
+    border-bottom:1px solid var(--ink);
+    background:var(--paper);
+    position:relative;
+  }
+  .pillar .roman{
+    font-family:"Fraunces", serif; font-style:italic;
+    font-variation-settings:"opsz" 144, "SOFT" 100, "wght" 350;
+    font-size:80px; line-height:1; color:var(--reserve);
+    margin-bottom:20px;
+  }
+  .pillar h3{
+    font-family:"Fraunces", serif;
+    font-variation-settings:"opsz" 36, "SOFT" 80, "wght" 500;
+    font-size:28px; line-height:1.1; margin:0 0 6px;
+  }
+  .pillar .abbr{
+    font-family:"JetBrains Mono", monospace;
+    font-size:11px; letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--ink-mute); margin-bottom:18px;
+  }
+  .pillar p{margin:0 0 14px; color:var(--ink-soft); font-size:16px; line-height:1.55;}
+  .pillar .analogy{
+    margin-top:20px; padding-top:18px; border-top:1px dashed var(--rule);
+    font-family:"Fraunces", serif; font-style:italic;
+    font-size:16px; color:var(--ink);
+  }
+  .pillar .analogy span{color:var(--reserve); font-style:normal; font-family:"JetBrains Mono", monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; display:block; margin-bottom:6px;}
+
+  /* =========================== UBI CONTRAST =========================== */
+  .ubi-split{
+    display:grid; grid-template-columns: 1fr 1fr; gap:0;
+    border:1px solid var(--ink);
+  }
+  .ubi-side{
+    padding:56px 48px; background:var(--paper);
+  }
+  .ubi-side.vs{
+    background:var(--ink); color:var(--paper);
+  }
+  .ubi-side .tag{
+    font-family:"JetBrains Mono", monospace;
+    font-size:11px; letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--ink-mute); margin-bottom:24px;
+  }
+  .ubi-side.vs .tag{color:#e0a388}
+  .ubi-side h3{
+    font-family:"Fraunces", serif;
+    font-variation-settings:"opsz" 144, "SOFT" 80, "wght" 400;
+    font-size:44px; line-height:1; margin:0 0 24px; letter-spacing:-0.015em;
+  }
+  .ubi-side.vs h3 em{color:#e0a388; font-style:italic;}
+  .ubi-side p{font-size:17px; line-height:1.55; color:var(--ink-soft); margin:0 0 14px;}
+  .ubi-side.vs p{color:#d8cdba;}
+
+  /* =========================== CLOUD SECTION =========================== */
+  .cloud-grid{
+    display:grid; grid-template-columns: 1.2fr 1fr; gap:60px; align-items:start;
+  }
+  .ledger{
+    border:1px solid var(--ink);
+    font-family:"JetBrains Mono", monospace;
+    font-size:13px;
+    background:var(--paper);
+  }
+  .ledger-head{
+    padding:16px 24px; background:var(--ink); color:var(--paper);
+    font-size:10px; letter-spacing:0.25em; text-transform:uppercase;
+    display:flex; justify-content:space-between;
+  }
+  .ledger-row{
+    display:grid; grid-template-columns: 1fr auto;
+    padding:16px 24px; border-top:1px solid var(--rule);
+    align-items:center;
+  }
+  .ledger-row .label{color:var(--ink-soft); font-family:"Source Serif 4", serif; font-size:15px;}
+  .ledger-row .value{color:var(--ink); font-weight:500;}
+  .ledger-row.total{background:var(--paper-deep); border-top:2px solid var(--ink);}
+  .ledger-row.total .label{font-weight:500; color:var(--ink);}
+  .ledger-row.total .value{color:var(--reserve); font-weight:700; font-size:15px;}
+
+  /* =========================== TIMELINE-PHASE =========================== */
+  .phases{display:grid; grid-template-columns: repeat(3,1fr); gap:0; border-top:1px solid var(--ink); border-left:1px solid var(--ink);}
+  .phase{padding:40px 32px; border-right:1px solid var(--ink); border-bottom:1px solid var(--ink); background:var(--paper);}
+  .phase .p-n{font-family:"JetBrains Mono", monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--reserve); margin-bottom:10px;}
+  .phase h4{font-family:"Fraunces", serif; font-variation-settings:"opsz" 36, "SOFT" 80, "wght" 500; font-size:22px; margin:0 0 10px;}
+  .phase p{margin:0; font-size:15px; color:var(--ink-soft); line-height:1.5;}
+  .phase .target{margin-top:18px; font-family:"JetBrains Mono", monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink);}
+
+  /* =========================== SIGN-UP =========================== */
+  .sign-wrap{
+    padding:100px 40px;
+    background:var(--paper-deep);
+    border-top:4px double var(--ink);
+    border-bottom:4px double var(--ink);
+    position:relative; overflow:hidden;
+  }
+  .sign-wrap::before{
+    content:""; position:absolute; right:-80px; top:-80px; width:380px; height:380px;
+    border:1px solid var(--reserve); border-radius:50%; transform:rotate(-8deg);
+    opacity:0.25;
+  }
+  .sign-wrap::after{
+    content:""; position:absolute; right:-40px; top:-40px; width:300px; height:300px;
+    border:1px solid var(--reserve); border-radius:50%;
+    opacity:0.2;
+  }
+  .sign-inner{max-width:760px; margin:0 auto; position:relative;}
+  .sign-inner h2{
+    font-family:"Fraunces", serif;
+    font-variation-settings:"opsz" 144, "SOFT" 80, "wght" 380;
+    font-size: clamp(44px, 6vw, 84px);
+    line-height:0.95; letter-spacing:-0.02em;
+    margin:0 0 20px;
+  }
+  .sign-inner h2 em{color:var(--reserve); font-style:italic;}
+  .sign-inner .intro{
+    font-family:"Fraunces", serif; font-style:italic;
+    font-variation-settings:"opsz" 36, "SOFT" 80;
+    font-size:21px; line-height:1.4; color:var(--ink-soft); margin:0 0 40px; max-width:620px;
+  }
+  .sign-form{
+    display:grid; grid-template-columns: 1fr 1fr; gap:18px;
+  }
+  .sign-form label{
+    display:block; grid-column: span 1;
+  }
+  .sign-form label.full{grid-column: 1 / -1;}
+  .sign-form .lab{
+    display:block;
+    font-family:"JetBrains Mono", monospace;
+    font-size:10px; letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--ink-mute); margin-bottom:6px;
+  }
+  .sign-form input, .sign-form select, .sign-form textarea{
+    width:100%;
+    font-family:"Source Serif 4", serif; font-size:17px;
+    padding:12px 14px;
+    border:1px solid var(--ink); background:var(--paper);
+    color:var(--ink);
+    border-radius:0;
+    transition: border-color .15s ease;
+  }
+  .sign-form input:focus, .sign-form select:focus, .sign-form textarea:focus{outline:none; border-color:var(--reserve); box-shadow: 0 0 0 3px rgba(160,52,30,0.15);}
+  .sign-form textarea{min-height:90px; resize:vertical;}
+  .sign-form .submit-row{
+    grid-column: 1 / -1;
+    display:flex; gap:20px; align-items:center; margin-top:16px; flex-wrap:wrap;
+  }
+  .btn-sign{
+    padding:16px 34px;
+    font-family:"JetBrains Mono", monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase;
+    background:var(--reserve); color:var(--paper); border:1px solid var(--reserve);
+    cursor:pointer; font-weight:600;
+    transition: all .15s ease;
+  }
+  .btn-sign:hover{background:var(--reserve-deep); border-color:var(--reserve-deep);}
+  .btn-sign:disabled{opacity:0.5; cursor:not-allowed;}
+  .sign-note{font-size:13px; color:var(--ink-mute); font-style:italic;}
+  .sign-success{
+    padding:20px 24px; margin-top:20px; background:var(--paper);
+    border-left:3px solid var(--reserve);
+    font-family:"Fraunces", serif; font-style:italic; font-size:18px; color:var(--ink);
+    display:none;
+  }
+  .sign-success.on{display:block;}
+
+  /* =========================== SIGNATORIES =========================== */
+  .signatories{
+    padding:80px 40px; background:var(--paper);
+  }
+  .sig-head{
+    display:flex; justify-content:space-between; align-items:baseline; margin-bottom:40px; padding-bottom:14px; border-bottom:1px solid var(--ink); max-width:1100px; margin-left:auto; margin-right:auto;
+  }
+  .sig-head h3{
+    font-family:"Fraunces", serif;
+    font-variation-settings:"opsz" 36, "SOFT" 80, "wght" 500;
+    font-size:28px; margin:0;
+  }
+  .sig-head .count-live{
+    font-family:"JetBrains Mono", monospace; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--reserve);
+  }
+  .sig-list{
+    max-width:1100px; margin:0 auto;
+    columns:2; column-gap:60px; column-rule:1px solid var(--rule);
+  }
+  @media (max-width: 720px){.sig-list{columns:1}}
+  .sig-entry{
+    break-inside: avoid;
+    padding:12px 0;
+    border-bottom:1px dotted var(--rule);
+    font-size:16px;
+  }
+  .sig-entry .name{color:var(--ink); font-weight:500;}
+  .sig-entry .meta{font-family:"JetBrains Mono", monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-mute); margin-top:3px;}
+  .sig-entry .role-badge{
+    display:inline-block; margin-right:8px; padding:2px 8px;
+    font-family:"JetBrains Mono", monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase;
+    border:1px solid var(--rule); color:var(--ink-mute);
+  }
+  .sig-entry .role-badge.policy{border-color:var(--reserve); color:var(--reserve);}
+  .sig-entry .role-badge.industry{border-color:var(--steel); color:var(--steel);}
+
+  /* =========================== FOOTER =========================== */
+  footer{
+    background:var(--ink); color:var(--paper);
+    padding:80px 40px 40px;
+  }
+  .foot-inner{max-width:1180px; margin:0 auto; display:grid; grid-template-columns: 2fr 1fr 1fr; gap:60px;}
+  .foot-mark{
+    font-family:"Fraunces", serif; font-style:italic;
+    font-variation-settings:"opsz" 144, "SOFT" 100, "wght" 340;
+    font-size:42px; line-height:1; color:var(--paper); margin-bottom:20px;
+  }
+  .foot-inner p{font-size:14px; color:#a89d8c; line-height:1.6; margin:0 0 12px;}
+  .foot-col h5{font-family:"JetBrains Mono", monospace; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:#e0a388; margin:0 0 16px;}
+  .foot-col ul{list-style:none; padding:0; margin:0;}
+  .foot-col li{padding:6px 0; font-size:14px;}
+  .foot-col a{color:var(--paper); text-decoration:none; border-bottom:1px solid transparent;}
+  .foot-col a:hover{border-color:#e0a388; color:#e0a388;}
+  .foot-bottom{max-width:1180px; margin:60px auto 0; padding-top:30px; border-top:1px solid #3a322c; display:flex; justify-content:space-between; font-family:"JetBrains Mono", monospace; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:#6e6358;}
+
+  /* =========================== UTILITY / RESPONSIVE =========================== */
+  .two-col{display:grid; grid-template-columns: 1fr 1fr; gap:60px;}
+  .two-col-wide{display:grid; grid-template-columns: 1fr 1.4fr; gap:80px;}
+
+  @media (max-width: 900px){
+    .container, .wide{padding:0 24px;}
+    .narrow{padding:0 24px;}
+    .masthead-inner{padding:12px 20px; grid-template-columns: 1fr auto;}
+    .masthead-center{display:none;}
+    .hero-sub{grid-template-columns:1fr; gap:30px;}
+    .hero-meta{border-left:none; padding-left:0; border-top:1px solid var(--rule); padding-top:20px;}
+    .section-head{grid-template-columns:1fr; gap:16px;}
+    .stats-grid{grid-template-columns: repeat(2,1fr);}
+    .pillars{grid-template-columns:1fr;}
+    .parallel-head, .parallel-row{grid-template-columns:1fr;}
+    .parallel-row > div + div{border-left:none; border-top:1px solid var(--rule);}
+    .parallel-head > div + div{border-left:none; border-top:1px solid rgba(244,239,230,0.15);}
+    .ubi-split{grid-template-columns:1fr;}
+    .cloud-grid{grid-template-columns:1fr; gap:40px;}
+    .phases{grid-template-columns:1fr;}
+    .sign-form{grid-template-columns:1fr;}
+    .sign-form label{grid-column:1;}
+    .foot-inner{grid-template-columns:1fr; gap:40px;}
+    .two-col, .two-col-wide{grid-template-columns:1fr; gap:30px;}
+    .rhyme-grid{grid-template-columns:1fr !important; gap:40px !important;}
+    .timeline{grid-template-columns:1fr;}
+    .timeline-year{padding:20px 0 4px; border-top:2px solid var(--reserve);}
+    .timeline-body{padding:0 0 30px 0; border-left:none; border-top:none;}
+    .timeline-body::before{display:none;}
+    section{padding:70px 0;}
+    .bignum{padding:60px 0;}
+    hr{margin:2rem 0;}
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .fade-in{opacity:0; transform: translateY(12px); transition: opacity .7s ease, transform .7s ease;}
+    .fade-in.on{opacity:1; transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== MASTHEAD ===================== -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-left">Vol. I &nbsp;·&nbsp; No. 1 &nbsp;·&nbsp; Draft &nbsp;·&nbsp; <span class="date-now">Apr. 2026</span></div>
+    <div class="masthead-center">The&nbsp;Data&nbsp;Savings&nbsp;Act</div>
+    <div class="masthead-right">
+      <span class="sig-count" id="top-count">—</span> signatories
+      <a href="#sign">Sign&nbsp;the&nbsp;Declaration</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" style="border-bottom:1px solid var(--ink);">
+  <div class="wide">
+    <div class="kicker">
+      <div class="seal">D·S</div>
+      <div>
+        <div class="eyebrow">A Proposal to the American People</div>
+        <div style="font-family:'Fraunces',serif; font-style:italic; color:var(--ink-mute); font-size:15px; margin-top:2px;">Circulated for signature · 2026</div>
+      </div>
+    </div>
+
+    <h1 class="serif-display">
+      A Treaty<br>
+      of Detroit<br>
+      <em>for</em> the<br>
+      AI Economy<span style="color:var(--reserve)">.</span>
+    </h1>
+
+    <div class="hero-sub">
+      <div class="hero-dek">
+        A <b>Data Savings Act</b> would do for the AI economy what pensions did for the industrial one — turn participation into ownership, and contribution into a compounding personal asset. Not a check. <b>A system.</b>
+      </div>
+      <div class="hero-meta">
+        <dl>
+          <dt>Proposed</dt><dd>The Data Savings Act of the United States</dd>
+          <dt>Modeled on</dt><dd>Treaty of Detroit (1950) · ERISA (1974)</dd>
+          <dt>Positioning</dt><dd>Capital formation &nbsp;/&nbsp; Retirement 2.0</dd>
+          <dt>Status</dt><dd>Open for signature</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="hero-cta">
+      <a href="#sign" class="btn">Sign the Declaration <span class="arrow">→</span></a>
+      <a href="#parallel" class="btn btn-ghost">Read the Parallel <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== QUIET TRANSACTION ===================== -->
+<section id="opener">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">§ 01 &nbsp;/&nbsp; The Quiet Transaction</div>
+      <h2>You are <em>financing</em><br>the AI revolution.</h2>
+    </div>
+
+    <div class="prose">
+      <p class="quiet-opener">There is a rideshare driver somewhere right now navigating city streets, logging routes, calibrating surge pricing. He thinks he's <em>earning a living</em>. He is paying for the car, the gas, the insurance — while feeding the platform the data that makes its AI smarter. He is building, at his own expense, the autonomous vehicle that will replace him.</p>
+
+      <p class="lead">The car is not the exception. It is the template. Who pays the energy bill, the carrier fee, and the monthly installment on the device that pumps your behavioral data into the cloud twenty-four hours a day? You do. The phone in your pocket is not a product you bought. <strong>It is a data collection terminal you are paying to operate.</strong></p>
+
+      <p>Artificial intelligence is not a technology story. It is a distribution story. And right now, we are telling it very badly. Over the past decade, AI has compressed the middle class from both directions at once — automating white-collar tasks that once required judgment while boosting the productivity of lower-wage work. What looks like efficiency on a quarterly earnings call is something else on a labor-force chart: hollowing.</p>
+
+      <p>The standard political response is Universal Basic Income: a monthly transfer to displaced workers, an acknowledgment that their economic contribution has become obsolete. It is a compassionate idea built on a defeatist premise. <strong>The issue is not that people have stopped contributing to the economy. The issue is that the economy no longer recognizes their contributions.</strong></p>
+
+      <p>We have been here before.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROBLEM IN NUMBERS ===================== -->
+<section class="deep" id="problem">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">§ 02 &nbsp;/&nbsp; The Problem, in Numbers</div>
+      <h2>The middle class is <em>hollowing</em> — and traditional savings can no longer fill it.</h2>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="n">37<span class="unit">%</span></div>
+        <div class="l">of Americans have <strong>no savings</strong> at all.</div>
+        <div class="src">Federal Reserve SCF</div>
+      </div>
+      <div class="stat">
+        <div class="n">31<span class="unit">%</span></div>
+        <div class="l">carry a <strong>negative net worth</strong> — they owe more than they own.</div>
+        <div class="src">Federal Reserve SCF</div>
+      </div>
+      <div class="stat">
+        <div class="n">42<span class="unit">M</span></div>
+        <div class="l">Americans — <strong>13% of the population</strong> — live below the poverty line.</div>
+        <div class="src">ACS 2016–2020</div>
+      </div>
+      <div class="stat">
+        <div class="n">57<span class="unit">%</span></div>
+        <div class="l">have <strong>no emergency savings</strong> that would cover a $1,000 surprise expense.</div>
+        <div class="src">Bankrate survey</div>
+      </div>
+    </div>
+
+    <div style="max-width:760px; margin:60px auto 0; font-family:'Fraunces',serif; font-style:italic; font-variation-settings:'opsz' 36, 'SOFT' 80; font-size:22px; line-height:1.4; color:var(--ink-soft); text-align:center;">
+      These people cannot save money because they do not have money to save. <span style="color:var(--reserve); font-weight:500;">But they can — and will — save data.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SAFETY NET CRACKING ===================== -->
+<section id="backstop">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">§ 03 &nbsp;/&nbsp; The Backstop is Cracking</div>
+      <h2>The last American<br>safety net has<br>a <em>depletion date.</em></h2>
+    </div>
+
+    <div class="prose" style="margin-bottom:56px;">
+      <p class="lead">For seventy-five years, Social Security has been the floor under American retirement. It is the institution most Americans assume will catch them — and it is the one most visibly failing. The 2025 Trustees Report, issued in June by the Social Security Administration, now projects the combined Old-Age, Survivors, and Disability Insurance trust funds will run out of reserves in <strong>2034</strong> — a full year earlier than the prior projection. At that point, only <strong>81 percent</strong> of scheduled benefits would be payable from incoming payroll tax revenue. Everything above that line becomes an automatic cut.</p>
+
+      <p>The program has been running below its non-interest income every year since <strong>2010</strong>. In 2024 alone, reserves fell by $67 billion to $2.72 trillion. The 75-year actuarial deficit widened from 3.50% to 3.82% of taxable payroll. These are not forecasts of possible trouble. They are the official ledger of a system already in structural deficit — <strong>185 million Americans paying in, 70 million drawing benefits</strong>, and a clock that now reads less than a decade.</p>
+    </div>
+
+    <!-- STAT GRID -->
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="n">2034</div>
+        <div class="l">The year the combined Social Security trust funds are projected to be <strong>depleted</strong> — one year sooner than last year's projection.</div>
+        <div class="src">SSA Trustees Report · Jun 2025</div>
+      </div>
+      <div class="stat">
+        <div class="n">21<span class="unit">%</span></div>
+        <div class="l">Automatic <strong>benefit cut</strong> at depletion absent Congressional action. Only 79% of promised benefits would be payable.</div>
+        <div class="src">SSA Trustees Report · Jun 2025</div>
+      </div>
+      <div class="stat">
+        <div class="n">34<span class="unit">%</span></div>
+        <div class="l">of Americans <strong>under 30</strong> believe Social Security will still exist by the time they retire.</div>
+        <div class="src">Cato / YouGov · Dec 2025</div>
+      </div>
+      <div class="stat">
+        <div class="n">78<span class="unit">%</span></div>
+        <div class="l">of Gen Z respondents <strong>expect reduced benefits</strong> — compared to 56% of current retirees who expect the same.</div>
+        <div class="src">Cato / YouGov · Dec 2025</div>
+      </div>
+    </div>
+
+    <!-- HISTORICAL RHYME + REFORM PROPOSALS -->
+    <div style="margin-top:90px; display:grid; grid-template-columns: 1fr 1fr; gap:60px; align-items:start;" class="rhyme-grid">
+      <div>
+        <div class="eyebrow" style="margin-bottom:16px;">The historical rhyme</div>
+        <h3 style="font-family:'Fraunces',serif; font-variation-settings:'opsz' 36, 'SOFT' 80, 'wght' 480; font-size:34px; line-height:1.08; margin:0 0 22px; letter-spacing:-0.01em;">
+          The Treaty of Detroit was born from <em style="color:var(--reserve); font-style:italic;">exactly this moment.</em>
+        </h3>
+        <p style="font-size:17px; line-height:1.6; color:var(--ink-soft); margin:0 0 14px;">In 1950, Social Security paid a benefit of roughly <strong style="color:var(--ink);">$32 a month</strong>. Postwar inflation had gutted its real value. Workers entering the new industrial economy faced the same question today's Gen Z faces: a federal backstop that existed on paper but would not carry them through retirement. That gap is what the Treaty of Detroit filled — not by replacing Social Security, but by building a new institutional layer above it.</p>
+        <p style="font-size:17px; line-height:1.6; color:var(--ink-soft); margin:0 0 14px;">The Data Savings Act answers the same kind of question, in the same kind of moment. Social Security will still exist in 2034. It will simply cover roughly four-fifths of what was promised — at the exact moment AI is displacing the work that pays into it.</p>
+        <p style="font-size:18px; line-height:1.55; color:var(--ink); margin:0; font-family:'Fraunces',serif; font-style:italic; font-variation-settings:'opsz' 36, 'SOFT' 80;">The floor is dropping while the ceiling is rising. Something must be built in between.</p>
+      </div>
+
+      <div>
+        <div class="eyebrow" style="margin-bottom:16px;">What reform is on the table</div>
+        <div style="border:1px solid var(--ink); background:var(--paper);">
+          <div style="padding:22px 24px; border-bottom:1px solid var(--rule);">
+            <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--reserve); margin-bottom:8px;">Fair Share Act</div>
+            <div style="font-family:'Fraunces',serif; font-size:15px; color:var(--ink-mute); margin-bottom:6px; font-style:italic;">Sens. Whitehouse (D) &amp; Boyle (D)</div>
+            <div style="font-size:15px; color:var(--ink); line-height:1.45;">Apply Social Security taxes to income above $400,000, including investment returns — closing the cap that currently exempts wages beyond $160,200.</div>
+          </div>
+          <div style="padding:22px 24px; border-bottom:1px solid var(--rule);">
+            <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--reserve); margin-bottom:8px;">Cassidy–Kaine Proposal</div>
+            <div style="font-family:'Fraunces',serif; font-size:15px; color:var(--ink-mute); margin-bottom:6px; font-style:italic;">Sens. Cassidy (R) &amp; Kaine (D)</div>
+            <div style="font-size:15px; color:var(--ink); line-height:1.45;">Establish a $1.5 trillion independent investment fund — allowed to hold equities — maturing over 75 years before contributing alongside payroll taxes.</div>
+          </div>
+          <div style="padding:22px 24px; background:var(--paper-warm); border-top:2px solid var(--ink);">
+            <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--ink); margin-bottom:8px;">Data Savings Act</div>
+            <div style="font-family:'Fraunces',serif; font-size:15px; color:var(--ink-mute); margin-bottom:6px; font-style:italic;">The proposal here</div>
+            <div style="font-size:15px; color:var(--ink); line-height:1.45;">Recognize individual data as an asset class. Route Cloud Interchange value into personal Data Savings Accounts. <strong>Build a new institutional layer — not a new tax, not a new patch.</strong></div>
+          </div>
+        </div>
+        <p style="margin-top:18px; font-size:13px; color:var(--ink-mute); font-style:italic; line-height:1.5;">Both existing Senate proposals work inside the Social Security machinery. The Data Savings Act proposes a <strong style="color:var(--ink); font-style:normal;">second institutional pillar</strong> — as pensions did in 1950 — beside it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BIG NUMBER: 2034 ===================== -->
+<section class="bignum" style="padding:100px 0; border-bottom:none;">
+  <div class="container">
+    <div class="eyebrow">The Ledger of the Existing Backstop</div>
+    <div class="figure">20<em>34</em></div>
+    <div class="cap">The year the last collectively-engineered floor under American retirement is projected to crack. 70 million people receive benefits. 185 million pay in. Two-thirds of Americans now believe Congress has mismanaged the program.</div>
+    <div class="src-line">Source · SSA Trustees 2025 · Cato Institute / YouGov 2025</div>
+  </div>
+</section>
+
+<!-- ===================== TREATY DEEP DIVE ===================== -->
+<section id="treaty">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">§ 04 &nbsp;/&nbsp; The Precedent</div>
+      <h2>The last time America<br>solved <em>this</em> problem.</h2>
+    </div>
+
+    <div class="two-col-wide">
+      <div>
+        <div class="eyebrow eyebrow-ink" style="margin-bottom:12px;">Detroit · May 23, 1950</div>
+        <div style="font-family:'Fraunces',serif; font-variation-settings:'opsz' 144, 'SOFT' 80, 'wght' 420; font-size:clamp(54px,7vw,96px); line-height:0.92; letter-spacing:-0.025em;">
+          The Treaty<br>
+          <em style="color:var(--reserve); font-style:italic;">of Detroit.</em>
+        </div>
+        <div style="margin-top:28px; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-mute);">
+          A five-year contract between GM and the UAW,<br>named by <em>Fortune</em> magazine.
+        </div>
+
+        <blockquote style="margin-top:40px; padding-left:24px; border-left:2px solid var(--reserve); font-family:'Fraunces',serif; font-style:italic; font-size:22px; line-height:1.35; color:var(--ink);">
+          "It provided pensions of up to $117 a month, including Social Security, for retirees at age sixty-five, and set a standard for other unions that even many non-union employers felt pressure to approximate."
+          <cite style="display:block; margin-top:14px; font-family:'JetBrains Mono',monospace; font-style:normal; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-mute);">— Historian Daniel Clark / In These Times</cite>
+        </blockquote>
+      </div>
+
+      <div class="prose" style="max-width:none;">
+        <p class="lead">After World War II, the United States faced a structural economic disruption of comparable magnitude to what AI represents today. Industrial productivity was surging. Traditional labor was being displaced. Workers entering the new economy had no bridge between present wages and future security.</p>
+
+        <p>The answer was not a government check. It was <strong>a new institution</strong>. In May 1950, General Motors and the United Auto Workers — after three rounds of postwar negotiation, after a 113-day strike, after the rival Chrysler strike had left 100,000 Detroiters out of work — signed a five-year contract that became the template for postwar American capitalism. It included a fully-funded, actuarially-sound pension plan paying up to $117 per month at age 65, cost-of-living adjustments tied to the Bureau of Labor Statistics, and company-funded health coverage.</p>
+
+        <p>Ford and Chrysler signed identical pacts within weeks. The logic then rippled outward. <strong>By 1970</strong>, more than half of all U.S. collective bargaining agreements contained COLA provisions, and more than a third provided for pensions. The standard of living for UAW members roughly doubled during Walter Reuther's tenure. In 1974, Congress codified these protections in the Employee Retirement Income Security Act — <strong>ERISA</strong> — which extended the framework to the entire American middle class.</p>
+
+        <p>Pensions did not compensate workers for being displaced. They recognized that <strong>labor hours had residual value beyond the paycheck</strong>, and built the institutional machinery to capture that value over a lifetime. Work became ownership. Pension funds became the largest class of institutional investors the world had ever seen.</p>
+
+        <p>That, not a stipend, is the American template for a structural economic transition. And it is the only one that has ever worked at scale.</p>
+      </div>
+    </div>
+
+    <!-- === TIMELINE === -->
+    <div style="margin-top:100px; border-top:4px double var(--ink); padding-top:40px;">
+      <div class="eyebrow" style="margin-bottom:30px;">75 Years of Pension Architecture &nbsp;/&nbsp; A Compressed Timeline</div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">1950</div>
+          <div class="timeline-body">
+            <h3>The Treaty of Detroit is signed.</h3>
+            <p>GM and the UAW agree to a five-year contract providing fully-funded pensions of $125/month including Social Security, cost-of-living adjustments, and company-paid healthcare. <em>Fortune</em> magazine gives the contract its nickname. Ford and Chrysler follow within weeks.</p>
+            <span class="pull">Workers covered: ~400,000 initially</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">1953</div>
+          <div class="timeline-body">
+            <h3>Pensions raised to $137.50 / month.</h3>
+            <p>After a wave of wildcat strikes, GM agrees to reopen the contract. The improvement factor is raised to 5¢/hour and group health coverage is extended to retirees. The template locks in.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">1970</div>
+          <div class="timeline-body">
+            <h3>The model becomes the American standard.</h3>
+            <p>More than <strong>half of all U.S. collective bargaining agreements</strong> contain COLA provisions; more than a third provide pensions. The standard of living for UAW members has roughly doubled in two decades. The American middle class is at its historical apex.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">1974</div>
+          <div class="timeline-body">
+            <h3>ERISA codifies the framework into federal law.</h3>
+            <p>The Employee Retirement Income Security Act establishes federal protections for pension participants, requires funding standards, creates fiduciary obligations, and lays the groundwork for IRAs, 401(k)s, and the entire modern retirement system. Pensions become portable, enforceable, and universal.</p>
+            <span class="pull">Workers covered: tens of millions</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2025</div>
+          <div class="timeline-body">
+            <h3>The architecture built by Detroit holds <strong>$49.1 trillion</strong> in American wealth.</h3>
+            <p>At year-end 2025, total U.S. retirement assets reached <strong>$49.1 trillion</strong> — 34% of all household financial assets — including $19.2T in IRAs, $10.1T in 401(k)s, $10.0T in government pension plans, and $3.1T in private-sector defined-benefit plans. This is the scale of institution that began with a single contract in 1950.</p>
+            <span class="pull">Source: Investment Company Institute, Q4 2025</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2026</div>
+          <div class="timeline-body">
+            <h3><em style="color:var(--reserve); font-style:italic;">The Data Savings Act.</em></h3>
+            <p>A proposal to do for the AI economy what the Treaty of Detroit did for the industrial one: recognize that everyday participation produces residual value, and build the institutional machinery — personal accounts, pooled funds, fiduciary oversight, tax-advantaged treatment — to return that value to the people who generate it.</p>
+            <span class="pull">Status: open for signature</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PARALLEL TABLE ===================== -->
+<section id="parallel" class="deeper">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">§ 05 &nbsp;/&nbsp; The Parallel</div>
+      <h2>What Detroit built.<br>What Washington<br>must <em>build next.</em></h2>
+    </div>
+
+    <div class="prose" style="margin-bottom:56px;">
+      <p>The correspondence is not metaphorical. The two systems share the same <strong>institutional architecture</strong> — what differs is the underlying asset. In 1950, the asset was industrial labor. In 2026, it is digital participation. Both are forms of economic contribution whose long-term value is captured by someone other than the person producing it. Both require an institution, not a transfer payment, to repair that gap.</p>
+    </div>
+
+    <div class="parallel-wrap">
+      <div class="parallel-head">
+        <div>Dimension</div>
+        <div>Treaty of Detroit / ERISA<div class="era">The industrial economy · 1950–</div></div>
+        <div>Data Savings Act<div class="era">The AI economy · 2026–</div></div>
+      </div>
+
+      <div class="parallel-row">
+        <div class="dim">Trigger</div>
+        <div>Post-WWII industrial disruption; automation-era speedups; labor unrest following the 113-day 1945 GM strike.<span class="era-note">Structural break in industrial labor</span></div>
+        <div>AI-driven job displacement; wealth concentration in platforms; a middle class compressed from both ends.<span class="era-note">Structural break in cognitive labor</span></div>
+      </div>
+
+      <div class="parallel-row">
+        <div class="dim">Asset Class Recognized</div>
+        <div><strong>Labor hours</strong> as a source of long-term economic value beyond the paycheck.</div>
+        <div><strong>Individual data</strong> as a source of long-term economic value beyond the click.</div>
+      </div>
+
+      <div class="parallel-row">
+        <div class="dim">Core Mechanism</div>
+        <div>Employer-funded defined-benefit pension plans; fiduciary management; pooled funds.</div>
+        <div>Data Savings Accounts (DSAs) backed by certified data; fiduciary management; pooled Data Savings Funds.</div>
+      </div>
+
+      <div class="parallel-row">
+        <div class="dim">Contribution Model</div>
+        <div>Employee hours + Employer match (and, over time, employee contributions via 401(k)).</div>
+        <div>Consumer data + Platform/corporate match (via Cloud Interchange Fees).</div>
+      </div>
+
+      <div class="parallel-row">
+        <div class="dim">Anchor Institution</div>
+        <div>General Motors &amp; United Auto Workers; extended by Ford, Chrysler, then the unionized sector at large.</div>
+        <div>A federal pilot via the Treasury (or California, using CCPA infrastructure); extended by participating platforms and employers.</div>
+      </div>
+
+      <div class="parallel-row">
+        <div class="dim">Oversight</div>
+        <div>Department of Labor; ERISA framework (1974); Pension Benefit Guaranty Corporation.</div>
+        <div>U.S. Treasury; Federal Trade Commission; Securities and Exchange Commission; Data Savings framework.</div>
+      </div>
+
+      <div class="parallel-row">
+        <div class="dim">Plan Administrator</div>
+        <div>ERISA-licensed plan administrators; fiduciary standard.</div>
+        <div>Authorized Data Agents — licensed entities subject to the same class of fiduciary duty.</div>
+      </div>
+
+      <div class="parallel-row">
+        <div class="dim">Portability</div>
+        <div>Vesting schedules; rollovers; portability rules codified in ERISA.</div>
+        <div>DSA portability across cloud platforms and cloud providers; revocable at will.</div>
+      </div>
+
+      <div class="parallel-row">
+        <div class="dim">Tax Treatment</div>
+        <div>Tax-advantaged contributions and distributions; 401(k), IRA, 403(b) frameworks.</div>
+        <div>Tax-advantaged treatment for DSA contributions and distributions, analogous to 401(k) and IRA.</div>
+      </div>
+
+      <div class="parallel-row">
+        <div class="dim">Individual Right</div>
+        <div>Right to pension benefit upon vesting.</div>
+        <div>Right to own, save, exchange, invest, and pay with data as a recognized asset.</div>
+      </div>
+
+      <div class="parallel-row">
+        <div class="dim">Proved Scale</div>
+        <div><strong>Built the American middle class 1950–1990.</strong> Today holds <strong>$49.1 trillion</strong> in U.S. retirement wealth.</div>
+        <div><strong>Rebuilds the American middle class 2026–2032.</strong> Unlocks an estimated <strong>$100–$300B annually</strong> in currently uncompensated data value.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:60px; max-width:760px; font-family:'Fraunces',serif; font-style:italic; font-variation-settings:'opsz' 36, 'SOFT' 80; font-size:22px; line-height:1.45; color:var(--ink-soft);">
+      "Both chose institutions. Both converted participation into long-term value. That is the lesson Detroit is still teaching us."
+      <cite style="display:block; margin-top:12px; font-family:'JetBrains Mono',monospace; font-style:normal; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-mute);">— adapted from André Vellozo, <em>The Rise of the Post-AI American Middle Class</em> (March 2026)</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BIG NUMBER ===================== -->
+<section class="bignum" style="padding:100px 0; border-bottom:none;">
+  <div class="container">
+    <div class="eyebrow">What the Detroit Architecture Produced</div>
+    <div class="figure">$<em>49.1</em>T</div>
+    <div class="cap">Total U.S. retirement assets at the end of 2025 — the cumulative wealth built by a single institutional idea that began with a single contract in 1950.</div>
+    <div class="src-line">Source · Investment Company Institute, "The US Retirement Market, Q4 2025"</div>
+  </div>
+</section>
+
+<!-- ===================== PILLARS ===================== -->
+<section id="pillars">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">§ 06 &nbsp;/&nbsp; Core Architecture</div>
+      <h2>Three Pillars.<br>One <em>institution.</em></h2>
+    </div>
+
+    <div class="prose" style="margin-bottom:56px;">
+      <p>The Data Savings Act adopts the tripartite structure of the retirement system — individual account, structured plan, pooled fund — and translates each to the data economy. The familiarity is intentional. Congress, regulators, and plan administrators already understand how to operate this architecture. The Act does not invent a new legal form. It extends a proven one.</p>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar">
+        <div class="roman">I.</div>
+        <h3>Data Savings Account</h3>
+        <div class="abbr">DSA</div>
+        <p>The individual's personal data asset account. User-controlled and non-custodial, offered by regulated financial institutions or Authorized Data Agents. Provides transparent reporting of the value generated from the individual's data.</p>
+        <p>Tax-advantaged treatment analogous to IRAs and 401(k)s.</p>
+        <div class="analogy"><span>Analogue</span>The 401(k) of the data economy.</div>
+      </div>
+
+      <div class="pillar">
+        <div class="roman">II.</div>
+        <h3>Data Savings Plan</h3>
+        <div class="abbr">DSP</div>
+        <p>The structured program through which data is contributed into defined economic use cases. Each DSP specifies permitted uses, value-attribution methodology, and distribution rules — programmable, auditable, revocable.</p>
+        <p>Supports both anonymous (collective) and attributable (individual) contribution models.</p>
+        <div class="analogy"><span>Analogue</span>An employer's pension plan or 401(k) match program.</div>
+      </div>
+
+      <div class="pillar">
+        <div class="roman">III.</div>
+        <h3>Data Savings Fund</h3>
+        <div class="abbr">DSF</div>
+        <p>The pooled investment vehicle for data-derived assets. May aggregate certified data, enter commercial agreements, and generate returns for participants under SEC oversight and fiduciary responsibility.</p>
+        <p>Transparent accounting; fair distribution; regulated as an investment structure.</p>
+        <div class="analogy"><span>Analogue</span>A pension fund or mutual fund for data-backed assets.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== UBI VS ===================== -->
+<section class="deep" id="ubi">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">§ 07 &nbsp;/&nbsp; The Alternative</div>
+      <h2>Not a check.<br><em>A system.</em></h2>
+    </div>
+
+    <div class="ubi-split">
+      <div class="ubi-side">
+        <div class="tag">The UBI Proposal</div>
+        <h3>Compensates&nbsp;people<br>for being <em style="font-style:italic; color:var(--reserve);">excluded.</em></h3>
+        <p>Universal Basic Income treats displaced workers as casualties requiring compensation rather than participants capable of generating new forms of value.</p>
+        <p>It operates on the premise that human economic contribution has become obsolete — a premise that misdiagnoses the problem. AI systems <strong>require</strong> continuous streams of human-generated data to function and improve.</p>
+        <p>A UBI is a transfer. It creates no asset, no institution, no compounding wealth, no claim on the productive system that is replacing human labor.</p>
+      </div>
+
+      <div class="ubi-side vs">
+        <div class="tag">The Data Savings Proposal</div>
+        <h3>Rewards people for<br><em>participating.</em></h3>
+        <p>The Data Savings Act recognizes data generation as a legitimate form of economic contribution. The same way a factory worker's hours fund a pension, a citizen's continuous digital participation would fund their future.</p>
+        <p>Participation becomes ownership. Contribution becomes a compounding financial asset held in a personal account, professionally managed, fiduciary-protected.</p>
+        <p style="color:#e0a388; font-style:italic; font-family:'Fraunces',serif; font-variation-settings:'opsz' 36, 'SOFT' 80; font-size:20px; line-height:1.35;">UBI compensates for exclusion. Data Savings rewards inclusion.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CLOUD INTERCHANGE ===================== -->
+<section id="cloud">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">§ 08 &nbsp;/&nbsp; The Funding Mechanism</div>
+      <h2>The Cloud is <em>unregulated banking.</em></h2>
+    </div>
+
+    <div class="cloud-grid">
+      <div class="prose" style="max-width:none;">
+        <p class="lead">You keep your money in the bank. Your data is in the Cloud. You can receive, wire, deposit, and withdraw your money — and you can save it. You have <strong>no equivalent control</strong> over your data. Others manage and benefit from it.</p>
+
+        <p>Banks and telecom carriers operate on <strong>interchange fees</strong>. When you swipe a credit card, the merchant's bank pays your bank. When a carrier routes a call, fees flow between networks. This infrastructure is what makes the entire financial and communications system function — and it is what returns value to originators.</p>
+
+        <p>The Cloud has no equivalent. When a platform monetizes your data, nothing flows back to you. <strong>Cloud Interchange Fees</strong> would change that — charges levied on cloud platforms for the monetization or transfer of user-generated data, routed into individual Data Savings Accounts.</p>
+
+        <p>The numbers are not speculative. The three largest hyperscalers — AWS, Azure, Google Cloud — collectively run at over <strong>$400 billion annually</strong> and are investing <strong>$260+ billion</strong> in 2025 alone to build AI infrastructure. A 3–10% Cloud Interchange on that base would unlock $100–300 billion annually — on top of the $500B–$1T in currently uncaptured consumer data monetization.</p>
+      </div>
+
+      <div class="ledger">
+        <div class="ledger-head">
+          <span>Cloud Value · Annualized</span>
+          <span>USD</span>
+        </div>
+        <div class="ledger-row">
+          <div class="label">AWS — 2025 revenue</div>
+          <div class="value">$130 B</div>
+        </div>
+        <div class="ledger-row">
+          <div class="label">Microsoft Azure — 2025 revenue</div>
+          <div class="value">$91 B</div>
+        </div>
+        <div class="ledger-row">
+          <div class="label">Google Cloud — 2025 revenue</div>
+          <div class="value">$47 B</div>
+        </div>
+        <div class="ledger-row">
+          <div class="label">Hyperscaler capex, 2025</div>
+          <div class="value">$260 B</div>
+        </div>
+        <div class="ledger-row">
+          <div class="label">Global cloud infra market</div>
+          <div class="value">$400+ B</div>
+        </div>
+        <div class="ledger-row total">
+          <div class="label">Potential Cloud Interchange (3–10%)</div>
+          <div class="value">$100–300 B / yr</div>
+        </div>
+        <div style="padding:14px 24px; font-size:10px; color:var(--ink-mute); letter-spacing:0.14em; text-transform:uppercase; border-top:1px solid var(--rule); background:var(--paper-warm);">
+          Sources · BusinessStats 2026 · Canalys Q4 2025 · Synergy Research
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== IMPLEMENTATION PHASES ===================== -->
+<section class="deep" id="phases">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">§ 09 &nbsp;/&nbsp; Implementation</div>
+      <h2>Five years from pilot<br>to <em>national adoption.</em></h2>
+    </div>
+
+    <div class="phases">
+      <div class="phase">
+        <div class="p-n">Phase 01 · Year 1</div>
+        <h4>Pilot programs</h4>
+        <p>One million participants across three priority cohorts: gig-economy workers, healthcare data contributors, and financially underserved populations. Priority entry points: California (leveraging CCPA infrastructure) or a federal Treasury pilot vehicle.</p>
+        <div class="target">Target · 1M+ participants</div>
+      </div>
+
+      <div class="phase">
+        <div class="p-n">Phase 02 · Years 2–3</div>
+        <h4>Expansion &amp; regulatory refinement</h4>
+        <p>Scale pilot outcomes. Stand up the Cloud Interchange framework in coordination with the Treasury, FTC, and SEC. License the first wave of Authorized Data Agents. Introduce DSA portability standards.</p>
+        <div class="target">Target · Cloud Interchange live</div>
+      </div>
+
+      <div class="phase">
+        <div class="p-n">Phase 03 · Year 5</div>
+        <h4>National adoption</h4>
+        <p>Data Savings Act enacted. Every American with a digital footprint has the right to a Data Savings Account. Tax-advantaged contributions. Fiduciary oversight. A new institutional category of wealth — as ordinary as a 401(k) is today.</p>
+        <div class="target">Target · Universal access</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RIGHTS ===================== -->
+<section id="rights">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">§ 10 &nbsp;/&nbsp; Rights of the Participant</div>
+      <h2>Six guarantees<br>to the <em>data subject.</em></h2>
+    </div>
+
+    <div style="display:grid; grid-template-columns: repeat(2,1fr); gap:0; border-top:1px solid var(--ink); border-left:1px solid var(--ink);">
+      <div style="padding:32px 28px; border-right:1px solid var(--ink); border-bottom:1px solid var(--ink);">
+        <div style="font-family:'Fraunces',serif; font-style:italic; font-size:44px; color:var(--reserve); line-height:1;">i.</div>
+        <p style="margin:14px 0 0; font-size:18px; line-height:1.45; color:var(--ink);">Full access to and control over personal data held in any DSA.</p>
+      </div>
+      <div style="padding:32px 28px; border-right:1px solid var(--ink); border-bottom:1px solid var(--ink);">
+        <div style="font-family:'Fraunces',serif; font-style:italic; font-size:44px; color:var(--reserve); line-height:1;">ii.</div>
+        <p style="margin:14px 0 0; font-size:18px; line-height:1.45; color:var(--ink);">Voluntary and revocable participation in any Data Savings Plan.</p>
+      </div>
+      <div style="padding:32px 28px; border-right:1px solid var(--ink); border-bottom:1px solid var(--ink);">
+        <div style="font-family:'Fraunces',serif; font-style:italic; font-size:44px; color:var(--reserve); line-height:1;">iii.</div>
+        <p style="margin:14px 0 0; font-size:18px; line-height:1.45; color:var(--ink);">Transparent reporting of value generated and distributed.</p>
+      </div>
+      <div style="padding:32px 28px; border-right:1px solid var(--ink); border-bottom:1px solid var(--ink);">
+        <div style="font-family:'Fraunces',serif; font-style:italic; font-size:44px; color:var(--reserve); line-height:1;">iv.</div>
+        <p style="margin:14px 0 0; font-size:18px; line-height:1.45; color:var(--ink);">The ability to transfer, modify, or terminate participation without loss of accrued value.</p>
+      </div>
+      <div style="padding:32px 28px; border-right:1px solid var(--ink); border-bottom:1px solid var(--ink);">
+        <div style="font-family:'Fraunces',serif; font-style:italic; font-size:44px; color:var(--reserve); line-height:1;">v.</div>
+        <p style="margin:14px 0 0; font-size:18px; line-height:1.45; color:var(--ink);">Protection from retaliation or denial of service for exercising these rights.</p>
+      </div>
+      <div style="padding:32px 28px; border-right:1px solid var(--ink); border-bottom:1px solid var(--ink);">
+        <div style="font-family:'Fraunces',serif; font-style:italic; font-size:44px; color:var(--reserve); line-height:1;">vi.</div>
+        <p style="margin:14px 0 0; font-size:18px; line-height:1.45; color:var(--ink);">The right to own, save, exchange, invest, and pay with data.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:36px; font-size:15px; color:var(--ink-mute); font-style:italic; max-width:720px;">
+      The Data Savings Act does not replace existing privacy protections, including those established under the California Consumer Privacy Act or any applicable federal statute. It <strong style="color:var(--ink); font-style:normal;">extends existing rights into the domain of economic participation.</strong>
+    </p>
+  </div>
+</section>
+
+<!-- ===================== SIGN-UP ===================== -->
+<section id="sign" style="padding:0; border-bottom:none;">
+  <div class="sign-wrap">
+    <div class="sign-inner">
+      <div class="eyebrow" style="margin-bottom:14px;">§ 11 &nbsp;/&nbsp; The Declaration</div>
+      <h2 class="serif-display">Sign the<br><em>Declaration.</em></h2>
+      <p class="intro">
+        If you believe the AI economy deserves the same institutional seriousness that America once brought to the industrial one — sign below. Your signature becomes part of a public record sent to the Treasury Task Force, the Senate Banking Committee, and the relevant tech industry leadership.
+      </p>
+
+      <form class="sign-form" id="sign-form" onsubmit="return false;">
+        <label>
+          <span class="lab">Full name *</span>
+          <input type="text" id="f-name" required maxlength="120" placeholder="Jane A. Doe" />
+        </label>
+        <label>
+          <span class="lab">Role *</span>
+          <select id="f-role" required>
+            <option value="">Select…</option>
+            <option value="policy">Policymaker · Government</option>
+            <option value="industry">Technology Industry</option>
+            <option value="citizen">Citizen / Worker</option>
+            <option value="academic">Academic · Researcher</option>
+            <option value="investor">Investor · Capital Markets</option>
+            <option value="labor">Labor · Union</option>
+            <option value="other">Other</option>
+          </select>
+        </label>
+        <label>
+          <span class="lab">Organization (optional)</span>
+          <input type="text" id="f-org" maxlength="160" placeholder="e.g. Senate Banking Committee / Anthropic / UAW Local 600" />
+        </label>
+        <label>
+          <span class="lab">City, State/Country (optional)</span>
+          <input type="text" id="f-loc" maxlength="120" placeholder="San Jose, CA" />
+        </label>
+        <label class="full">
+          <span class="lab">Why you're signing (optional · shown publicly)</span>
+          <textarea id="f-note" maxlength="280" placeholder="One sentence. Max 280 characters."></textarea>
+        </label>
+
+        <div class="submit-row">
+          <button class="btn-sign" id="sign-btn" type="button" onclick="submitSignature()">Add my signature &nbsp;→</button>
+          <span class="sign-note">Shared publicly on this page. No email required.</span>
+        </div>
+
+        <div class="sign-success" id="sign-success">
+          Your signature has been recorded. Thank you for joining the declaration.
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- SIGNATORIES LIST -->
+  <div class="signatories">
+    <div class="sig-head">
+      <h3>Signatories</h3>
+      <div class="count-live" id="bottom-count">Loading count…</div>
+    </div>
+    <div class="sig-list" id="sig-list">
+      <div style="color:var(--ink-mute); font-style:italic;">Loading signatures…</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="foot-inner">
+    <div>
+      <div class="foot-mark">The Data Savings Act</div>
+      <p>A proposal circulating in draft form for review by policymakers, technology leadership, labor organizations, and the American public.</p>
+      <p style="margin-top:16px;"><em>"Once implemented, Data Savings will be the single largest financial unlock since the invention of credit. It will create new value and distribute wealth simultaneously."</em> — André Vellozo</p>
+    </div>
+    <div class="foot-col">
+      <h5>Read</h5>
+      <ul>
+        <li><a href="#opener">§ 01 · The Quiet Transaction</a></li>
+        <li><a href="#problem">§ 02 · The Problem</a></li>
+        <li><a href="#backstop">§ 03 · The Backstop</a></li>
+        <li><a href="#treaty">§ 04 · The Precedent</a></li>
+        <li><a href="#parallel">§ 05 · The Parallel</a></li>
+        <li><a href="#pillars">§ 06 · Architecture</a></li>
+        <li><a href="#ubi">§ 07 · Not UBI</a></li>
+        <li><a href="#cloud">§ 08 · Cloud Interchange</a></li>
+        <li><a href="#phases">§ 09 · Implementation</a></li>
+        <li><a href="#sign">§ 11 · Sign</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>Framework</h5>
+      <ul>
+        <li>International Data Reserve (IDR)</li>
+        <li>American Data Reserve (ADR)</li>
+        <li>DrumWave</li>
+      </ul>
+      <h5 style="margin-top:32px;">Positioning</h5>
+      <ul>
+        <li>Capital formation</li>
+        <li>Retirement 2.0</li>
+        <li>Middle-class participation in AI</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div>Confidential Draft · Under embargo · <span class="year-now">2026</span></div>
+    <div>Vol. I · No. 1</div>
+  </div>
+</footer>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script>
+/* --- helpers --- */
+const $ = (s) => document.querySelector(s);
+const SIG_KEY = 'dsa:signatories:v1';
+const SIG_SHARED = true;
+const SEED_OFFSET = 1950; // homage to the Treaty of Detroit year — display-only offset
+
+function escapeHtml(str){
+  return String(str).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function fmtDate(ts){
+  const d = new Date(ts);
+  return d.toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'});
+}
+
+function roleLabel(r){
+  return ({
+    policy: 'Policy',
+    industry: 'Tech Industry',
+    citizen: 'Citizen',
+    academic: 'Academic',
+    investor: 'Investor',
+    labor: 'Labor',
+    other: 'Other'
+  })[r] || 'Signatory';
+}
+
+function roleClass(r){
+  if (r === 'policy') return 'policy';
+  if (r === 'industry') return 'industry';
+  return '';
+}
+
+/* --- load + render --- */
+async function loadSignatures(){
+  let list = [];
+  try {
+    const res = await window.storage.get(SIG_KEY, SIG_SHARED);
+    if (res && res.value){
+      list = JSON.parse(res.value) || [];
+    }
+  } catch (e) {
+    list = [];
+  }
+  renderSignatures(list);
+}
+
+function renderSignatures(list){
+  const displayCount = list.length + SEED_OFFSET;
+  const formatted = displayCount.toLocaleString('en-US');
+  $('#top-count').textContent = formatted;
+  $('#bottom-count').textContent = formatted + ' signatories · including seed cohort';
+
+  const container = $('#sig-list');
+  if (!list.length){
+    container.innerHTML = `<div style="color:var(--ink-mute); font-style:italic;">Be the first to sign. Your name will appear here alongside future signatories.</div>`;
+    return;
+  }
+
+  // newest first
+  const sorted = [...list].sort((a,b) => b.ts - a.ts);
+  container.innerHTML = sorted.map(s => {
+    const loc = s.loc ? ` · ${escapeHtml(s.loc)}` : '';
+    const org = s.org ? ` · ${escapeHtml(s.org)}` : '';
+    const note = s.note ? `<div style="margin-top:6px; font-style:italic; color:var(--ink-soft); font-size:14px; line-height:1.4;">&ldquo;${escapeHtml(s.note)}&rdquo;</div>` : '';
+    return `<div class="sig-entry">
+      <span class="role-badge ${roleClass(s.role)}">${roleLabel(s.role)}</span>
+      <span class="name">${escapeHtml(s.name)}</span>
+      <div class="meta">${fmtDate(s.ts)}${org}${loc}</div>
+      ${note}
+    </div>`;
+  }).join('');
+}
+
+/* --- submit --- */
+async function submitSignature(){
+  const btn = $('#sign-btn');
+  const name = $('#f-name').value.trim();
+  const role = $('#f-role').value;
+  const org  = $('#f-org').value.trim();
+  const loc  = $('#f-loc').value.trim();
+  const note = $('#f-note').value.trim();
+
+  if (!name || !role){
+    alert('Name and role are required.');
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Recording…';
+
+  // load current list
+  let list = [];
+  try {
+    const res = await window.storage.get(SIG_KEY, SIG_SHARED);
+    if (res && res.value) list = JSON.parse(res.value) || [];
+  } catch(e){ list = []; }
+
+  list.push({
+    name: name.slice(0,120),
+    role: role,
+    org:  org.slice(0,160),
+    loc:  loc.slice(0,120),
+    note: note.slice(0,280),
+    ts:   Date.now()
+  });
+
+  try {
+    await window.storage.set(SIG_KEY, JSON.stringify(list), SIG_SHARED);
+    $('#sign-success').classList.add('on');
+    $('#sign-form').reset();
+    renderSignatures(list);
+    btn.textContent = 'Add my signature  →';
+    btn.disabled = false;
+    // scroll to signatories
+    setTimeout(() => {
+      document.querySelector('.signatories').scrollIntoView({behavior:'smooth', block:'start'});
+    }, 400);
+  } catch(e){
+    btn.disabled = false;
+    btn.textContent = 'Add my signature  →';
+    alert('Could not record signature: ' + (e && e.message ? e.message : 'unknown error'));
+  }
+}
+
+/* --- date helpers --- */
+(function(){
+  const d = new Date();
+  const month = d.toLocaleString('en-US', {month:'short'});
+  const year = d.getFullYear();
+  document.querySelectorAll('.date-now').forEach(el => el.textContent = `${month}. ${year}`);
+  document.querySelectorAll('.year-now').forEach(el => el.textContent = year);
+})();
+
+/* --- scroll reveals (mild) --- */
+const io = new IntersectionObserver((entries) => {
+  for (const e of entries){
+    if (e.isIntersecting){
+      e.target.classList.add('on');
+      io.unobserve(e.target);
+    }
+  }
+}, {threshold: 0.12});
+document.querySelectorAll('section > .container > *').forEach(el => {
+  el.classList.add('fade-in');
+  io.observe(el);
+});
+
+/* --- init --- */
+loadSignatures();
+</script>
+
+</body>
+</html>
