@@ -58,10 +58,12 @@
   }
   .masthead-inner{
     display:grid; grid-template-columns:1fr auto 1fr; align-items:center;
-    padding:14px 40px;
+    padding:16px 40px;
     font-family:"JetBrains Mono", monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase;
   }
-  .masthead-left{color:var(--ink-mute)}
+  .masthead-left{
+    color: var(--ink); font-weight: 700;
+  }
   .masthead-center{
     font-family:"Fraunces", serif; font-style:italic;
     font-size:18px; letter-spacing:0.01em; text-transform:none;
@@ -69,8 +71,7 @@
     color:var(--ink);
   }
   .masthead-right{text-align:right}
-  .masthead-right .sig-count{color:var(--reserve); font-weight:700;}
-  .masthead-right a{color:var(--ink); text-decoration:none; padding:6px 12px; border:1px solid var(--ink); margin-left:14px;}
+  .masthead-right a{color:var(--ink); text-decoration:none; padding:8px 24px; border:1px solid var(--ink); margin-left:14px;}
   .masthead-right a:hover{background:var(--ink); color:var(--paper);}
 
   /* =========================== HERO =========================== */
@@ -94,18 +95,19 @@
     display:flex; align-items:center; gap:14px; margin-bottom:40px;
   }
   .hero .kicker .seal{
-    width:56px; height:56px; border-radius:50%;
-    border:1px solid var(--reserve); color:var(--reserve);
+    width:56px; height:56px;
     display:grid; place-items:center;
-    font-family:"Fraunces", serif; font-style:italic; font-size:22px;
-    transform: rotate(-6deg);
+    flex-shrink: 0;
+  }
+  .hero .kicker .seal img{
+    width: 100%; height: 100%; object-fit: contain;
   }
   .hero h1{
     font-family:"Fraunces", serif;
     font-variation-settings:"opsz" 144, "SOFT" 100, "wght" 380;
     font-weight:380;
-    font-size: clamp(56px, 9.5vw, 156px);
-    line-height:0.92;
+    font-size: clamp(48px, 9.5vw, 156px);
+    line-height:0.95;
     letter-spacing:-0.025em;
     margin:0;
     color:var(--ink);
@@ -172,14 +174,17 @@
   section.deep{background:var(--paper-warm);}
   section.deeper{background:var(--paper-deep);}
   .section-head{
-    display:grid; grid-template-columns: 200px 1fr; gap:60px; margin-bottom:72px; align-items:start;
+    display:flex; flex-direction:column; gap:24px; margin-bottom:72px;
   }
   .section-num{
     font-family:"JetBrains Mono", monospace;
     font-size:11px; letter-spacing:0.2em; text-transform:uppercase;
     color:var(--reserve);
-    padding-top:14px;
+    padding-top:10px;
     border-top:2px solid var(--reserve);
+    display: inline-block;
+    align-self: flex-start;
+    line-height: 1.4;
   }
   section.dark .section-num{color:#e0a388; border-color:#e0a388;}
   .section-head h2{
@@ -189,6 +194,8 @@
     line-height:0.98;
     letter-spacing:-0.02em;
     margin:0;
+    text-align: center;
+    width: 100%;
   }
   .section-head h2 em{font-style:italic; color:var(--reserve); font-variation-settings:"opsz" 144, "SOFT" 100, "wght" 380;}
   section.dark .section-head h2 em{color:#e0a388}
@@ -618,11 +625,82 @@
   @media (max-width: 900px){
     .container, .wide{padding:0 24px;}
     .narrow{padding:0 24px;}
-    .masthead-inner{padding:12px 20px; grid-template-columns: 1fr auto;}
+    
+    .masthead-inner{
+      padding:12px 20px; 
+      grid-template-columns: 1fr auto; 
+      gap: 12px;
+      align-items: center;
+    }
+    .masthead-left{display:none;}
     .masthead-center{display:none;}
-    .hero-sub{grid-template-columns:1fr; gap:30px;}
-    .hero-meta{border-left:none; padding-left:0; border-top:1px solid var(--rule); padding-top:20px;}
-    .section-head{grid-template-columns:1fr; gap:16px;}
+    
+    .mobile-brand {
+      display: flex !important;
+      align-items: center;
+      gap: 8px;
+    }
+    .m-dw-brand {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .m-dw-logo {
+      width: 22px; height: 22px;
+      display: block;
+      flex-shrink: 0;
+    }
+    .m-dw-text {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    .m-divider {
+      color: var(--rule);
+      font-weight: 300;
+      font-size: 14px;
+    }
+    .m-title-act {
+      font-family: "Fraunces", serif;
+      font-style: italic;
+      font-size: 15px;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      text-transform: none;
+      white-space: nowrap;
+    }
+
+    .masthead-right{
+      text-align:right;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .sig-wrap-mobile { display: none; }
+    .masthead-right a {
+      margin-left: 0;
+      padding: 6px 12px;
+      font-size: 10px;
+      white-space: nowrap;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .hero{padding: 40px 0 60px;}
+    .hero .kicker { display: none; } /* Hide duplicated branding on mobile */
+    .hero h1{
+      font-size: clamp(42px, 12vw, 84px);
+      line-height: 1.05;
+    }
+    .hero-sub{grid-template-columns:1fr; gap:30px; margin-top: 40px;}
+    .hero-meta{border-left:none; padding-left:0; border-top:1px solid var(--rule); padding-top:20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;}
+    .hero-meta dt{margin-top: 0;}
+    
+    .section-head{gap:16px;}
     .stats-grid{grid-template-columns: repeat(2,1fr);}
     .pillars{grid-template-columns:1fr;}
     .parallel-head, .parallel-row{grid-template-columns:1fr;}
@@ -643,6 +721,9 @@
     section{padding:70px 0;}
     .bignum{padding:60px 0;}
     hr{margin:2rem 0;}
+    
+    .prose p{font-size: 18px;}
+    .stat {padding: 30px 20px;}
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -656,12 +737,18 @@
 <!-- ===================== MASTHEAD ===================== -->
 <header class="masthead">
   <div class="masthead-inner">
-    <div class="masthead-left">Vol. I &nbsp;·&nbsp; No. 1 &nbsp;·&nbsp; Draft &nbsp;·&nbsp; <span class="date-now">Apr. 2026</span></div>
-    <div class="masthead-center">The&nbsp;Data&nbsp;Savings&nbsp;Act</div>
-    <div class="masthead-right">
-      <span class="sig-count" id="top-count">—</span> signatories
-      <a href="#sign">Sign&nbsp;the&nbsp;Declaration</a>
+    <div class="mobile-brand" style="display:none;">
+      <div class="m-dw-brand">
+        <img src="logo.avif" width="22" height="22" alt="DrumWave" class="m-dw-logo">
+      </div>
+      <span class="m-divider">|</span>
+      <span class="m-title-act">The Data Savings Act</span>
     </div>
+    <div class="masthead-left">
+      DrumWave
+    </div>
+    <div class="masthead-center">The&nbsp;Data&nbsp;Savings&nbsp;Act</div>
+    <div class="masthead-right"><a href="#sign">Sign&nbsp;the&nbsp;Declaration</a></div>
   </div>
 </header>
 
@@ -669,7 +756,7 @@
 <section class="hero" style="border-bottom:1px solid var(--ink);">
   <div class="wide">
     <div class="kicker">
-      <div class="seal">D·S</div>
+      <div class="seal"><img src="logo.avif" alt="Logo"></div>
       <div>
         <div class="eyebrow">A Proposal to the American People</div>
         <div style="font-family:'Fraunces',serif; font-style:italic; color:var(--ink-mute); font-size:15px; margin-top:2px;">Circulated for signature · 2026</div>
@@ -708,7 +795,7 @@
 <section id="opener">
   <div class="container">
     <div class="section-head">
-      <div class="section-num">§ 01 &nbsp;/&nbsp; The Quiet Transaction</div>
+      <div class="section-num">§ 01 &nbsp;/&nbsp; The Quiet<br>Transaction</div>
       <h2>You are <em>financing</em><br>the AI revolution.</h2>
     </div>
 
@@ -730,7 +817,7 @@
 <section class="deep" id="problem">
   <div class="container">
     <div class="section-head">
-      <div class="section-num">§ 02 &nbsp;/&nbsp; The Problem, in Numbers</div>
+      <div class="section-num">§ 02 &nbsp;/&nbsp; The Problem,<br>in Numbers</div>
       <h2>The middle class is <em>hollowing</em> — and traditional savings can no longer fill it.</h2>
     </div>
 
@@ -767,7 +854,7 @@
 <section id="backstop">
   <div class="container">
     <div class="section-head">
-      <div class="section-num">§ 03 &nbsp;/&nbsp; The Backstop is Cracking</div>
+      <div class="section-num">§ 03 &nbsp;/&nbsp; The Backstop<br>is Cracking</div>
       <h2>The last American<br>safety net has<br>a <em>depletion date.</em></h2>
     </div>
 
@@ -1125,7 +1212,7 @@
 <section id="cloud">
   <div class="container">
     <div class="section-head">
-      <div class="section-num">§ 08 &nbsp;/&nbsp; The Funding Mechanism</div>
+      <div class="section-num">§ 08 &nbsp;/&nbsp; The Funding<br>Mechanism</div>
       <h2>The Cloud is <em>unregulated banking.</em></h2>
     </div>
 
@@ -1214,7 +1301,7 @@
 <section id="rights">
   <div class="container">
     <div class="section-head">
-      <div class="section-num">§ 10 &nbsp;/&nbsp; Rights of the Participant</div>
+      <div class="section-num">§ 10 &nbsp;/&nbsp; Rights of<br>the Participant</div>
       <h2>Six guarantees<br>to the <em>data subject.</em></h2>
     </div>
 
@@ -1255,8 +1342,10 @@
 <section id="sign" style="padding:0; border-bottom:none;">
   <div class="sign-wrap">
     <div class="sign-inner">
-      <div class="eyebrow" style="margin-bottom:14px;">§ 11 &nbsp;/&nbsp; The Declaration</div>
-      <h2 class="serif-display">Sign the<br><em>Declaration.</em></h2>
+      <div class="section-head">
+        <div class="section-num">§ 11 &nbsp;/&nbsp; The Declaration</div>
+        <h2 class="serif-display">Sign the<br><em>Declaration.</em></h2>
+      </div>
       <p class="intro">
         If you believe the AI economy deserves the same institutional seriousness that America once brought to the industrial one — sign below. Your signature becomes part of a public record sent to the Treasury Task Force, the Senate Banking Committee, and the relevant tech industry leadership.
       </p>
@@ -1306,9 +1395,9 @@
 
   <!-- SIGNATORIES LIST -->
   <div class="signatories">
-    <div class="sig-head">
-      <h3>Signatories</h3>
-      <div class="count-live" id="bottom-count">Loading count…</div>
+    <div class="section-head" style="margin-bottom:40px;">
+      <h3 style="font-family:'Fraunces',serif; font-variation-settings:'opsz' 36, 'SOFT' 80, 'wght' 500; font-size:28px; margin:0;">Signatories</h3>
+      <div class="count-live" id="bottom-count" style="margin-top:8px;">Loading count…</div>
     </div>
     <div class="sig-list" id="sig-list">
       <div style="color:var(--ink-mute); font-style:italic;">Loading signatures…</div>
