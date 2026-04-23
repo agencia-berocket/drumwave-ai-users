@@ -1611,38 +1611,43 @@ async function submitSignature(e){
   btn.disabled = true;
   btn.textContent = 'Recording…';
 
-  // load current list
-  let list = [];
-  try {
-    const res = await storageProxy.get(SIG_KEY);
-    if (res && res.value) list = JSON.parse(res.value) || [];
-  } catch(e){ list = []; }
+  // Record signature in background so it doesn't block HubSpot or the UI
+  // We use a self-executing async function that catch its own errors
+  (async function() {
+    try {
+      let list = [];
+      try {
+        const res = await storageProxy.get(SIG_KEY);
+        if (res && res.value) list = JSON.parse(res.value) || [];
+      } catch(e){ list = []; }
 
-  list.push({
-    name: name.slice(0,120),
-    role: role,
-    org:  org.slice(0,160),
-    loc:  loc.slice(0,120),
-    note: note.slice(0,280),
-    ts:   Date.now()
-  });
+      list.push({
+        name: name.slice(0,120),
+        role: role,
+        org:  org.slice(0,160),
+        loc:  loc.slice(0,120),
+        note: note.slice(0,280),
+        ts:   Date.now()
+      });
 
-  try {
-    await storageProxy.set(SIG_KEY, JSON.stringify(list));
-    $('#sign-success').classList.add('on');
-    $('#sign-form').reset();
-    renderSignatures(list);
-    btn.textContent = 'Add my signature  →';
-    btn.disabled = false;
-    // scroll to signatories
-    setTimeout(() => {
-      document.querySelector('.signatories').scrollIntoView({behavior:'smooth', block:'start'});
-    }, 400);
-  } catch(e){
-    btn.disabled = false;
-    btn.textContent = 'Add my signature  →';
-    alert('Could not record signature: ' + (e && e.message ? e.message : 'unknown error'));
-  }
+      await storageProxy.set(SIG_KEY, JSON.stringify(list));
+      renderSignatures(list);
+    } catch(e) {
+      console.error('Local storage record failed:', e);
+    }
+  })();
+
+  // Main UI success path (unblocked)
+  $('#sign-success').classList.add('on');
+  $('#sign-form').reset();
+  btn.textContent = 'Add my signature  →';
+  btn.disabled = false;
+  
+  // scroll to signatories
+  setTimeout(() => {
+    const target = document.querySelector('.signatories');
+    if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+  }, 400);
 }
 
 /* --- date helpers --- */
