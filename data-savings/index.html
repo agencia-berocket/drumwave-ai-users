@@ -1477,32 +1477,39 @@
 <script>
 /* --- helpers --- */
 const $ = (s) => document.querySelector(s);
-
-// Polyfill for window.storage if not provided by the environment
-if (!window.storage) {
-  window.storage = {
-    get: async (key) => {
-      try {
-        return { value: localStorage.getItem(key) };
-      } catch (e) {
-        return { value: null };
-      }
-    },
-    set: async (key, val) => {
-      try {
-        localStorage.setItem(key, val);
-        return true;
-      } catch (e) {
-        console.error('Storage error:', e);
-        return false;
-      }
-    }
-  };
-}
-
 const SIG_KEY = 'dsa:signatories:v1';
 const SIG_SHARED = true;
 const SEED_OFFSET = 1950; // homage to the Treaty of Detroit year — display-only offset
+
+/**
+ * Storage proxy to handle both environment-provided window.storage
+ * and standard localStorage fallback.
+ */
+const storageProxy = {
+  get: async (key) => {
+    try {
+      if (window.storage && typeof window.storage.get === 'function') {
+        return await window.storage.get(key, SIG_SHARED);
+      }
+      return { value: localStorage.getItem(key) };
+    } catch (e) {
+      console.warn('Storage get failed:', e);
+      return { value: null };
+    }
+  },
+  set: async (key, val) => {
+    try {
+      if (window.storage && typeof window.storage.set === 'function') {
+        return await window.storage.set(key, val, SIG_SHARED);
+      }
+      localStorage.setItem(key, val);
+      return true;
+    } catch (e) {
+      console.error('Storage set failed:', e);
+      return false;
+    }
+  }
+};
 
 function escapeHtml(str){
   return String(str).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -1535,7 +1542,7 @@ function roleClass(r){
 async function loadSignatures(){
   let list = [];
   try {
-    const res = await window.storage.get(SIG_KEY, SIG_SHARED);
+    const res = await storageProxy.get(SIG_KEY);
     if (res && res.value){
       list = JSON.parse(res.value) || [];
     }
@@ -1594,7 +1601,7 @@ async function submitSignature(e){
   // load current list
   let list = [];
   try {
-    const res = await window.storage.get(SIG_KEY, SIG_SHARED);
+    const res = await storageProxy.get(SIG_KEY);
     if (res && res.value) list = JSON.parse(res.value) || [];
   } catch(e){ list = []; }
 
@@ -1608,7 +1615,7 @@ async function submitSignature(e){
   });
 
   try {
-    await window.storage.set(SIG_KEY, JSON.stringify(list), SIG_SHARED);
+    await storageProxy.set(SIG_KEY, JSON.stringify(list));
     $('#sign-success').classList.add('on');
     $('#sign-form').reset();
     renderSignatures(list);
