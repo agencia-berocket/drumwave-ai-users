@@ -1477,6 +1477,29 @@
 <script>
 /* --- helpers --- */
 const $ = (s) => document.querySelector(s);
+
+// Polyfill for window.storage if not provided by the environment
+if (!window.storage) {
+  window.storage = {
+    get: async (key) => {
+      try {
+        return { value: localStorage.getItem(key) };
+      } catch (e) {
+        return { value: null };
+      }
+    },
+    set: async (key, val) => {
+      try {
+        localStorage.setItem(key, val);
+        return true;
+      } catch (e) {
+        console.error('Storage error:', e);
+        return false;
+      }
+    }
+  };
+}
+
 const SIG_KEY = 'dsa:signatories:v1';
 const SIG_SHARED = true;
 const SEED_OFFSET = 1950; // homage to the Treaty of Detroit year — display-only offset
