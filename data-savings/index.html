@@ -1374,11 +1374,15 @@
       <form class="sign-form" id="sign-form" onsubmit="return false;">
         <label>
           <span class="lab">Full name *</span>
-          <input type="text" id="f-name" required maxlength="120" placeholder="Jane A. Doe" />
+          <input type="text" id="f-name" name="firstname" required maxlength="120" placeholder="Jane A. Doe" />
+        </label>
+        <label>
+          <span class="lab">Email address *</span>
+          <input type="email" id="f-email" name="email" required maxlength="120" placeholder="jane@example.com" />
         </label>
         <label>
           <span class="lab">Role *</span>
-          <select id="f-role" required>
+          <select id="f-role" name="role" required>
             <option value="">Select…</option>
             <option value="policy">Policymaker · Government</option>
             <option value="industry">Technology Industry</option>
@@ -1391,20 +1395,19 @@
         </label>
         <label>
           <span class="lab">Organization (optional)</span>
-          <input type="text" id="f-org" maxlength="160" placeholder="e.g. Senate Banking Committee / Anthropic / UAW Local 600" />
+          <input type="text" id="f-org" name="company" maxlength="160" placeholder="e.g. Senate Banking Committee / Anthropic / UAW Local 600" />
         </label>
         <label>
           <span class="lab">City, State/Country (optional)</span>
-          <input type="text" id="f-loc" maxlength="120" placeholder="San Jose, CA" />
+          <input type="text" id="f-loc" name="city" maxlength="120" placeholder="San Francisco, CA" />
         </label>
         <label class="full">
           <span class="lab">Why you're signing (optional · shown publicly)</span>
-          <textarea id="f-note" maxlength="280" placeholder="One sentence. Max 280 characters."></textarea>
+          <textarea id="f-note" name="message" maxlength="280" placeholder="One sentence. Max 280 characters."></textarea>
         </label>
 
         <div class="submit-row">
-          <button class="btn-sign" id="sign-btn" type="button" onclick="submitSignature()">Add my signature &nbsp;→</button>
-          <span class="sign-note">Shared publicly on this page. No email required.</span>
+          <button class="btn-sign" id="sign-btn" type="submit">Add my signature &nbsp;→</button>
         </div>
 
         <div class="sign-success" id="sign-success">
@@ -1547,16 +1550,18 @@ function renderSignatures(list){
 }
 
 /* --- submit --- */
-async function submitSignature(){
+async function submitSignature(e){
+  if(e) e.preventDefault();
   const btn = $('#sign-btn');
   const name = $('#f-name').value.trim();
+  const email = $('#f-email').value.trim();
   const role = $('#f-role').value;
   const org  = $('#f-org').value.trim();
   const loc  = $('#f-loc').value.trim();
   const note = $('#f-note').value.trim();
 
-  if (!name || !role){
-    alert('Name and role are required.');
+  if (!name || !role || !email){
+    alert('Name, email and role are required.');
     return;
   }
 
@@ -1622,7 +1627,14 @@ document.querySelectorAll('section > .container > *').forEach(el => {
 
 /* --- init --- */
 loadSignatures();
+
+// Attach form listener
+$('#sign-form').addEventListener('submit', submitSignature);
 </script>
+
+<!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/45485180.js"></script>
+<!-- End of HubSpot Embed Code -->
 
 </body>
 </html>
