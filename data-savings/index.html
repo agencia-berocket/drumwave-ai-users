@@ -1482,16 +1482,22 @@ const SIG_SHARED = true;
 const SEED_OFFSET = 1950; // homage to the Treaty of Detroit year — display-only offset
 
 /**
- * Storage proxy to handle both environment-provided window.storage
- * and standard localStorage fallback.
+ * Ultra-safe storage helper.
+ * Uses localStorage directly to avoid issues with environment-provided window.storage
+ * that might be incomplete or error-prone.
  */
 const storageProxy = {
   get: async (key) => {
     try {
+      // Prioritize local for this specific landing page to avoid conflicts
+      const localValue = localStorage.getItem(key);
+      if (localValue) return { value: localValue };
+      
+      // Fallback to environment storage if available and local is empty
       if (window.storage && typeof window.storage.get === 'function') {
         return await window.storage.get(key, SIG_SHARED);
       }
-      return { value: localStorage.getItem(key) };
+      return { value: null };
     } catch (e) {
       console.warn('Storage get failed:', e);
       return { value: null };
@@ -1499,14 +1505,21 @@ const storageProxy = {
   },
   set: async (key, val) => {
     try {
-      if (window.storage && typeof window.storage.set === 'function') {
-        return await window.storage.set(key, val, SIG_SHARED);
-      }
+      // Always save to localStorage
       localStorage.setItem(key, val);
+      
+      // Also try to save to environment storage if available
+      if (window.storage && typeof window.storage.set === 'function') {
+        try {
+          await window.storage.set(key, val, SIG_SHARED);
+        } catch (err) {
+          console.warn('Environment storage.set failed, but local succeeded:', err);
+        }
+      }
       return true;
     } catch (e) {
       console.error('Storage set failed:', e);
-      return false;
+      throw e; // Re-throw to be caught by the caller's catch block
     }
   }
 };
