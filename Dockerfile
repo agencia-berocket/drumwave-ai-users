@@ -11,6 +11,8 @@ COPY drumwave /usr/share/nginx/html/drumwave
 COPY idr-website /usr/share/nginx/html/idr-website
 COPY data-savings /usr/share/nginx/html/data-savings
 COPY idr2-website /usr/share/nginx/html/idr2-website
+COPY dsa /usr/share/nginx/html/dsa
+COPY Docs /usr/share/nginx/html/Docs
 
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
