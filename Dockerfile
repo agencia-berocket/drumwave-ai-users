@@ -1,18 +1,5 @@
 FROM nginx:alpine
-
-# Remover configuração padrão
-RUN rm /etc/nginx/nginx.conf
-
-# Copiar configuração multi-site
-COPY nginx.conf /etc/nginx/nginx.conf
-
-# Copiar todos os projetos para a estrutura do Nginx
-COPY drumwave /usr/share/nginx/html/drumwave
-COPY idr-website /usr/share/nginx/html/idr-website
-COPY data-savings /usr/share/nginx/html/data-savings
-COPY idr2-website /usr/share/nginx/html/idr2-website
-COPY dsa /usr/share/nginx/html/dsa
-COPY Docs /usr/share/nginx/html/Docs
-
+COPY . /usr/share/nginx/html
+RUN mv /usr/share/nginx/html/index-dsa.html /usr/share/nginx/html/index.html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
