@@ -102,7 +102,7 @@
     align-items: center;
     text-align: center;
     overflow: hidden;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%), url('./Imagens/Placeholder.png') center/cover no-repeat;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%), url('./Imagens/Placeholder.png') center top / cover no-repeat;
   }
 
   .data-flow {
@@ -181,10 +181,11 @@
 
   .hero-cta {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
   }
 
   .cta-note {
@@ -644,10 +645,10 @@
 
   .cta-block {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    gap: 12px;
     margin-top: 48px;
   }
 
@@ -770,7 +771,7 @@
 
 <nav>
   <a href="#" class="logo">
-    <img src="../Imagens/logo DW.avif" alt="DrumWave" class="logo-img">
+    <img src="./Imagens/logo DW.avif" alt="DrumWave" class="logo-img">
     DrumWave
   </a>
   <div class="nav-links">
@@ -778,7 +779,7 @@
     <a href="#about">About</a>
     <a href="#process">How It Works</a>
     <a href="#rights">Your Rights</a>
-    <a href="https://personal.drumwave.com/" class="btn btn-sm">Request Data &rarr;</a>
+    <a href="https://personal.drumwave.com/" class="btn btn-sm">Request Your AI Data &rarr;</a>
   </div>
 </nav>
 
@@ -830,9 +831,9 @@
   <div class="section-label">Why Now</div>
   <h2>Own Your Data. Own Your Future.</h2>
   <div class="section-body">
-    <p>For years, you&rsquo;ve written the prompts. You crafted the system messages. You uploaded the PDFs, the spreadsheets, the half-finished code. You paid the subscription. You invested the hours. Every reply you rated, every response you refined, every time you pressed the thumbs-down and typed a better version, you were teaching the system.</p>
+    <p>You&rsquo;ve written the prompts. You uploaded the PDFs, the spreadsheets, the half-finished code. You paid the subscription. You invested the hours. Every reply you rated, every response you refined, every time you pressed the thumbs-down and typed a better version, you were teaching the system.</p>
     <p>Now, the data you created is training the AI built to replace the work you do. The pattern is not new. It&rsquo;s just faster.</p>
-    <p>A ride-share driver generates a stream of spatial data. A ChatGPT or Claude user generates a stream of linguistic, intellectual, emotional data. Arguably the most valuable data a person can produce. It encodes how you think, what you know, what you&rsquo;re trying to make.</p>
+    <p>A ChatGPT or Claude user generates a stream of linguistic, intellectual, emotional data. The most valuable data a person can produce. It encodes how you think, what you know, what you&rsquo;re trying to make.</p>
   </div>
 
   <div class="pull-quote">&ldquo;If you can own it, you can save it. If you can save it, you can benefit from it.&rdquo;</div>
@@ -845,7 +846,7 @@
 
 <section id="about" class="reveal">
   <div class="section-label">About DrumWave</div>
-  <h2>DrumWave doesn&rsquo;t share, sell or store Your data.</h2>
+  <h2 style="color: var(--accent);">DrumWave doesn&rsquo;t share, sell or store Your data.</h2>
   <div class="section-body">
     <p>We are reconnecting companies and individuals through the value of their data. DrumWave helps you secure and manage the value of your data. DrumWave is <strong style="color: var(--text);">not affiliated with OpenAI or Anthropic</strong>.</p>
     <p style="color: var(--accent); margin-top: 20px; font-weight: 500;">We are not data brokers.</p>
@@ -927,7 +928,8 @@
   </div>
 
   <div class="cta-block">
-    <a href="https://personal.drumwave.com/" class="btn">Open a dWallet &rarr;</a>
+    <a href="https://personal.drumwave.com/" class="btn">Request Your AI Data &rarr;</a>
+    <span class="cta-note">Easy. Secure. Free.</span>
   </div>
 </section>
 
@@ -968,7 +970,7 @@
 
 <section id="rights" class="reveal">
   <div class="section-label">What Changes</div>
-  <h2>You don&rsquo;t need to be an AI expert. Just ask for what&rsquo;s already yours.</h2>
+  <h2>You don&rsquo;t need to be a data expert. Just ask for what&rsquo;s already yours.</h2>
   <div class="section-body">
     <p>The system is changing. For years, companies have made money using your data. That&rsquo;s called extraction. Now, you have the power to participate.</p>
     <p>Many jurisdictions (California, the EU, Brazil, Virginia, Colorado) have enacted laws granting individuals the right to request access to their personal data. OpenAI and Anthropic both offer data export mechanisms. Companies are required to comply.</p>
@@ -1006,7 +1008,7 @@
 
 <section class="business reveal">
   <div class="section-label">Data Cap is the New Market Cap</div>
-  <img src="../Imagens/logo DW.avif" alt="DrumWave" class="business-logo">
+  <img src="./Imagens/logo DW.avif" alt="DrumWave" class="business-logo">
   <h2>dWallet for Business</h2>
   <div class="section-body">
     <p>Forward-thinking AI labs, model developers, and enterprise buyers are partnering with DrumWave to build trust and unlock new growth opportunities. Open a Business dWallet to create value for your company and your users, under shared custody, on transparent terms.</p>
@@ -1020,7 +1022,7 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <div class="logo">
-        <img src="../Imagens/logo DW.avif" alt="DrumWave" class="logo-img">
+        <img src="./Imagens/logo DW.avif" alt="DrumWave" class="logo-img">
         DrumWave
       </div>
       <div class="footer-tagline">Your Life. Your Story. Your Data.</div>
