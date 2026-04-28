@@ -85,6 +85,8 @@
   .hero {
     position: relative;
     min-height: 92vh;
+    width: 100%;
+    max-width: none;
     padding: 140px 40px 80px;
     display: flex;
     flex-direction: column;
