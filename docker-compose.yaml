@@ -1,7 +1,7 @@
 services:
   dsa-landing:
     build:
-      context: ./dsa
+      context: ./deploy_packages/site-dsa
       dockerfile: Dockerfile
     ports:
       - "80"
