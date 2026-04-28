@@ -94,7 +94,7 @@
     align-items: center;
     text-align: center;
     overflow: hidden;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%), url('./Imagens/Placeholder.png') center top / cover no-repeat;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%), url('../../Imagens/Placeholder.png') center top / cover no-repeat;
   }
 
   .data-flow {
