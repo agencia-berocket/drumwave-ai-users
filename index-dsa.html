@@ -1001,7 +1001,7 @@ html, body {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #7a6e54;
-  margin-bottom: 6px;
+  margin-bottom: 14px;
 }
 
 .cs-col label .req { color: #b8231c; margin-left: 2px; }
@@ -1798,7 +1798,7 @@ html, body {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #7a6e54;
-  margin-bottom: 6px;
+  margin-bottom: 14px;
 }
 
 .sign-form label .req { color: #b8231c; margin-left: 2px; }
@@ -2096,30 +2096,32 @@ html, body {
     <div id="signStep1">
       <h2>Sign the Declaration</h2>
       <p style="margin-bottom: 24px;">Your signature becomes part of the public record<br>sent to Washington DC.</p>
-      <div class="sign-form">
-        <div class="sign-row">
-          <div class="sign-col">
-            <label>First name <span class="req">*</span></label>
-            <input type="text" id="signFirstName" placeholder="e.g. Jane">
+      <form id="signForm" onsubmit="event.preventDefault(); submitSign();">
+        <div class="sign-form">
+          <div class="sign-row">
+            <div class="sign-col">
+              <label>First name <span class="req">*</span></label>
+              <input type="text" id="signFirstName" name="signFirstName" placeholder="e.g. Jane" required>
+            </div>
+            <div class="sign-col">
+              <label>Last name <span class="req">*</span></label>
+              <input type="text" id="signLastName" name="signLastName" placeholder="e.g. Miller" required>
+            </div>
           </div>
-          <div class="sign-col">
-            <label>Last name <span class="req">*</span></label>
-            <input type="text" id="signLastName" placeholder="e.g. Miller">
-          </div>
-        </div>
 
-        <div class="sign-row">
-          <div class="sign-col sign-col-narrow">
-            <label>Zip code <span class="req">*</span></label>
-            <input type="text" id="signZip" placeholder="43215" maxlength="10">
-          </div>
-          <div class="sign-col">
-            <label>Email <span class="req">*</span></label>
-            <input type="email" id="signEmail" placeholder="[email protected]">
+          <div class="sign-row">
+            <div class="sign-col sign-col-narrow">
+              <label>Zip code <span class="req">*</span></label>
+              <input type="text" id="signZip" name="signZip" placeholder="43215" maxlength="10" required>
+            </div>
+            <div class="sign-col">
+              <label>Email <span class="req">*</span></label>
+              <input type="email" id="signEmail" name="signEmail" placeholder="[email protected]" required>
+            </div>
           </div>
         </div>
-      </div>
-      <button class="sign-form-submit" onclick="submitSign()">Add my signature</button>
+        <button type="submit" class="sign-form-submit">Add my signature</button>
+      </form>
       <label class="sign-consent">
         <input type="checkbox" id="signConsent" checked>
         <span>I agree to receive campaign updates from the Data Savings Act. Unsubscribe anytime.</span>
@@ -2181,11 +2183,11 @@ html, body {
         <div class="cs-row">
           <div class="cs-col">
             <label>Organization name <span class="req">*</span></label>
-            <input type="text" id="csOrgName" placeholder="e.g. Institute for Data Governance" required>
+            <input type="text" id="csOrgName" name="csOrgName" placeholder="e.g. Institute for Data Governance" required>
           </div>
           <div class="cs-col cs-col-narrow">
             <label>Organization type <span class="req">*</span></label>
-            <select id="csOrgType" required>
+            <select id="csOrgType" name="csOrgType" required>
               <option value="" disabled selected>Select one…</option>
               <option>University</option>
               <option>Think Tank</option>
@@ -2203,22 +2205,22 @@ html, body {
         <div class="cs-row">
           <div class="cs-col">
             <label>Your name <span class="req">*</span></label>
-            <input type="text" id="csContactName" placeholder="e.g. Dr. Elena Marsh" required>
+            <input type="text" id="csContactName" name="csContactName" placeholder="e.g. Dr. Elena Marsh" required>
           </div>
           <div class="cs-col">
             <label>Role / title <span class="req">*</span></label>
-            <input type="text" id="csRole" placeholder="e.g. Director of Policy" required>
+            <input type="text" id="csRole" name="csRole" placeholder="e.g. Director of Policy" required>
           </div>
         </div>
 
         <div class="cs-row">
           <div class="cs-col">
             <label>Email <span class="req">*</span></label>
-            <input type="email" id="csEmail" placeholder="[email protected]" required>
+            <input type="email" id="csEmail" name="csEmail" placeholder="[email protected]" required>
           </div>
           <div class="cs-col">
             <label>Website <span class="opt">(optional)</span></label>
-            <input type="url" id="csWebsite" placeholder="https://…">
+            <input type="url" id="csWebsite" name="csWebsite" placeholder="https://…">
           </div>
         </div>
 
@@ -2247,6 +2249,11 @@ html, body {
 
 
 <script>
+  // GOOGLE SHEETS AUTOMATION CONFIG
+  // Substitua as URLs abaixo pelas URLs geradas após implantar o Apps Script em cada planilha
+  const SIGN_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw9lmo4zszShTRlRZyWPLiEI_LwSmovyMsT6Nkj6F9_DlosR6pCQRvwEhG4FnfOerrG/exec'; 
+  const COSPONSOR_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxgGcmVhGf_y4E7ZVNJ5w7W6HDqPMRWkEGcsZZqOKbvYmxzkwT1NIPwUIoSPMDE3RSzqA/exec';
+
   // Build decorative QR codes
   (function buildQrs() {
     const pattern = ['11110111','10010101','10110101','10010011','11110110','00000010','11111011','10101100'];
@@ -2284,15 +2291,39 @@ html, body {
     document.getElementById('signModal').classList.remove('open');
   }
   function submitSign() {
-    const firstName = document.getElementById('signFirstName').value || 'First';
-    const lastName = document.getElementById('signLastName').value || 'Last';
+    const form = document.getElementById('signForm');
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const firstName = document.getElementById('signFirstName').value || '';
+    const lastName = document.getElementById('signLastName').value || '';
+    const zip = document.getElementById('signZip').value || '';
+    const email = document.getElementById('signEmail').value || '';
+    
     const name = firstName + ' ' + lastName;
-    const zip = document.getElementById('signZip').value || '00000';
+    document.getElementById('shareName').textContent = name || 'Friend';
+    document.getElementById('shareCity').textContent = zip || 'USA';
+
+    // Envio para o Google Sheets
+    if (SIGN_SCRIPT_URL !== 'SUA_URL_AQUI') {
+      const formData = new URLSearchParams();
+      formData.append('signFirstName', firstName);
+      formData.append('signLastName', lastName);
+      formData.append('signZip', zip);
+      formData.append('signEmail', email);
+      formData.append('Timestamp', new Date().toISOString());
+
+      fetch(SIGN_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+      })
+      .then(() => console.log('Sign sync success'))
+      .catch(err => console.error('Sheet sync error:', err));
+    }
     
-    document.getElementById('shareName').textContent = name;
-    document.getElementById('shareCity').textContent = zip;
-    
-    // Removemos o redirecionamento automático para que o usuário escolha uma das opções
     document.getElementById('signStep1').style.display = 'none';
     document.getElementById('signStep2').style.display = 'block';
   }
@@ -2316,6 +2347,39 @@ html, body {
   }
   function submitCosponsor(event) {
     event.preventDefault();
+    const form = event.target;
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const orgName = document.getElementById('csOrgName').value;
+    const orgType = document.getElementById('csOrgType').value;
+    const contactName = document.getElementById('csContactName').value;
+    const role = document.getElementById('csRole').value;
+    const email = document.getElementById('csEmail').value;
+    const website = document.getElementById('csWebsite').value;
+
+    // Envio para o Google Sheets
+    if (COSPONSOR_SCRIPT_URL !== 'SUA_URL_AQUI') {
+      const formData = new URLSearchParams();
+      formData.append('csOrgName', orgName);
+      formData.append('csOrgType', orgType);
+      formData.append('csContactName', contactName);
+      formData.append('csRole', role);
+      formData.append('csEmail', email);
+      formData.append('csWebsite', website);
+      formData.append('Timestamp', new Date().toISOString());
+
+      fetch(COSPONSOR_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+      })
+      .then(() => console.log('Cosponsor sync success'))
+      .catch(err => console.error('Sheet sync error:', err));
+    }
+
     document.getElementById('cosponsorStep1').style.display = 'none';
     document.getElementById('cosponsorStep2').style.display = 'block';
   }
