@@ -32,6 +32,7 @@
   --page-max: 1280px;
   --page-pad: clamp(1.25rem, 4vw, 3rem);
   --sidebar-width: 240px;
+  --grad-dsa: linear-gradient(135deg, #1e266d 0%, #3e1b71 50%, #9c2e6d 100%);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-padding-top: 80px; }
@@ -138,7 +139,55 @@ p { font-size: var(--size-body); line-height: 1.6; color: var(--ink-soft); }
 .reserve-card h3 { font-size: 1.0625rem; font-weight: 700; line-height: 1.25; color: var(--ink); margin-bottom: 0.25rem; }
 .reserve-card .territory, .reserve-card .hq { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.5; }
 .reserve-card .territory { color: var(--ink-soft); }
-.reserve-card .hq { color: var(--ink-muted); margin-top: 0.25rem; }
+/* .reserve-card .hq { color: var(--ink-muted); margin-top: 0.25rem; } */
+
+/* New DSA Hero Banner */
+.dsa-hero-banner { 
+  padding: 10rem 0; 
+  background: var(--grad-dsa); 
+  color: white; 
+  text-align: center; 
+  position: relative;
+  overflow: hidden;
+}
+.dsa-hero-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.05) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+.dsa-hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+.dsa-hero-content .mono-label { color: rgba(255,255,255,0.6); margin-bottom: 2rem; }
+.dsa-hero-content h2 { color: white; font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 1.5rem; letter-spacing: -0.03em; }
+.dsa-hero-content .lede-large { font-size: clamp(1.125rem, 2vw, 1.35rem); color: rgba(255,255,255,0.9); margin-bottom: 1rem; font-weight: 500; line-height: 1.4; }
+.dsa-hero-content .lede-sub { font-size: 0.9375rem; color: rgba(255,255,255,0.5); margin-bottom: 3rem; }
+.btn-white { background: white !important; color: var(--ink) !important; padding: 1rem 2rem !important; }
+.btn-white:hover { background: rgba(255,255,255,0.9) !important; }
+
+/* Connect Section */
+.connect-section { padding: var(--space-xl) 0; background: var(--bg); }
+.connect-header { text-align: center; margin-bottom: var(--space-lg); }
+.connect-header .mono-label { margin-bottom: 1rem; }
+.connect-header h2 { font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: -0.03em; }
+.connect-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 1000px; margin: 0 auto; }
+.connect-card { background: #f8f9fb; border-radius: 20px; padding: 3rem; display: flex; flex-direction: column; }
+.connect-card .mono-label { color: var(--ink-muted); margin-bottom: 2rem; }
+.connect-card h3 { font-size: 2rem; margin-bottom: 1rem; letter-spacing: -0.02em; }
+.connect-card p { color: var(--ink-soft); font-size: 1.125rem; margin-bottom: 2.5rem; max-width: 32ch; }
+.email-capture { display: flex; gap: 0.75rem; }
+.email-capture input { 
+  flex: 1; 
+  padding: 0.75rem 1.5rem; 
+  border-radius: 999px; 
+  border: 1px solid var(--line); 
+  font-family: var(--font-sans); 
+  font-size: 0.9375rem; 
+  background: white;
+}
+.connect-card .btn { width: fit-content; padding: 0.875rem 2rem; font-weight: 600; }
+.connect-card .btn-primary { background: #0a0f1a; }
 
 .world-map { background: var(--bg-subtle); border-radius: 12px; padding: clamp(2rem, 4vw, 3rem); position: relative; }
 .world-map svg { width: 100%; height: auto; display: block; }
@@ -231,7 +280,7 @@ p { font-size: var(--size-body); line-height: 1.6; color: var(--ink-soft); }
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <div class="hero-label mono-label">The International Data Reserve</div>
+        <div class="hero-label mono-label">The International Data Reserve - Established in 2022</div>
         <h1>Develop standards for data ownership and valuation to advance digital transformation, economic stability, and international cooperation.</h1>
         <div class="hero-actions">
           <a href="#about" class="btn btn-primary">More about IDR <span>→</span></a>
@@ -247,23 +296,18 @@ p { font-size: var(--size-body); line-height: 1.6; color: var(--ink-soft); }
       <div class="carousel-viewport">
         <div class="carousel-track" id="carouselTrack">
           <article class="carousel-slide slide-1">
-            <div class="carousel-tag">Sovereignty</div>
             <h2>Supporting the data economy prosperity by making data part of everyone’s life.</h2>
           </article>
           <article class="carousel-slide slide-2">
-            <div class="carousel-tag">Interoperability</div>
             <h2>Promoting the data economy growth by sharing data valuation metrics.</h2>
           </article>
           <article class="carousel-slide slide-3">
-            <div class="carousel-tag">Valuation</div>
             <h2>Boosting job transformation and economic well-being in the data economy.</h2>
           </article>
           <article class="carousel-slide slide-4">
-            <div class="carousel-tag">Ownership</div>
             <h2>Nurturing the data economy sustainability by international cooperation.</h2>
           </article>
           <article class="carousel-slide slide-5">
-            <div class="carousel-tag">Diversity</div>
             <h2>Empowering data ownership to promote the data economy diversity.</h2>
           </article>
         </div>
@@ -286,7 +330,7 @@ p { font-size: var(--size-body); line-height: 1.6; color: var(--ink-soft); }
         <aside class="about-sidebar">
           <h3>IDR</h3>
           <nav>
-            <a data-panel="what-is" class="active">What is IDR</a>
+            <a data-panel="what-is" class="active">About IDR</a>
             <a data-panel="functions">Functions</a>
             <a data-panel="our-system">Our System</a>
             <a data-panel="governance">Governance</a>
@@ -296,38 +340,36 @@ p { font-size: var(--size-body); line-height: 1.6; color: var(--ink-soft); }
         <div class="about-content">
 
           <div class="panel active" id="panel-what-is">
-            <div class="section-label mono-label">About</div>
-            <h1>IDR</h1>
-            <p class="lede">The <strong>International Data Reserve (IDR)</strong> is a private, independent regulatory body that oversees the DrumWave Ecosystem. It develops and maintains the standards, policies, and data valuation metrics that govern the ecosystem's operation. The IDR is led by a board of seven directors, elected by the Data Agents to serve three-year terms.</p>
-            <p class="lede">The IDR's work centers on four challenges fundamental to the modern AI economy: data sovereignty, data fragmentation, data valuation, and data ownership.</p>
+            <h1>About IDR</h1>
+            <p class="lede">The <strong>International Data Reserve (IDR)</strong> is a private, independent regulatory body that oversees the DrumWave Ecosystem. It develops and maintains the standards, policies, and data valuation metrics that govern the ecosystem's operation. The IDR is led by a board of seven directors, elected by the Data Agents to serve three-year terms.<br><br>
+            The IDR's work centers on four challenges fundamental to the modern AI economy: data sovereignty, data fragmentation, data valuation, and data ownership.</p>
 
             <div class="challenge-grid">
               <article class="challenge-card">
                 <div class="roman">i.</div>
                 <h3>Data Sovereignty</h3>
-                <p>The right of individuals and nations to govern the data they produce. For data to function as an asset class, sovereignty must be enforceable, not merely declared. The IDR provides the shared standard that makes enforcement possible.</p>
+                <p>The right of individuals and nations to govern the data they produce. Sovereignty must be enforceable for data to function as an asset class, as ownership rights cannot be claimed without it.</p>
               </article>
               <article class="challenge-card">
                 <div class="roman">ii.</div>
                 <h3>Data Fragmentation</h3>
-                <p>The cross platform, cross border incompatibility that strangles portability and value discovery. An asset class requires interoperability, and data that cannot move cannot be priced or owned. The IDR establishes the protocols that allow data to flow across systems and jurisdictions.</p>
+                <p>Cross-platform and cross-border incompatibility constrains portability and value discovery. An asset class requires interoperability; data that cannot move cannot be owned or have its value defined.</p>
               </article>
               <article class="challenge-card">
                 <div class="roman">iii.</div>
                 <h3>Data Valuation</h3>
-                <p>A shared, auditable methodology for pricing the one asset class that has long lacked one. The IDR's Asymmetry Policy sets the floor rate below which data cannot be monetized without compensation to its source. This gives the market its first reliable reference point for data as a priced asset.</p>
+                <p>A shared, auditable methodology for determining the value of data. Without standardized valuation, data cannot be measured, exchanged, or accounted for as an asset.</p>
               </article>
               <article class="challenge-card">
                 <div class="roman">iv.</div>
                 <h3>Data Ownership</h3>
-                <p>The legal, economic, and technical infrastructure that makes the first three real. Without clear ownership, data cannot be transferred, collateralized, or accounted for as property. The IDR defines the standards that turn data from an ambient resource into an asset that can be held and exchanged.</p>
+                <p>The legal, economic, and technical infrastructure underpinning sovereignty, interoperability, and valuation. Without clear ownership, data cannot be transferred, collateralized, or recognized as property.</p>
               </article>
             </div>
           </div>
 
           <div class="panel" id="panel-functions">
-            <div class="section-label mono-label">The Framework</div>
-            <h2>Four functions. One reserve.</h2>
+            <h2>Functions</h2>
             <p class="lede">How the IDR maintains the integrity and interoperability of the data monetization ecosystem.</p>
 
             <div class="function-grid">
@@ -355,6 +397,7 @@ p { font-size: var(--size-body); line-height: 1.6; color: var(--ink-soft); }
           </div>
 
           <div class="panel" id="panel-our-system">
+            <h1>Our System</h1>
             <p class="system-lede">A federated system, sovereign at the regional level and coordinated at the global, designed for the realities of a multipolar data economy. The IDR is structured as seven regional reserves, each authorizing seven Data Agents, for a total of forty-nine worldwide.</p>
 
             <div class="stats-row">
@@ -365,6 +408,10 @@ p { font-size: var(--size-body); line-height: 1.6; color: var(--ink-soft); }
               <div class="stat-card">
                 <div class="mono-label">Authorized Data Agents</div>
                 <div class="stat-value">49</div>
+              </div>
+              <div class="stat-card">
+                <div class="mono-label">Standard Data Agents</div>
+                <div class="stat-value">3</div>
               </div>
             </div>
 
@@ -378,49 +425,36 @@ p { font-size: var(--size-body); line-height: 1.6; color: var(--ink-soft); }
                   <div class="reserve-header"><span>Reg · 01</span><span class="status-indicator"><span class="status-dot active"></span>Active</span></div>
                   <h3>American Data Reserve</h3>
                   <div class="territory">North America · USA · Canada</div>
-                  <div class="hq">ADR · Washington / Palo Alto</div>
                 </article>
                 <article class="reserve-card">
-                  <div class="reserve-header"><span>Reg · 02</span><span class="status-indicator"><span class="status-dot active"></span>Active</span></div>
+                  <div class="reserve-header"><span>Reg · 02</span><span class="status-indicator"><span class="status-dot forming"></span>Forming</span></div>
                   <h3>Brazilian Data Reserve</h3>
                   <div class="territory">LATAM + Mexico</div>
-                  <div class="hq">BDR · São Paulo / Lisbon</div>
                 </article>
                 <article class="reserve-card">
-                  <div class="reserve-header"><span>Reg · 03</span><span class="status-indicator"><span class="status-dot forming"></span>Forming</span></div>
+                  <div class="reserve-header"><span>Reg · 03</span><span class="status-indicator"><span class="status-dot planned"></span>Planned</span></div>
                   <h3>Arab Data Reserve</h3>
                   <div class="territory">Middle East &amp; North Africa</div>
-                  <div class="hq">ARD · Dubai / Riyadh</div>
                 </article>
                 <article class="reserve-card">
-                  <div class="reserve-header"><span>Reg · 04</span><span class="status-indicator"><span class="status-dot forming"></span>Forming</span></div>
+                  <div class="reserve-header"><span>Reg · 04</span><span class="status-indicator"><span class="status-dot planned"></span>Planned</span></div>
                   <h3>South Asian Data Reserve</h3>
                   <div class="territory">India · Pakistan · Bangladesh</div>
-                  <div class="hq">SADR · Bengaluru</div>
                 </article>
                 <article class="reserve-card">
                   <div class="reserve-header"><span>Reg · 05</span><span class="status-indicator"><span class="status-dot planned"></span>Planned</span></div>
                   <h3>European Data Reserve</h3>
                   <div class="territory">EU + Central Asia</div>
-                  <div class="hq">EDR · Brussels / Lisbon</div>
                 </article>
                 <article class="reserve-card">
                   <div class="reserve-header"><span>Reg · 06</span><span class="status-indicator"><span class="status-dot planned"></span>Planned</span></div>
                   <h3>African Data Reserve</h3>
                   <div class="territory">Sub-Saharan Africa</div>
-                  <div class="hq">AFDR · Nairobi / Lagos</div>
                 </article>
                 <article class="reserve-card">
                   <div class="reserve-header"><span>Reg · 07</span><span class="status-indicator"><span class="status-dot planned"></span>Planned</span></div>
                   <h3>Asia-Pacific Data Reserve</h3>
                   <div class="territory">East &amp; Pacific Asia</div>
-                  <div class="hq">APDR · Singapore / Tokyo</div>
-                </article>
-                <article class="reserve-card">
-                  <div class="reserve-header"><span>Core · ∞</span><span class="status-indicator"><span class="status-dot active"></span>Active</span></div>
-                  <h3>IDR Secretariat</h3>
-                  <div class="territory">Global Coordination</div>
-                  <div class="hq">HQ · Baar, Switzerland</div>
                 </article>
               </div>
             </section>
@@ -429,8 +463,7 @@ p { font-size: var(--size-body); line-height: 1.6; color: var(--ink-soft); }
           </div>
 
           <div class="panel" id="panel-governance">
-            <div class="section-label mono-label">Governance</div>
-            <h2>Five committees. One assembly.</h2>
+            <h2>Governance</h2>
             <p class="lede">The IDR operates between General Assemblies through five standing committees, each with a narrow mandate, a chair elected by members, and a public agenda.</p>
 
             <div class="governance-grid">
@@ -467,77 +500,40 @@ p { font-size: var(--size-body); line-height: 1.6; color: var(--ink-soft); }
   </section>
 
   <!-- DATA SAVINGS ACT -->
-  <section id="data-savings-act" class="dsa-section">
+  <section id="data-savings-act" class="dsa-hero-banner">
     <div class="container">
-      <div class="dsa-grid">
-        <div class="dsa-content">
-          <div class="mono-label">Legislative Framework</div>
-          <h2>The Data Savings Act.</h2>
-          <p>The foundational legislation that recognizes data as a protected asset class and establishes the right of individuals and institutions to save, own, and be compensated for the data they produce.</p>
-          <p>Modeled on the principles of monetary savings protection, the Act creates the legal architecture that makes the Reserve's standards enforceable in jurisdictions that adopt it.</p>
-          <a href="./Docs/Data Savings Act.pdf" target="_blank" class="btn btn-primary">Read the Act <span>→</span></a>
-        </div>
-        <div class="dsa-visual">
-          <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient id="dsaGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#4ade80" stop-opacity="0.2"/>
-                <stop offset="100%" stop-color="#4ade80" stop-opacity="0"/>
-              </radialGradient>
-            </defs>
-            <circle cx="200" cy="200" r="180" fill="url(#dsaGlow)"/>
-            <circle cx="200" cy="200" r="160" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-            <circle cx="200" cy="200" r="120" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-            <circle cx="200" cy="200" r="80" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-            <g fill="rgba(255,255,255,0.85)">
-              <circle cx="160" cy="200" r="3"/><circle cx="170" cy="188" r="2.5"/><circle cx="150" cy="212" r="2.5"/>
-              <circle cx="180" cy="180" r="2"/><circle cx="140" cy="220" r="2"/><circle cx="190" cy="178" r="1.8"/>
-              <circle cx="135" cy="210" r="1.8"/><circle cx="150" cy="180" r="1.8"/><circle cx="170" cy="220" r="1.8"/>
-              <circle cx="200" cy="200" r="3.5" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.2"/>
-              <circle cx="240" cy="200" r="3"/><circle cx="230" cy="188" r="2.5"/><circle cx="250" cy="212" r="2.5"/>
-              <circle cx="220" cy="180" r="2"/><circle cx="260" cy="220" r="2"/><circle cx="210" cy="178" r="1.8"/>
-              <circle cx="265" cy="210" r="1.8"/><circle cx="250" cy="180" r="1.8"/><circle cx="230" cy="220" r="1.8"/>
-            </g>
-            <circle cx="200" cy="40" r="3" fill="#4ade80">
-              <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="20s" repeatCount="indefinite"/>
-            </circle>
-          </svg>
-        </div>
+      <div class="dsa-hero-content">
+        <div class="mono-label">§ IX · THE ACT</div>
+        <h2>The Data Savings Act.</h2>
+        <p class="lede-large">A proposal for the AI Economy to turn participation into ownership and contributions into compounding assets.</p>
+        <p class="lede-sub">This Act proposes returning the value of data to the ones who generate it.</p>
+        <a href="./Docs/Data Savings Act.pdf" target="_blank" class="btn btn-primary btn-white">View the Data Savings Act <span>→</span></a>
       </div>
     </div>
   </section>
 
-  <!-- JOIN -->
-  <section id="join" class="join-section">
+  <!-- JOIN / CONNECT -->
+  <section id="join" class="connect-section">
     <div class="container">
-      <div class="join-content">
-        <div class="mono-label">Participate</div>
-        <h2>Join the Reserve.</h2>
-        <p>The IDR is built by the institutions, governments, and citizens it serves. There are several ways to participate in the work.</p>
-
-        <div class="join-options">
-          <article class="join-option">
-            <span class="mono-label">I.</span>
-            <h3>Become a Data Agent</h3>
-            <p>Apply to be an authorized Data Agent within one of the seven regional reserves.</p>
-            <a href="#">Apply <span>→</span></a>
-          </article>
-          <article class="join-option">
-            <span class="mono-label">II.</span>
-            <h3>Partner Institutionally</h3>
-            <p>Universities, governments, and multilateral bodies shape the Reserve's standards.</p>
-            <a href="#">Get in touch <span>→</span></a>
-          </article>
-          <article class="join-option">
-            <span class="mono-label">III.</span>
-            <h3>Public Comment</h3>
-            <p>Every IDR framework is open to public review. Civil society is our ultimate principal.</p>
-            <a href="#">View open comments <span>→</span></a>
-          </article>
+      <div class="connect-header">
+        <div class="mono-label">Connect</div>
+        <h2>Stay connected.</h2>
+      </div>
+      <div class="connect-grid">
+        <div class="connect-card">
+          <span class="mono-label">I.</span>
+          <h3>Stay in touch</h3>
+          <p>Leave your email to receive announcements and policy publications.</p>
+          <form class="email-capture">
+            <input type="email" placeholder="your@email.com">
+            <button type="submit" class="btn btn-primary">Notify me</button>
+          </form>
         </div>
-
-        <div class="join-actions">
-          <a href="#" class="btn btn-primary">Contact the Secretariat <span>→</span></a>
+        <div class="connect-card">
+          <span class="mono-label">II.</span>
+          <h3>Get in touch</h3>
+          <p>For partnerships, press, and institutional inquiries.</p>
+          <a href="mailto:contact@idr.org" class="btn btn-primary">Contact us <span>→</span></a>
         </div>
       </div>
     </div>
@@ -549,7 +545,7 @@ p { font-size: var(--size-body); line-height: 1.6; color: var(--ink-soft); }
   <div class="container">
     <div class="footer-grid">
       <div class="footer-col-main">
-        <h3>The International<br>Data Reserve</h3>
+        <h3>The International Data Reserve<br>Established in 2022</h3>
         <p>A decentralized autonomous organization promoting data ownership and fostering cooperation among civil society, universities, governments, and multilateral organizations.</p>
       </div>
       <div class="footer-col">
