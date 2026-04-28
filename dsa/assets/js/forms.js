@@ -47,12 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const step2 = document.getElementById('signStep2');
                 if (step1) step1.style.display = 'none';
                 if (step2) step2.style.display = 'block';
-                
-                // Update share card
-                const shareName = document.getElementById('shareName');
-                const shareCity = document.getElementById('shareCity');
-                if (shareName) shareName.innerText = (firstName + ' ' + lastName).toUpperCase();
-                if (shareCity) shareCity.innerText = zip;
             }
         });
     }
@@ -79,12 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const step2 = document.getElementById('signStep2Hero');
                 if (step1) step1.style.display = 'none';
                 if (step2) step2.style.display = 'block';
-                
-                // Update share card details
-                const shareName = document.getElementById('shareNameHero');
-                const shareCity = document.getElementById('shareCityHero');
-                if (shareName) shareName.innerText = (firstName + ' ' + lastName).toUpperCase();
-                if (shareCity) shareCity.innerText = zip;
             }
         });
     }
