@@ -1,0 +1,8 @@
+services:
+  dsa-landing:
+    build:
+      context: .
+      dockerfile: dsa/Dockerfile
+    ports:
+      - "80"
+    restart: always
