@@ -65,11 +65,11 @@ p { font-size: var(--size-body); line-height: 1.6; color: var(--ink-soft); }
 .carousel-track { display: flex; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform; }
 .carousel-slide { flex: 0 0 100%; min-height: 420px; padding: clamp(2rem, 5vw, 4rem); display: flex; flex-direction: column; justify-content: flex-end; color: white; position: relative; overflow: hidden; background-size: cover; background-position: center; background-repeat: no-repeat; }
 .carousel-slide::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 70%); pointer-events: none; }
-.carousel-slide.slide-1 { background-image: url('./Imagens/Carrossel IDR/1_idr.jpg'); }
-.carousel-slide.slide-2 { background-image: url('./Imagens/Carrossel IDR/2_idr.jpg'); }
-.carousel-slide.slide-3 { background-image: url('./Imagens/Carrossel IDR/3_idr.jpg'); }
-.carousel-slide.slide-4 { background-image: url('./Imagens/Carrossel IDR/4_idr.jpg'); background-position: center 15%; }
-.carousel-slide.slide-5 { background-image: url('./Imagens/Carrossel IDR/5_idr.jpg'); background-position: center 15%; }
+.carousel-slide.slide-1 { background-image: url('../img/carrossel-idr/1_idr.jpg'); }
+.carousel-slide.slide-2 { background-image: url('../img/carrossel-idr/2_idr.jpg'); }
+.carousel-slide.slide-3 { background-image: url('../img/carrossel-idr/3_idr.jpg'); }
+.carousel-slide.slide-4 { background-image: url('../img/carrossel-idr/4_idr.jpg'); background-position: center 15%; }
+.carousel-slide.slide-5 { background-image: url('../img/carrossel-idr/5_idr.jpg'); background-position: center 15%; }
 .carousel-tag { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.875rem; border: 1px solid rgba(255,255,255,0.5); border-radius: 999px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem; width: fit-content; position: relative; z-index: 2; }
 .carousel-tag::before { content: ''; width: 6px; height: 6px; background: white; border-radius: 50%; }
 .carousel-slide h2 { color: white; font-size: clamp(1.75rem, 3.5vw, 2.75rem); max-width: 20ch; line-height: 1.15; position: relative; z-index: 2; }
