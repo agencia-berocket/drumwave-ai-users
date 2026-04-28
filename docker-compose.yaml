@@ -5,4 +5,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - "80"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.dsa-landing.rule=Host(`dsa.berocket.com.br`)"
+      - "traefik.http.routers.dsa-landing.entrypoints=http"
+      - "traefik.http.services.dsa-landing.loadbalancer.server.port=80"
     restart: always
