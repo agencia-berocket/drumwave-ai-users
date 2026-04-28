@@ -2219,8 +2219,8 @@ html, body {
             <input type="email" id="csEmail" name="csEmail" placeholder="[email protected]" required>
           </div>
           <div class="cs-col">
-            <label>Website <span class="opt">(optional)</span></label>
-            <input type="url" id="csWebsite" name="csWebsite" placeholder="https://…">
+            <label>Website (optional)</label>
+            <input type="text" id="csWebsite" name="csWebsite" placeholder="e.g. organization.org">
           </div>
         </div>
 
@@ -2306,20 +2306,33 @@ html, body {
     document.getElementById('shareName').textContent = name || 'Friend';
     document.getElementById('shareCity').textContent = zip || 'USA';
 
-    // Envio para o Google Sheets
+    // Envio para o Google Sheets (Método Robusto via Iframe)
     if (SIGN_SCRIPT_URL) {
-      const params = new URLSearchParams();
-      params.append('signFirstName', firstName);
-      params.append('signLastName', lastName);
-      params.append('signZip', zip);
-      params.append('signEmail', email);
+      const hiddenForm = document.createElement('form');
+      hiddenForm.method = 'POST';
+      hiddenForm.action = SIGN_SCRIPT_URL;
+      hiddenForm.target = 'hidden_iframe';
+      hiddenForm.style.display = 'none';
 
-      fetch(SIGN_SCRIPT_URL + '?' + params.toString(), {
-        method: 'POST',
-        mode: 'no-cors'
-      })
-      .then(() => console.log('Sign sync sent'))
-      .catch(err => console.error('Sheet sync error:', err));
+      const fields = {
+        'signFirstName': firstName,
+        'signLastName': lastName,
+        'signZip': zip,
+        'signEmail': email
+      };
+
+      for (const key in fields) {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = key;
+        input.value = fields[key];
+        hiddenForm.appendChild(input);
+      }
+
+      document.body.appendChild(hiddenForm);
+      hiddenForm.submit();
+      setTimeout(() => document.body.removeChild(hiddenForm), 1000);
+      console.log('Sign sync submitted via iframe');
     }
     
     document.getElementById('signStep1').style.display = 'none';
@@ -2358,22 +2371,35 @@ html, body {
     const email = document.getElementById('csEmail').value;
     const website = document.getElementById('csWebsite').value;
 
-    // Envio para o Google Sheets
+    // Envio para o Google Sheets (Método Robusto via Iframe)
     if (COSPONSOR_SCRIPT_URL) {
-      const params = new URLSearchParams();
-      params.append('csOrgName', orgName);
-      params.append('csOrgType', orgType);
-      params.append('csContactName', contactName);
-      params.append('csRole', role);
-      params.append('csEmail', email);
-      params.append('csWebsite', website);
+      const hiddenForm = document.createElement('form');
+      hiddenForm.method = 'POST';
+      hiddenForm.action = COSPONSOR_SCRIPT_URL;
+      hiddenForm.target = 'hidden_iframe';
+      hiddenForm.style.display = 'none';
 
-      fetch(COSPONSOR_SCRIPT_URL + '?' + params.toString(), {
-        method: 'POST',
-        mode: 'no-cors'
-      })
-      .then(() => console.log('Cosponsor sync sent'))
-      .catch(err => console.error('Sheet sync error:', err));
+      const fields = {
+        'csOrgName': orgName,
+        'csOrgType': orgType,
+        'csContactName': contactName,
+        'csRole': role,
+        'csEmail': email,
+        'csWebsite': website
+      };
+
+      for (const key in fields) {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = key;
+        input.value = fields[key];
+        hiddenForm.appendChild(input);
+      }
+
+      document.body.appendChild(hiddenForm);
+      hiddenForm.submit();
+      setTimeout(() => document.body.removeChild(hiddenForm), 1000);
+      console.log('Cosponsor sync submitted via iframe');
     }
 
     document.getElementById('cosponsorStep1').style.display = 'none';
@@ -2383,6 +2409,8 @@ html, body {
     if (e.target === this) closeCosponsorModal();
   });
 </script>
+
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
 </body>
 </html>
