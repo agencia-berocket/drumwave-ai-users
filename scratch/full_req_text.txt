@@ -1,0 +1,10 @@
+<USER_REQUEST>
+@[/Users/guilhermerossi/Documents/AI_DW_Workflow/index-dsa.html] 
+
+* No texto “The middle class is hollowing.” Mudar para “The rise of the post-AI middle class.” onde “post-AI” deve estar em vermelho
+
+* Na mesma sessão, ao lado do botão “SIGN THE DECLARATION →” criar um novo botão “Read Op-Ed” que leva para o PDF @[/Users/guilhermerossi/Documents/AI_DW_Workflow/Docs/Post-AI_American_Middle_Class_MV.pdf] 
+
+* No Texto “You've just read a draft of an American law. A fair question: who wrote it, and why?
+The Data Savings Act is sponsored by the International Data Reserve, a non-profit institution built for the same reason central banks were built a century ago. Paper money needed an issuer and a standard-setter. Data now needs the same. We exist to provide that standard, to audit the entities that handle your data, and to make sure the value it generates finds its way back to the people who produced it.
+<truncated 3930 bytes>
