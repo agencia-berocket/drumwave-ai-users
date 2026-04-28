@@ -1,5 +1,4 @@
 FROM nginx:alpine
-COPY . /usr/share/nginx/html
-RUN mv /usr/share/nginx/html/index-dsa.html /usr/share/nginx/html/index.html
+COPY . /usr/share/nginx/html/
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["/bin/sh", "-c", "cp /usr/share/nginx/html/${START_PAGE:-index-dsa.html} /usr/share/nginx/html/index.html && nginx -g 'daemon off;'"]
