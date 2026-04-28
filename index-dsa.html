@@ -2307,20 +2307,18 @@ html, body {
     document.getElementById('shareCity').textContent = zip || 'USA';
 
     // Envio para o Google Sheets
-    if (SIGN_SCRIPT_URL !== 'SUA_URL_AQUI') {
-      const formData = new URLSearchParams();
-      formData.append('signFirstName', firstName);
-      formData.append('signLastName', lastName);
-      formData.append('signZip', zip);
-      formData.append('signEmail', email);
-      formData.append('Timestamp', new Date().toISOString());
+    if (SIGN_SCRIPT_URL) {
+      const params = new URLSearchParams();
+      params.append('signFirstName', firstName);
+      params.append('signLastName', lastName);
+      params.append('signZip', zip);
+      params.append('signEmail', email);
 
-      fetch(SIGN_SCRIPT_URL, {
+      fetch(SIGN_SCRIPT_URL + '?' + params.toString(), {
         method: 'POST',
-        mode: 'no-cors',
-        body: formData
+        mode: 'no-cors'
       })
-      .then(() => console.log('Sign sync success'))
+      .then(() => console.log('Sign sync sent'))
       .catch(err => console.error('Sheet sync error:', err));
     }
     
@@ -2361,22 +2359,20 @@ html, body {
     const website = document.getElementById('csWebsite').value;
 
     // Envio para o Google Sheets
-    if (COSPONSOR_SCRIPT_URL !== 'SUA_URL_AQUI') {
-      const formData = new URLSearchParams();
-      formData.append('csOrgName', orgName);
-      formData.append('csOrgType', orgType);
-      formData.append('csContactName', contactName);
-      formData.append('csRole', role);
-      formData.append('csEmail', email);
-      formData.append('csWebsite', website);
-      formData.append('Timestamp', new Date().toISOString());
+    if (COSPONSOR_SCRIPT_URL) {
+      const params = new URLSearchParams();
+      params.append('csOrgName', orgName);
+      params.append('csOrgType', orgType);
+      params.append('csContactName', contactName);
+      params.append('csRole', role);
+      params.append('csEmail', email);
+      params.append('csWebsite', website);
 
-      fetch(COSPONSOR_SCRIPT_URL, {
+      fetch(COSPONSOR_SCRIPT_URL + '?' + params.toString(), {
         method: 'POST',
-        mode: 'no-cors',
-        body: formData
+        mode: 'no-cors'
       })
-      .then(() => console.log('Cosponsor sync success'))
+      .then(() => console.log('Cosponsor sync sent'))
       .catch(err => console.error('Sheet sync error:', err));
     }
 
