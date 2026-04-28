@@ -24,3 +24,16 @@ services:
       - "traefik.http.routers.drumwave-landing.entrypoints=http"
       - "traefik.http.services.drumwave-landing.loadbalancer.server.port=80"
     restart: always
+
+  idr-landing:
+    build:
+      context: ./deploy_packages/site-idr
+      dockerfile: Dockerfile
+    ports:
+      - "80"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.idr-landing.rule=Host(`idrs.berocket.com.br`)"
+      - "traefik.http.routers.idr-landing.entrypoints=http"
+      - "traefik.http.services.idr-landing.loadbalancer.server.port=80"
+    restart: always
