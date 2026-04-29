@@ -275,7 +275,7 @@ p { font-size: var(--size-body); line-height: 1.6; color: var(--ink-soft); }
   .hero h1 { font-size: 1.875rem; }
   
   .carousel-slide { min-height: 480px; padding-bottom: 5rem; }
-  .carousel-slide.slide-4, .carousel-slide.slide-5 { background-position: 20% 15%; }
+  .carousel-slide.slide-4, .carousel-slide.slide-5 { background-position: 80% 15%; }
   .carousel-dots { right: 50%; transform: translateX(50%); bottom: 1.5rem; }
   
   .panel > h1, .panel > h2 { font-size: 1.75rem; }
