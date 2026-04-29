@@ -113,63 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Social Sharing Logic
-    const shareUrl = encodeURIComponent(window.location.origin + '/data-savings.html');
-    const shareText = encodeURIComponent("I just signed the Data Savings Act declaration. Join me in securing our data future!");
-
-    // Setup sharing for all instances (Hero, Modal, Body)
-    const setupSharing = () => {
-        // X (Twitter)
-        document.querySelectorAll('.share-x').forEach(btn => {
-            btn.addEventListener('click', () => {
-                window.open(`https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`, '_blank');
-            });
-        });
-
-        // Facebook
-        document.querySelectorAll('.share-fb').forEach(btn => {
-            btn.addEventListener('click', () => {
-                window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`, '_blank');
-            });
-        });
-
-        // LinkedIn
-        document.querySelectorAll('.share-li').forEach(btn => {
-            btn.addEventListener('click', () => {
-                window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`, '_blank');
-            });
-        });
-
-        // Instagram (Direct share not available on web, copy link as fallback)
-        document.querySelectorAll('.share-ig').forEach(btn => {
-            btn.addEventListener('click', () => {
-                copyLink(btn);
-                alert("Link copied! Instagram doesn't allow direct sharing via web. You can paste the link in your stories or profile.");
-            });
-        });
-
-        // Copy Link
-        document.querySelectorAll('.share-link').forEach(btn => {
-            btn.addEventListener('click', () => copyLink(btn));
-        });
-    };
-
-    const copyLink = (btn) => {
-        const url = window.location.origin + '/data-savings.html';
-        navigator.clipboard.writeText(url).then(() => {
-            const originalTitle = btn.getAttribute('title');
-            btn.setAttribute('title', 'Copied!');
-            const originalColor = btn.style.color;
-            btn.style.color = '#ce1126'; // DSA Red
-            
-            setTimeout(() => {
-                btn.setAttribute('title', originalTitle);
-                btn.style.color = originalColor;
-            }, 2000);
-        });
-    };
-
-    setupSharing();
+    // Setup sharing removed - logic centralized in index.html shareAction()
 });
 
 /**
