@@ -422,6 +422,33 @@
     function resetAuto() { clearInterval(autoTimer); startAuto(); }
     startAuto();
   })();
+
+  // Hide header on scroll down, show on scroll up
+  (function() {
+    const header = document.querySelector('.site-header');
+    let lastScrollY = window.scrollY;
+    const threshold = 100;
+
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.scrollY;
+      
+      // If we've scrolled more than the threshold
+      if (currentScrollY > threshold) {
+        if (currentScrollY > lastScrollY) {
+          // Scrolling down - hide header
+          header.classList.add('header-hidden');
+        } else {
+          // Scrolling up - show header
+          header.classList.remove('header-hidden');
+        }
+      } else {
+        // Near top - always show
+        header.classList.remove('header-hidden');
+      }
+      
+      lastScrollY = currentScrollY;
+    }, { passive: true });
+  })();
 </script>
 
 </body>

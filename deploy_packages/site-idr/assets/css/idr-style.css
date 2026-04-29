@@ -34,7 +34,8 @@ p { font-size: var(--size-body); line-height: 1.6; color: var(--ink-soft); }
 .container { max-width: var(--page-max); margin: 0 auto; padding: 0 var(--page-pad); }
 
 /* Header */
-.site-header { border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); background: rgba(255,255,255,0.9); }
+.site-header { border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); background: rgba(255,255,255,0.9); transition: transform 0.3s ease-in-out; will-change: transform; }
+.site-header.header-hidden { transform: translateY(-100%); }
 .site-header .container { display: flex; align-items: center; justify-content: space-between; padding-top: 1.25rem; padding-bottom: 1.25rem; }
 .logo { display: flex; align-items: center; text-decoration: none; }
 .logo-img { height: 36px; width: auto; display: block; }
