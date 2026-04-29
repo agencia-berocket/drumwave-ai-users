@@ -85,6 +85,7 @@
           <nav>
             <a data-panel="what-is" class="active">About IDR</a>
             <a data-panel="functions">Functions</a>
+            <a data-panel="data-agent">Data Agent</a>
             <a data-panel="our-system">Our System</a>
             <a data-panel="governance">Governance</a>
           </nav>
@@ -148,6 +149,46 @@
                 <p>Civil society is not one constituency among many. It is a primary stakeholder in the Reserve. The IDR incorporates public comment into every published framework and sustains a multistakeholder model through events, training, and research grants.</p>
               </article>
             </div>
+          </div>
+
+          <div class="panel" id="panel-data-agent">
+            <h2>Data Agent</h2>
+            <p class="lede">Data Agents are authorized and audited operators of the data economy. They provide certified data monetization services to businesses and individuals—turning data into a financial asset.</p>
+            
+            <div class="agent-role-grid">
+              <div class="agent-intro">
+                <p>They act as:</p>
+              </div>
+              <div class="function-grid">
+                <article class="function-card">
+                  <div class="roman">i.</div>
+                  <h3>Custodians</h3>
+                  <p>Custodians of data certificates, ensuring security, integrity, and compliance.</p>
+                </article>
+                <article class="function-card">
+                  <div class="roman">ii.</div>
+                  <h3>Issuers</h3>
+                  <p>Issuers of Personal and Business dWallets, onboarding participants into the system.</p>
+                </article>
+                <article class="function-card">
+                  <div class="roman">iii.</div>
+                  <h3>Operators</h3>
+                  <p>Operators of custody and infrastructure, managing how data is held and transacted.</p>
+                </article>
+                <article class="function-card">
+                  <div class="roman">iv.</div>
+                  <h3>Distributors</h3>
+                  <p>Distributors of Data Savings Plans, enabling individuals and enterprises to save, allocate, and compound the value of their data.</p>
+                </article>
+                <article class="function-card">
+                  <div class="roman">v.</div>
+                  <h3>Marketplace enablers</h3>
+                  <p>Activating offers and monetization flows.</p>
+                </article>
+              </div>
+            </div>
+            
+            <p class="lede" style="margin-top: 2rem;">Data Agents are the distribution and trust layer of the system—issuing accounts, safeguarding assets, and scaling Data Savings across the economy.</p>
           </div>
 
           <div class="panel" id="panel-our-system">
@@ -295,60 +336,28 @@
 
 </main>
 
-<footer class="site-footer">
+<footer class="site-footer-v2">
   <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col-main">
-        <h3>The International Data Reserve<br class="mobile-br"> - Established 2022</h3>
-        <p>A decentralized autonomous organization promoting data ownership and fostering cooperation among civil society, universities, governments, and multilateral organizations.</p>
-      </div>
-      <div class="footer-col">
-        <h4>THE RESERVE</h4>
-        <ul>
-          <li><a href="#top">About IDR</a></li>
-          <li><a href="#top">Regional Reserves</a></li>
-          <li><a href="#top">Governance</a></li>
-          <li><a href="#top">Annual Report</a></li>
-          <li><a href="#top">Careers</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>FRAMEWORK</h4>
-        <ul>
-          <li><a href="#top">The Data Savings Act</a></li>
-          <li><a href="#top">Guides &amp; Framework</a></li>
-          <li><a href="#top">Value Schema System</a></li>
-          <li><a href="#top">Asymmetry Policy</a></li>
-          <li><a href="#top">Valuation Metrics</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>ENGAGE</h4>
-        <ul>
-          <li><a href="#top">General Assembly</a></li>
-          <li><a href="#top">Public Comment</a></li>
-          <li><a href="#top">Research Grants</a></li>
-          <li><a href="#top">2026 Award</a></li>
-          <li><a href="#top">Events</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>RESOURCES</h4>
-        <ul>
-          <li><a href="#top">Data Agent Registry</a></li>
-          <li><a href="#top">Technical Docs</a></li>
-          <li><a href="#top">Press &amp; Media</a></li>
-          <li><a href="#top">Contact</a></li>
-          <li><a href="#top">Whistleblower</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>HQ &nbsp; BAAR &nbsp; ZUG &nbsp; CH</span>
-      <span>EST. 2022</span>
+    <div class="footer-v2-content">
+      <a href="#top" class="footer-logo">
+        <img src="assets/img/Logo IDR.png" alt="IDR" class="logo-white">
+      </a>
+      <button class="btn btn-contact" onclick="openContactModal()">Contact Us</button>
     </div>
   </div>
 </footer>
+
+<!-- Contact Modal -->
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeContactModal()">&times;</button>
+    <h3>Get in Touch</h3>
+    <p>Send an email to our team for inquiries, partnerships, or support.</p>
+    <a href="mailto:info@theinternationaldatareserve.org" class="btn btn-primary btn-email">
+      info@theinternationaldatareserve.org
+    </a>
+  </div>
+</div>
 
 <script>
   // Sidebar panel switcher
@@ -450,6 +459,21 @@
       lastScrollY = currentScrollY;
     }, { passive: true });
   })();
+
+  // Contact Modal Functions
+  function openContactModal() {
+    document.getElementById('contactModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeContactModal() {
+    document.getElementById('contactModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  // Close on backdrop click
+  window.addEventListener('click', (e) => {
+    const modal = document.getElementById('contactModal');
+    if (e.target === modal) closeContactModal();
+  });
 </script>
 
 </body>
