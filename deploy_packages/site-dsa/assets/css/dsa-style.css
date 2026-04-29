@@ -573,47 +573,53 @@ html, body {
 .act-share-card {
   background: #000;
   color: #fff;
-  padding: 44px 36px;
-  max-width: 440px;
-  margin: 0 auto 28px;
+  padding: 20px 16px;
+  width: 100%;
+  max-width: 224px;
+  min-height: 238px;
+  margin: 0;
   text-align: center;
   box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.3s ease;
 }
 
 .act-share-card-h {
   font-family: 'Inter', sans-serif;
   font-weight: 800;
-  font-size: 44px;
-  line-height: 0.94;
+  font-size: 22px;
+  line-height: 1;
   letter-spacing: -0.03em;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .act-share-card-sub {
   font-family: 'Inter', sans-serif;
   font-weight: 300;
-  font-size: 15px;
+  font-size: 10px;
   letter-spacing: -0.01em;
   color: #c8c8c5;
-  margin-bottom: 28px;
+  margin-bottom: 14px;
 }
 
 .act-share-card-mark {
-  width: 40px;
-  height: 40px;
+  width: 24px;
+  height: 24px;
   background-image: var(--logo-url);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  margin: 0 auto 18px;
+  margin: 0 auto 10px;
 }
 
 .act-share-signer {
   border-top: 1px solid #333;
-  padding-top: 18px;
+  padding-top: 10px;
   font-family: 'Fraunces', serif;
   font-style: italic;
-  font-size: 14px;
+  font-size: 10px;
   color: #fff;
 }
 
@@ -627,6 +633,130 @@ html, body {
   color: #888;
   margin-top: 10px;
 }
+
+/* Variant 2 - Red */
+.act-share-card.v2 {
+  background: #ce1126;
+  color: #fff;
+}
+
+.act-share-card.v2 .act-share-card-h {
+  font-size: 20px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.act-share-card.v2 .act-share-card-sub {
+  color: #fff;
+  opacity: 0.9;
+  font-weight: 500;
+  border-top: 1px solid rgba(255,255,255,0.3);
+  padding-top: 20px;
+}
+
+.act-share-card.v2 .act-share-card-mark {
+  filter: brightness(0) invert(1);
+  width: 32px;
+  height: 32px;
+}
+
+.act-share-card.v2 .act-share-signer {
+  border-top-color: rgba(255,255,255,0.2);
+}
+
+/* Selector styles */
+.share-selector {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 0;
+}
+#modalShareContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.selector-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.selector-preview {
+  width: 72px;
+  height: 90px;
+  border-radius: 6px;
+  border: 2px solid #d9d3c5;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  gap: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.selector-btn.active .selector-preview {
+  border-color: #ce1126;
+  box-shadow: 0 8px 20px rgba(206, 17, 38, 0.2);
+  transform: translateY(-4px);
+}
+
+.selector-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #7a6e54;
+}
+
+.selector-btn.active .selector-label {
+  color: #ce1126;
+}
+
+/* Thumbnail variations */
+.preview-v1 { background: #000; }
+.preview-v2 { background: #ce1126; }
+
+.preview-mark {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  margin-bottom: 4px;
+}
+.preview-v1 .preview-mark { background: #ce1126; }
+.preview-v2 .preview-mark { background: #fff; }
+
+.preview-bar { height: 3px; border-radius: 1px; width: 100%; }
+.preview-v1 .preview-bar { background: #fff; opacity: 0.3; }
+.preview-v2 .preview-bar { background: #fff; opacity: 0.6; }
+
+.preview-v1 .preview-bar:nth-child(2) { width: 80%; opacity: 0.8; }
+.preview-v2 .preview-bar:nth-child(2) { width: 90%; background: #fff; opacity: 1; }
+.preview-v1 .preview-bar:nth-child(3) { width: 60%; }
+.preview-v2 .preview-bar:nth-child(3) { width: 70%; }
+
+.preview-footer {
+  margin-top: auto;
+  width: 100%;
+  height: 6px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+
 
 .act-share-buttons {
   display: flex;
@@ -1703,7 +1833,7 @@ html, body {
   background: #f6f2ea;
   max-width: 520px;
   width: 100%;
-  padding: 44px;
+  padding: 32px;
   text-align: center;
   position: relative;
   color: #1a1a1a;
@@ -1722,10 +1852,10 @@ html, body {
 
 .modal-check {
   font-family: 'Fraunces', serif;
-  font-size: 56px;
+  font-size: 40px;
   color: #b8231c;
   line-height: 1;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .modal h2 {
@@ -1740,15 +1870,15 @@ html, body {
   font-family: 'Fraunces', serif;
   font-size: 15px;
   color: #7a6e54;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   line-height: 1.5;
 }
 
 .modal-share-card {
   background: #000;
   color: #fff;
-  padding: 34px 26px;
-  margin-bottom: 20px;
+  padding: 0;
+  margin-bottom: 0;
   text-align: center;
 }
 
@@ -1812,7 +1942,7 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-top: 24px;
+  margin-top: 16px;
 }
 
 .modal-option-btn {
