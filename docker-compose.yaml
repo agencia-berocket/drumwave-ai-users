@@ -33,7 +33,12 @@ services:
       - "80"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.idr-landing.rule=Host(`idrs.berocket.com.br`)"
-      - "traefik.http.routers.idr-landing.entrypoints=http"
+      - "traefik.http.routers.idr-landing-http.rule=Host(`idrs.berocket.com.br`)"
+      - "traefik.http.routers.idr-landing-http.entrypoints=http"
+      - "traefik.http.routers.idr-landing-http.middlewares=redirect-to-https"
+      - "traefik.http.routers.idr-landing-https.rule=Host(`idrs.berocket.com.br`)"
+      - "traefik.http.routers.idr-landing-https.entrypoints=https"
+      - "traefik.http.routers.idr-landing-https.tls=true"
+      - "traefik.http.routers.idr-landing-https.tls.certresolver=letsencrypt"
       - "traefik.http.services.idr-landing.loadbalancer.server.port=80"
     restart: always
