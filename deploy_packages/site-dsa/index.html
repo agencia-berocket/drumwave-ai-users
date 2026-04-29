@@ -12,6 +12,7 @@
   <meta property="og:type" content="website">
   <meta id="og-url" property="og:url" content="https://dsa.berocket.com.br">
   <meta id="og-image" property="og:image" content="https://dsa.berocket.com.br/assets/img/share-option-1.png">
+  <meta property="og:image" content="https://dsa.berocket.com.br/assets/img/share-option-2.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   
@@ -586,33 +587,57 @@
   // Selected version global
   let currentShareVersion = 1;
 
+  // Read URL parameter on load
+  window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const v = urlParams.get('v');
+    if (v === '1' || v === '2') {
+      currentShareVersion = parseInt(v);
+      // Auto-switch any visible share containers
+      switchShare(currentShareVersion, 'heroShareContainer');
+      switchShare(currentShareVersion, 'modalShareContainer');
+    }
+  });
+
   // Switch share cards
   function switchShare(option, targetId) {
     currentShareVersion = option;
     const container = document.getElementById(targetId);
+    if (!container) return;
+    
     const card = container.querySelector('.act-share-card');
     const buttons = container.querySelectorAll('.selector-btn');
     
-    buttons.forEach(btn => btn.classList.remove('active'));
-    buttons[option-1].classList.add('active');
+    if (buttons && buttons.length >= option) {
+      buttons.forEach(btn => btn.classList.remove('active'));
+      buttons[option-1].classList.add('active');
+    }
     
-    const h = card.querySelector('.act-share-card-h');
-    const sub = card.querySelector('.act-share-card-sub');
+    if (card) {
+      const h = card.querySelector('.act-share-card-h');
+      const sub = card.querySelector('.act-share-card-sub');
 
-    if (option === 1) {
-      card.classList.remove('v2');
-      h.innerHTML = "Machines<br>Don't Die.";
-      sub.innerHTML = "Own Your Data. Save Your Future.";
-    } else {
-      card.classList.add('v2');
-      h.innerHTML = "The Data<br>Savings Act.";
-      sub.innerHTML = "Your signature. Your voice. Public record.";
+      if (option === 1) {
+        card.classList.remove('v2');
+        if (h) h.innerHTML = "Machines<br>Don't Die.";
+        if (sub) sub.innerHTML = "Own Your Data. Save Your Future.";
+      } else {
+        card.classList.add('v2');
+        if (h) h.innerHTML = "The Data<br>Savings Act.";
+        if (sub) sub.innerHTML = "Your signature. Your voice. Public record.";
+      }
     }
     
     // Update Meta Tags (best effort for some previewers)
     const imgUrl = `https://dsa.berocket.com.br/assets/img/share-option-${option}.png`;
+    const shareDesc = option === 1 
+      ? "Machines Don't Die. Own Your Data. Save Your Future." 
+      : "The proposed Data Savings Act. Your signature. Your voice. Public record.";
+
     document.querySelector('meta[property="og:image"]')?.setAttribute('content', imgUrl);
     document.querySelector('meta[name="twitter:image"]')?.setAttribute('content', imgUrl);
+    document.querySelector('meta[property="og:description"]')?.setAttribute('content', shareDesc);
+    document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', shareDesc);
   }
 
   // Share Actions
@@ -633,6 +658,9 @@
         break;
       case 'li':
         url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
+        break;
+      case 'wa':
+        url = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + " " + shareUrl)}`;
         break;
 
       case 'copy':
