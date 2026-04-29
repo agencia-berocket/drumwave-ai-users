@@ -53,20 +53,3 @@ services:
       - "traefik.http.services.idr-landing.loadbalancer.server.port=80"
     restart: always
 
-  data-savings-landing:
-    build:
-      context: ./deploy_packages/site-data-savings
-      dockerfile: Dockerfile
-    ports:
-      - "80"
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.data-savings-landing-http.rule=Host(`data-savings.berocket.com.br`)"
-      - "traefik.http.routers.data-savings-landing-http.entrypoints=http"
-      - "traefik.http.routers.data-savings-landing-http.middlewares=redirect-to-https"
-      - "traefik.http.routers.data-savings-landing-https.rule=Host(`data-savings.berocket.com.br`)"
-      - "traefik.http.routers.data-savings-landing-https.entrypoints=https"
-      - "traefik.http.routers.data-savings-landing-https.tls=true"
-      - "traefik.http.routers.data-savings-landing-https.tls.certresolver=letsencrypt"
-      - "traefik.http.services.data-savings-landing.loadbalancer.server.port=80"
-    restart: always
