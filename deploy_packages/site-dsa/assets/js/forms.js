@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 5. Social Sharing Logic
-    const shareUrl = encodeURIComponent('https://data-savings.berocket.com.br/');
+    const shareUrl = encodeURIComponent(window.location.origin + '/data-savings.html');
     const shareText = encodeURIComponent("I just signed the Data Savings Act declaration. Join me in securing our data future!");
 
     // Setup sharing for all instances (Hero, Modal, Body)
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.share-ig').forEach(btn => {
             btn.addEventListener('click', () => {
                 copyLink(btn);
-                alert("Link copiado! O Instagram não permite compartilhamento direto via web. Você pode colar o link nos seus stories ou perfil.");
+                alert("Link copied! Instagram doesn't allow direct sharing via web. You can paste the link in your stories or profile.");
             });
         });
 
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const copyLink = (btn) => {
-        const url = 'https://data-savings.berocket.com.br/';
+        const url = window.location.origin + '/data-savings.html';
         navigator.clipboard.writeText(url).then(() => {
             const originalTitle = btn.getAttribute('title');
             btn.setAttribute('title', 'Copied!');
