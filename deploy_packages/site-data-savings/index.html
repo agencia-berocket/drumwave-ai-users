@@ -652,9 +652,7 @@
       gap: 8px;
     }
     .m-dw-brand {
-      display: flex;
-      align-items: center;
-      gap: 5px;
+      display: none;
     }
     .m-dw-logo {
       width: 22px; height: 22px;
@@ -671,9 +669,7 @@
       white-space: nowrap;
     }
     .m-divider {
-      color: var(--rule);
-      font-weight: 300;
-      font-size: 14px;
+      display: none;
     }
     .m-title-act {
       font-family: "Fraunces", serif;
@@ -704,8 +700,8 @@
     .hero{padding: 40px 0 60px;}
     .hero .kicker { display: none; } /* Hide duplicated branding on mobile */
     .hero h1{
-      font-size: clamp(70px, 22vw, 130px);
-      line-height: 1.02;
+      font-size: clamp(56px, 16vw, 94px);
+      line-height: 1.05;
     }
     .hero-sub{grid-template-columns:1fr; gap:30px; margin-top: 40px;}
     .hero-meta{border-left:none; padding-left:0; border-top:1px solid var(--rule); padding-top:20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;}
@@ -745,7 +741,7 @@
     .hero-meta { grid-template-columns: 1fr; }
     .masthead-right a { padding: 6px 8px; font-size: 9px; }
     .m-title-act { font-size: 13px; }
-    .hero h1 { font-size: clamp(64px, 18vw, 76px); }
+    .hero h1 { font-size: clamp(52px, 15.5vw, 68px); }
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -1424,16 +1420,7 @@
     </div>
   </div>
 
-  <!-- SIGNATORIES LIST -->
-  <div class="signatories">
-    <div class="section-head" style="margin-bottom:32px; gap:8px;">
-      <h3 style="font-family:'Fraunces',serif; font-variation-settings:'opsz' 36, 'SOFT' 80, 'wght' 500; font-size:28px; margin:0;">Signatories</h3>
-      <div class="count-live" id="bottom-count" style="margin-top:8px;">Loading count…</div>
-    </div>
-    <div class="sig-list" id="sig-list">
-      <div style="color:var(--ink-mute); font-style:italic;">Loading signatures…</div>
-    </div>
-  </div>
+
 </section>
 
 <!-- ===================== FOOTER ===================== -->
