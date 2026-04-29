@@ -7,12 +7,33 @@ services:
       - "80"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.dsa-landing.rule=Host(`dsa.berocket.com.br`)"
-      - "traefik.http.routers.dsa-landing.entrypoints=http"
+      - "traefik.http.routers.dsa-landing-http.rule=Host(`dsa.berocket.com.br`)"
+      - "traefik.http.routers.dsa-landing-http.entrypoints=http"
+      - "traefik.http.routers.dsa-landing-http.middlewares=redirect-to-https"
+      - "traefik.http.routers.dsa-landing-https.rule=Host(`dsa.berocket.com.br`)"
+      - "traefik.http.routers.dsa-landing-https.entrypoints=https"
+      - "traefik.http.routers.dsa-landing-https.tls=true"
+      - "traefik.http.routers.dsa-landing-https.tls.certresolver=letsencrypt"
       - "traefik.http.services.dsa-landing.loadbalancer.server.port=80"
     restart: always
 
-
+  drumwave-landing:
+    build:
+      context: ./deploy_packages/site-dw-ai
+      dockerfile: Dockerfile
+    ports:
+      - "80"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.drumwave-landing-http.rule=Host(`dw.berocket.com.br`, `drumwave.berocket.com.br`)"
+      - "traefik.http.routers.drumwave-landing-http.entrypoints=http"
+      - "traefik.http.routers.drumwave-landing-http.middlewares=redirect-to-https"
+      - "traefik.http.routers.drumwave-landing-https.rule=Host(`dw.berocket.com.br`, `drumwave.berocket.com.br`)"
+      - "traefik.http.routers.drumwave-landing-https.entrypoints=https"
+      - "traefik.http.routers.drumwave-landing-https.tls=true"
+      - "traefik.http.routers.drumwave-landing-https.tls.certresolver=letsencrypt"
+      - "traefik.http.services.drumwave-landing.loadbalancer.server.port=80"
+    restart: always
 
   idr-landing:
     build:
