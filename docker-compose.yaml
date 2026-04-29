@@ -25,10 +25,10 @@ services:
       - "80"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.drumwave-landing-http.rule=Host(`dw.berocket.com.br`, `drumwave.berocket.com.br`)"
+      - "traefik.http.routers.drumwave-landing-http.rule=Host(`dw.berocket.com.br`)"
       - "traefik.http.routers.drumwave-landing-http.entrypoints=http"
       - "traefik.http.routers.drumwave-landing-http.middlewares=redirect-to-https"
-      - "traefik.http.routers.drumwave-landing-https.rule=Host(`dw.berocket.com.br`, `drumwave.berocket.com.br`)"
+      - "traefik.http.routers.drumwave-landing-https.rule=Host(`dw.berocket.com.br`)"
       - "traefik.http.routers.drumwave-landing-https.entrypoints=https"
       - "traefik.http.routers.drumwave-landing-https.tls=true"
       - "traefik.http.routers.drumwave-landing-https.tls.certresolver=letsencrypt"
