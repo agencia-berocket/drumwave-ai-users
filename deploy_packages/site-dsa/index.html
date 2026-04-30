@@ -12,7 +12,6 @@
   <meta property="og:type" content="website">
   <meta id="og-url" property="og:url" content="https://signtheact.datareserve.org">
   <meta id="og-image" property="og:image" content="https://signtheact.datareserve.org/assets/img/share-option-1.jpg">
-  <meta property="og:image" content="https://signtheact.datareserve.org/assets/img/share-option-2.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   
@@ -23,7 +22,7 @@
   <meta id="twitter-image" name="twitter:image" content="https://signtheact.datareserve.org/assets/img/share-option-1.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700;1,9..144,900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700;1,9..144,900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/dsa-style.css">
 <script src="assets/js/config.js"></script>
 <script src="assets/js/forms.js"></script>
@@ -84,11 +83,11 @@
                     </div>
                   </div>
                 </div>
+                <button type="submit" id="submitSignHero" class="sign-form-submit">Sign the Declaration</button>
                 <label class="sign-consent">
                   <input type="checkbox" id="signConsentHero" name="signConsent" checked>
                   <span>I agree to receive campaign updates from the proposed <strong style="white-space: nowrap; color: #ce1126; font-style: italic;">Data Savings Act</strong>. Unsubscribe anytime.</span>
                 </label>
-                <button type="submit" id="submitSignHero" class="sign-form-submit">Sign the Declaration</button>
               </form>
 
               <div class="hero-form-footer" style="display: none;">
@@ -118,7 +117,7 @@
                     <span class="selector-label">Option 2</span>
                   </button>
                 </div>
-                <div class="act-share-card" style="border-radius: 12px; overflow: hidden; line-height: 0; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
+                <div class="act-share-card" style="line-height: 0;">
                   <img id="shareImgPreviewHero" src="assets/img/share-option-1.jpg" alt="Share Preview" style="width: 100%; height: auto; display: block;">
                 </div>
               </div>
@@ -311,6 +310,13 @@
 
 </div>
 
+<footer>
+  <div class="container">
+    <div class="left"><i>The Data Savings Act, A Treaty of Detroit for the AI Economy.</i></div>
+    <div>Open for Signature · 2026</div>
+  </div>
+</footer>
+
 <!-- ============================================================================
      SIGN MODAL
      ============================================================================ -->
@@ -345,11 +351,11 @@
             </div>
           </div>
         </div>
+        <button type="submit" id="submitSign" class="sign-form-submit">Sign the Declaration</button>
         <label class="sign-consent">
           <input type="checkbox" id="signConsent" name="signConsent" checked>
           <span>I agree to receive campaign updates from the proposed <strong class="act-text-highlight" style="white-space: nowrap;">Data Savings Act</strong>. Unsubscribe anytime.</span>
         </label>
-        <button type="submit" id="submitSign" class="sign-form-submit">Sign the Declaration</button>
       </form>
 
       <!-- 
@@ -380,7 +386,7 @@
             <span class="selector-label">Option 2</span>
           </button>
         </div>
-        <div class="modal-share-card act-share-card" style="border-radius: 12px; overflow: hidden; line-height: 0; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
+        <div class="modal-share-card act-share-card" style="line-height: 0;">
           <img id="shareImgPreview" src="assets/img/share-option-1.jpg" alt="Share Preview" style="width: 100%; height: auto; display: block;">
         </div>
       </div>

@@ -576,9 +576,6 @@ html, body {
   max-width: 320px;
   margin: 0 auto 20px;
   line-height: 0;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
   display: block;
 }
 
@@ -2095,7 +2092,7 @@ html, body {
     padding: 40px 20px;
   }
   .act-share-card {
-    padding: 40px 24px;
+    padding: 0;
   }
   .act-share-card-h {
     font-size: 36px;
@@ -2153,7 +2150,6 @@ html, body {
   padding: 0;
   border: none;
   background: transparent;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
   margin: 0 auto;
 }
 
@@ -2237,5 +2233,35 @@ html, body {
   #modalShareContainer .modal-share-card.act-share-card {
     width: 100%;
     max-width: 280px;
+  }
+}
+
+/* FOOTER */
+footer {
+  padding: 40px 0;
+  background: var(--cream);
+  border-top: 1px solid rgba(0,0,0,0.1);
+  color: var(--ink);
+  font-family: 'EB Garamond', serif;
+  font-size: 0.95rem;
+}
+
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer .left {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+
+@media (max-width: 768px) {
+  footer .container {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
   }
 }
