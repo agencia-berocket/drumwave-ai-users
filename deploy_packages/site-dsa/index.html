@@ -10,9 +10,9 @@
   <meta property="og:title" content="The proposed Data Savings Act">
   <meta property="og:description" content="Machines Don't Die. Own Your Data. Save Your Future.">
   <meta property="og:type" content="website">
-  <meta id="og-url" property="og:url" content="https://dsa.berocket.com.br">
-  <meta id="og-image" property="og:image" content="https://dsa.berocket.com.br/assets/img/share-option-1.png">
-  <meta property="og:image" content="https://dsa.berocket.com.br/assets/img/share-option-2.png">
+  <meta id="og-url" property="og:url" content="https://signtheact.datareserve.org">
+  <meta id="og-image" property="og:image" content="https://signtheact.datareserve.org/assets/img/share-option-1.jpg">
+  <meta property="og:image" content="https://signtheact.datareserve.org/assets/img/share-option-2.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   
@@ -20,7 +20,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="The proposed Data Savings Act">
   <meta name="twitter:description" content="Machines Don't Die. Own Your Data. Save Your Future.">
-  <meta id="twitter-image" name="twitter:image" content="https://dsa.berocket.com.br/assets/img/share-option-1.png">
+  <meta id="twitter-image" name="twitter:image" content="https://signtheact.datareserve.org/assets/img/share-option-1.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700;1,9..144,900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -53,7 +53,7 @@
         <div class="act-hero">
           <div class="act-kicker">A Proposal to the American People</div>
           <div class="act-kicker-sub">Circulated for signature · 2026</div>
-          <h1 class="act-headline">A Treaty of Detroit <em>for</em> <br> the AI Economy.</h1>
+          <h1 class="act-headline">A Treaty of Detroit <br> <em>for</em> the AI Economy.</h1>
           <p class="act-lead">The proposed <strong style="color: #ce1126; font-style: italic;">Data Savings Act</strong> would do for the AI economy what pensions did for the industrial age: turn participation into ownership and contributions into compounding assets. Pensions built the American middle class. Data Savings can rebuild it. Every citizen an owner, every data contribution an asset, every American a stakeholder in the AI economy they power.</p>
           <div class="act-lead-tag">Save your data. Own your future.</div>
           <div class="act-hero-form-box">
@@ -84,12 +84,12 @@
                     </div>
                   </div>
                 </div>
+                <label class="sign-consent">
+                  <input type="checkbox" id="signConsentHero" name="signConsent" checked>
+                  <span>I agree to receive campaign updates from the proposed <strong style="white-space: nowrap; color: #ce1126; font-style: italic;">Data Savings Act</strong>. Unsubscribe anytime.</span>
+                </label>
                 <button type="submit" id="submitSignHero" class="sign-form-submit">Sign the Declaration</button>
               </form>
-              <label class="sign-consent">
-                <input type="checkbox" id="signConsentHero" checked>
-                <span>I agree to receive campaign updates from the proposed <strong style="white-space: nowrap; color: #ce1126; font-style: italic;">Data Savings Act</strong>. Unsubscribe anytime.</span>
-              </label>
 
               <div class="hero-form-footer" style="display: none;">
                 <div class="act-counter"><strong>42,183</strong> Americans have signed · <strong>158</strong> in the last hour</div>
@@ -106,29 +106,20 @@
               <div id="heroShareContainer">
                 <div class="share-selector">
                   <button class="selector-btn active" onclick="switchShare(1, 'heroShareContainer')">
-                    <div class="selector-preview preview-v1">
-                      <div class="preview-mark"></div>
-                      <div class="preview-bar"></div><div class="preview-bar"></div><div class="preview-bar"></div>
-                      <div class="preview-footer"></div>
+                    <div class="selector-preview" style="overflow: hidden;">
+                      <img src="assets/img/share-option-1.jpg" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <span class="selector-label">Option 1</span>
                   </button>
                   <button class="selector-btn" onclick="switchShare(2, 'heroShareContainer')">
-                    <div class="selector-preview preview-v2">
-                      <div class="preview-mark"></div>
-                      <div class="preview-bar"></div><div class="preview-bar"></div><div class="preview-bar"></div>
-                      <div class="preview-footer"></div>
+                    <div class="selector-preview" style="overflow: hidden;">
+                      <img src="assets/img/share-option-2.jpg" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <span class="selector-label">Option 2</span>
                   </button>
                 </div>
-                <div class="modal-share-card act-share-card">
-                  <div class="modal-share-card-mark act-share-card-mark"></div>
-                  <h3 class="act-share-card-h">Machines<br>Don't Die.</h3>
-                  <p class="act-share-card-sub">Own Your Data. Save Your Future.</p>
-                  <div class="signer act-share-signer">
-                    "Because the deal needs renegotiating."
-                  </div>
+                <div class="act-share-card" style="border-radius: 12px; overflow: hidden; line-height: 0; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
+                  <img id="shareImgPreviewHero" src="assets/img/share-option-1.jpg" alt="Share Preview" style="width: 100%; height: auto; display: block;">
                 </div>
               </div>
 
@@ -145,16 +136,13 @@
                 <button class="share-icon share-li" title="Share on LinkedIn" onclick="shareAction('li', 'heroShareContainer')">
                   <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 </button>
-                <button class="share-icon share-wa" title="Share on WhatsApp" onclick="shareAction('wa', 'heroShareContainer')">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                </button>
                 <button class="share-icon share-link" title="Copy link" onclick="shareAction('copy', 'heroShareContainer')">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </button>
               </div>
 
               <div class="modal-options-stack" style="margin-top: 24px;">
-                <button class="modal-option-btn btn-primary" onclick="window.open('https://idrs.berocket.com.br/', '_blank')">Request your AI Data</button>
+                <button class="modal-option-btn btn-primary" onclick="window.open('https://theinternationaldatareserve.org/', '_blank')">Request your AI Data</button>
                 <button class="modal-option-btn btn-ghost" onclick="location.reload()">Return to Data Savings Act</button>
               </div>
             </div>
@@ -199,29 +187,20 @@
           <div id="staticShareContainer">
             <div class="share-selector">
               <button class="selector-btn active" onclick="switchShare(1, 'staticShareContainer')">
-                <div class="selector-preview preview-v1">
-                  <div class="preview-mark"></div>
-                  <div class="preview-bar"></div><div class="preview-bar"></div><div class="preview-bar"></div>
-                  <div class="preview-footer"></div>
+                <div class="selector-preview" style="overflow: hidden;">
+                  <img src="assets/img/share-option-1.jpg" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <span class="selector-label">Option 1</span>
               </button>
               <button class="selector-btn" onclick="switchShare(2, 'staticShareContainer')">
-                <div class="selector-preview preview-v2">
-                  <div class="preview-mark"></div>
-                  <div class="preview-bar"></div><div class="preview-bar"></div><div class="preview-bar"></div>
-                  <div class="preview-footer"></div>
+                <div class="selector-preview" style="overflow: hidden;">
+                  <img src="assets/img/share-option-2.jpg" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <span class="selector-label">Option 2</span>
               </button>
             </div>
-            <div class="act-share-card">
-              <div class="act-share-card-mark"></div>
-              <div class="act-share-card-h">Machines<br>Don't Die.</div>
-              <div class="act-share-card-sub">Own Your Data. Save Your Future.</div>
-              <div class="act-share-signer">
-                "Because the deal needs renegotiating."
-              </div>
+            <div class="act-share-card" style="border-radius: 12px; overflow: hidden; line-height: 0; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
+              <img src="assets/img/share-option-1.jpg" alt="Share Preview" style="width: 100%; height: auto; display: block;">
             </div>
           </div>
           <div class="act-share-buttons">
@@ -260,7 +239,7 @@
             <p>The proposed <strong style="color: #ce1126; font-style: italic;">Data Savings Act</strong> is the American expression of this mission, and it begins with your signature. The Act establishes the American Data Reserve as your regional regulator, the first of its kind, and a guarantee of American data sovereignty. No global body will have jurisdiction over data held in the United States. Other countries will follow with their own regulators, and our job is to ensure these institutions are interoperable, so that a dollar of data saved in Ohio and a dollar saved anywhere are equally, genuinely, yours.</p>
 
             <div class="act-sponsor-cta">
-              <button class="act-sponsor-link" onclick="window.open('https://idrs.berocket.com.br/', '_blank')">Learn more about the IDR →</button>
+              <button class="act-sponsor-link" onclick="window.open('https://theinternationaldatareserve.org/', '_blank')">Learn more about the IDR →</button>
             </div>
           </div>
         </div>
@@ -366,12 +345,12 @@
             </div>
           </div>
         </div>
+        <label class="sign-consent">
+          <input type="checkbox" id="signConsent" name="signConsent" checked>
+          <span>I agree to receive campaign updates from the proposed <strong class="act-text-highlight" style="white-space: nowrap;">Data Savings Act</strong>. Unsubscribe anytime.</span>
+        </label>
         <button type="submit" id="submitSign" class="sign-form-submit">Sign the Declaration</button>
       </form>
-      <label class="sign-consent">
-        <input type="checkbox" id="signConsent" checked>
-        <span>I agree to receive campaign updates from the proposed <strong class="act-text-highlight" style="white-space: nowrap;">Data Savings Act</strong>. Unsubscribe anytime.</span>
-      </label>
 
       <!-- 
       <div style="display: none; margin-top: 32px; border-top: 1px solid #b8231c; padding-top: 20px; text-align: center;">
@@ -389,29 +368,20 @@
       <div id="modalShareContainer">
         <div class="share-selector">
           <button class="selector-btn active" onclick="switchShare(1, 'modalShareContainer')">
-            <div class="selector-preview preview-v1">
-              <div class="preview-mark"></div>
-              <div class="preview-bar"></div><div class="preview-bar"></div><div class="preview-bar"></div>
-              <div class="preview-footer"></div>
+            <div class="selector-preview" style="overflow: hidden;">
+              <img src="assets/img/share-option-1.jpg" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             <span class="selector-label">Option 1</span>
           </button>
           <button class="selector-btn" onclick="switchShare(2, 'modalShareContainer')">
-            <div class="selector-preview preview-v2">
-              <div class="preview-mark"></div>
-              <div class="preview-bar"></div><div class="preview-bar"></div><div class="preview-bar"></div>
-              <div class="preview-footer"></div>
+            <div class="selector-preview" style="overflow: hidden;">
+              <img src="assets/img/share-option-2.jpg" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             <span class="selector-label">Option 2</span>
           </button>
         </div>
-        <div class="modal-share-card act-share-card">
-          <div class="modal-share-card-mark act-share-card-mark"></div>
-          <h3 class="act-share-card-h">Machines<br>Don't Die.</h3>
-          <p class="act-share-card-sub">Own Your Data. Save Your Future.</p>
-          <div class="signer act-share-signer">
-            "<span id="shareReason">Because the deal needs renegotiating.</span>"
-          </div>
+        <div class="modal-share-card act-share-card" style="border-radius: 12px; overflow: hidden; line-height: 0; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
+          <img id="shareImgPreview" src="assets/img/share-option-1.jpg" alt="Share Preview" style="width: 100%; height: auto; display: block;">
         </div>
       </div>
       <div class="modal-share-buttons">
@@ -427,13 +397,12 @@
         <button class="share-icon share-li" title="Share on LinkedIn" aria-label="Share on LinkedIn" onclick="shareAction('li', 'modalShareContainer')">
           <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </button>
-
         <button class="share-icon share-link" title="Copy link" aria-label="Copy link" onclick="shareAction('copy', 'modalShareContainer')">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
       </div>
       <div class="modal-options-stack">
-        <button class="modal-option-btn btn-primary" onclick="window.location.href='https://dw.berocket.com.br/'">Request Your AI Data</button>
+        <button class="modal-option-btn btn-primary" onclick="window.location.href='https://ai.drumwave.com/'">Request Your AI Data</button>
         <button class="modal-option-btn btn-ghost" onclick="closeSignModal()">Return to Data Savings Act</button>
       </div>
     </div>
@@ -600,49 +569,54 @@
   });
 
   // Switch share cards
-  function switchShare(option, targetId) {
+  function switchShare(option, containerId) {
     currentShareVersion = option;
-    const container = document.getElementById(targetId);
+    const container = document.getElementById(containerId);
     if (!container) return;
     
-    const card = container.querySelector('.act-share-card');
-    const buttons = container.querySelectorAll('.selector-btn');
-    
-    if (buttons && buttons.length >= option) {
-      buttons.forEach(btn => btn.classList.remove('active'));
-      buttons[option-1].classList.add('active');
-    }
-    
-    if (card) {
-      const h = card.querySelector('.act-share-card-h');
-      const sub = card.querySelector('.act-share-card-sub');
+    // Update active state on selector buttons
+    const btns = container.querySelectorAll('.selector-btn');
+    btns.forEach((btn, index) => {
+      if (index + 1 === option) btn.classList.add('active');
+      else btn.classList.remove('active');
+    });
 
-      if (option === 1) {
-        card.classList.remove('v2');
-        if (h) h.innerHTML = "Machines<br>Don't Die.";
-        if (sub) sub.innerHTML = "Own Your Data. Save Your Future.";
-      } else {
-        card.classList.add('v2');
-        if (h) h.innerHTML = "The Data<br>Savings Act.";
-        if (sub) sub.innerHTML = "Your signature. Your voice. Public record.";
-      }
+    // Update image path - using relative path for local display
+    const relativeImgUrl = `assets/img/share-option-${option}.jpg`;
+    
+    // 1. Update the preview image in the specific container
+    const previewImg = container.querySelector('.act-share-card img');
+    if (previewImg) {
+        previewImg.src = relativeImgUrl;
+        previewImg.style.display = 'block'; // Force visibility
     }
     
-    // Update Meta Tags (best effort for some previewers)
-    const imgUrl = `https://dsa.berocket.com.br/assets/img/share-option-${option}.png`;
+    // 2. Update OG/Twitter meta tags
+    const absoluteImgUrl = window.location.origin + '/' + relativeImgUrl;
+    const metaTags = [
+        'meta[property="og:image"]',
+        'meta[name="twitter:image"]',
+        'meta[property="og:image:secure_url"]'
+    ];
+    
+    metaTags.forEach(selector => {
+        const tag = document.querySelector(selector);
+        if (tag) tag.setAttribute('content', absoluteImgUrl);
+    });
+
+    // Update Meta Tags
     const shareDesc = option === 1 
       ? "Machines Don't Die. Own Your Data. Save Your Future." 
       : "The proposed Data Savings Act. Your signature. Your voice. Public record.";
 
-    document.querySelector('meta[property="og:image"]')?.setAttribute('content', imgUrl);
-    document.querySelector('meta[name="twitter:image"]')?.setAttribute('content', imgUrl);
     document.querySelector('meta[property="og:description"]')?.setAttribute('content', shareDesc);
     document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', shareDesc);
+    document.querySelector('meta[property="og:url"]')?.setAttribute('content', `https://signtheact.datareserve.org?v=${option}`);
   }
 
   // Share Actions
   function shareAction(platform, containerId) {
-    const baseUrl = "https://dsa.berocket.com.br";
+    const baseUrl = "https://signtheact.datareserve.org";
     const shareUrl = `${baseUrl}?v=${currentShareVersion}`;
     const shareText = currentShareVersion === 1 
       ? "Machines Don't Die. Own Your Data. Save Your Future." 
@@ -660,8 +634,8 @@
         url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
         break;
       case 'wa':
-        url = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + " " + shareUrl)}`;
-        break;
+        // WhatsApp button removed
+        return;
 
       case 'copy':
         navigator.clipboard.writeText(shareUrl).then(() => {

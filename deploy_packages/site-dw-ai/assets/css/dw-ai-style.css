@@ -756,4 +756,18 @@
     .footer-inner { grid-template-columns: 1fr; gap: 40px; }
     .stats-section { padding: 48px 24px; }
     .demo-body { padding: 18px; }
+    
+    .hero {
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%), url('../../Imagens/Placeholder.png') center 20% / 100% auto no-repeat;
+      min-height: auto;
+      padding-bottom: 100px;
+    }
+  }
+
+  .mobile-br { display: none; }
+  .desktop-br { display: block; }
+
+  @media (max-width: 600px) {
+    .mobile-br { display: block; }
+    .desktop-br { display: none; }
   }

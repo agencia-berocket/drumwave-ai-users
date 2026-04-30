@@ -73,7 +73,7 @@
 
 <section id="why" class="reveal">
   <div class="section-label">Why Now</div>
-  <h2>Own Your Data. Own Your Future.</h2>
+  <h2>Own Your Data. <br class="mobile-br">Own Your Future.</h2>
   <div class="section-body">
     <p>You&rsquo;ve written the prompts. You uploaded the PDFs, the spreadsheets, the half-finished code. You paid the subscription. You invested the hours. Every reply you rated, every response you refined, every time you pressed the thumbs-down and typed a better version, you were teaching the system.</p>
     <p>Now, the data you created is training the AI built to replace the work you do. The pattern is not new. It&rsquo;s just faster.</p>
@@ -90,7 +90,7 @@
 
 <section id="about" class="reveal">
   <div class="section-label">About DrumWave</div>
-  <h2 style="color: #ffffff;">DrumWave doesn&rsquo;t share, sell or store Your data.</h2>
+  <h2 style="color: #ffffff;">DrumWave doesn&rsquo;t <br class="mobile-br">share, sell or store <br class="mobile-br">Your data.</h2>
   <div class="section-body">
     <p>We are reconnecting companies and individuals through the value of their data. DrumWave helps you secure and manage the value of your data. <strong style="color: var(--accent);">DrumWave is not affiliated with OpenAI or Anthropic. We are not data brokers.</strong></p>
   </div>
@@ -125,7 +125,7 @@
 
 <section id="process" class="reveal">
   <div class="section-label">Simply Because You Can</div>
-  <h2>Signing up for a dWallet <br>and requesting your AI data <br>is the first&nbsp;step.</h2>
+  <h2>Signing up for a dWallet <br>and requesting your <br class="mobile-br">AI data <br class="desktop-br">is the <br class="mobile-br">first step.</h2>
   <div class="section-body">
     <p>Data requests create a value-based link between companies and individuals. Fulfilling a request establishes shared custody rules, ensuring both sides recognize and respect the individual&rsquo;s ownership rights.</p>
   </div>
@@ -301,7 +301,10 @@
   (function() {
     var el = document.getElementById('typed');
     if (!el) return;
-    var full = 'You Wrote the Prompts.\nOwn Your AI Data.';
+    var isMobile = window.innerWidth <= 600;
+    var full = isMobile 
+      ? 'You Wrote\nthe Prompts.\nOwn Your AI Data.' 
+      : 'You Wrote the Prompts.\nOwn Your AI Data.';
     var i = 0;
     function type() {
       if (i <= full.length) {

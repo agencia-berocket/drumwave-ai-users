@@ -571,92 +571,30 @@ html, body {
 }
 
 .act-share-card {
-  background: #000;
-  color: #fff;
-  padding: 30px 24px;
+  background: transparent;
+  padding: 0;
   max-width: 320px;
-  min-height: 340px;
   margin: 0 auto 20px;
-  text-align: center;
+  line-height: 0;
+  overflow: hidden;
+  border-radius: 12px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  transition: all 0.3s ease;
-}
-
-.act-share-card-h {
-  font-family: 'Inter', sans-serif;
-  font-weight: 800;
-  font-size: 32px;
-  line-height: 0.94;
-  letter-spacing: -0.03em;
-  margin-bottom: 10px;
-}
-
-.act-share-card-sub {
-  font-family: 'Inter', sans-serif;
-  font-weight: 300;
-  font-size: 13px;
-  letter-spacing: -0.01em;
-  color: #c8c8c5;
-  margin-bottom: 20px;
-}
-
-.act-share-card-mark {
-  width: 32px;
-  height: 32px;
-  background-image: var(--logo-url);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  margin: 0 auto 14px;
-}
-
-.act-share-signer {
-  border-top: 1px solid #333;
-  padding-top: 14px;
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  font-size: 13px;
-  color: #fff;
-}
-
-.act-share-signer-name {
   display: block;
-  font-family: 'JetBrains Mono', monospace;
-  font-style: normal;
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #888;
-  margin-top: 10px;
 }
 
-/* Variant 2 - Red */
-.act-share-card.v2 {
-  background: #ce1126;
-  color: #fff;
+.act-share-card img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-.act-share-card.v2 .act-share-card-h {
-  font-size: 28px;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-
-.act-share-card.v2 .act-share-card-sub {
-  color: #fff;
-  opacity: 0.9;
-  font-weight: 500;
-  border-top: 1px solid rgba(255,255,255,0.3);
-  padding-top: 20px;
-}
-
-.act-share-card.v2 .act-share-card-mark {
-  filter: brightness(0) invert(1);
-  width: 44px;
-  height: 44px;
+/* Hide all text overlays */
+.act-share-card-h, 
+.act-share-card-sub, 
+.act-share-card-mark, 
+.act-share-signer,
+.act-share-signer-name {
+  display: none !important;
 }
 
 .act-share-card.v2 .act-share-signer {
@@ -692,8 +630,8 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
-  gap: 6px;
+  padding: 0;
+  gap: 0;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   position: relative;
   overflow: hidden;
@@ -1880,11 +1818,11 @@ html, body {
 }
 
 .modal-share-card {
-  background: #000;
-  color: #fff;
-  padding: 34px 26px;
-  margin-bottom: 20px;
+  padding: 0;
+  margin-bottom: 24px;
   text-align: center;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .modal-share-card-mark {
@@ -2212,11 +2150,11 @@ html, body {
 
 /* Card de compartilhamento reduzido (aprox. 30% menor) */
 #modalShareContainer .modal-share-card.act-share-card {
-  width: 260px; /* Reduzido de ~360px para 260px */
-  min-height: auto;
-  padding: 30px 24px;
-  flex-shrink: 0;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  margin: 0 auto;
 }
 
 #modalShareContainer .act-share-card-h {
