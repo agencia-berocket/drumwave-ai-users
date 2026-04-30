@@ -18,9 +18,7 @@
   <meta id="twitter-desc" name="twitter:description" content="Machines Don't Die. Own Your Data. Save Your Future.">
   <meta id="twitter-image" name="twitter:image" content="https://signtheact.datareserve.org/assets/img/share-option-1.jpg">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700;1,9..144,900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --cream: #f3eee0;
@@ -36,25 +34,15 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { overflow-x: hidden; max-width: 100%; }
 html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Inter', sans-serif;
   background: var(--cream);
   color: var(--ink);
-  font-size: 18px;
-  line-height: 1.65;
-  font-weight: 400;
-}
-
-/* ── TYPOGRAPHY: Body content paragraphs use Fraunces (matches index.html) ── */
-p, li, dd,
-.lead, .hero-prose p, .stat-caption, .rhyme-conclusion,
-.funding-callout-text, .solution-teaser-text, .pull-quote-text,
-.tldr p, .compare-content, .thesis-asset,
-.treaty-quote .quote-text, .step-body, .funding-addendum,
-.tl-desc, .right p, .phase-card p, .closer-option, .alt-col p {
-  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  line-height: 1.5;
   font-weight: 400;
 }
 
@@ -63,14 +51,28 @@ p, li, dd, .lead, .stat-caption, .rhyme-conclusion, .funding-callout-text,
 .solution-teaser-text, .pull-quote-text, .tldr p, .compare-content,
 .thesis-asset, .treaty-quote .quote-text, .step-body, .funding-addendum,
 .tl-desc, .right p, .phase-card p, .closer-option, .alt-col p {
-  text-wrap: pretty;
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.55;
+  margin-bottom: 24px;
+  color: #3a3430;
 }
 
-/* UI elements keep Inter for clarity */
-input, button, label, select, textarea,
-.btn, .act-sign-top, .act-sign-inline,
-form p, .sign-consent span {
-  font-family: 'Inter', sans-serif;
+.act-lead {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.55;
+  color: #3a3430;
+  max-width: 780px;
+  margin: 0 auto 24px;
+}
+
+.act-text-highlight {
+  color: #b8231c !important;
+  font-style: italic !important;
+  font-weight: 600 !important;
 }
 
 .display, h1, h2, h3 {
@@ -141,7 +143,7 @@ b, strong { color: var(--rust); }
   transform: translateX(-50%);
   font-family: 'Fraunces', serif;
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 18px;
   color: #1a1a1a;
   letter-spacing: 0;
@@ -156,7 +158,7 @@ b, strong { color: var(--rust); }
   padding: 10px 18px;
   font-family: "JetBrains Mono", monospace;
   font-size: 11px;
-  font-weight: 400;
+  font-weight: 300;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   cursor: pointer;
@@ -196,6 +198,15 @@ b, strong { color: var(--rust); }
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 60px;
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+  section { padding: 64px 0; }
+}
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  section { padding: 48px 0; }
 }
 
 section { padding: 120px 0; position: relative; }
@@ -282,6 +293,33 @@ section { padding: 120px 0; position: relative; }
 @media (max-width: 1480px) { .toc { display: none; } }
 
 /* HERO */
+.hero-back-link {
+  position: absolute;
+  left: 40px;
+  top: 80px;
+  color: var(--rust);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, color 0.25s ease;
+  z-index: 10;
+}
+.hero-back-link:hover {
+  transform: translateX(-4px);
+  color: var(--rust-soft);
+}
+@media (max-width: 1340px) {
+  .hero-back-link {
+    left: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .hero-back-link {
+    top: 20px;
+  }
+}
+
 .hero {
   padding: 80px 0 100px;
   border-bottom: 1px solid var(--line);
@@ -308,34 +346,49 @@ section { padding: 120px 0; position: relative; }
   color: var(--muted);
 }
 .hero h1 {
-  font-size: clamp(48px, 6.5vw, 96px);
-  line-height: 1.02;
+  font-family: 'Fraunces', serif;
+  font-size: 88px;
+  font-weight: 400;
+  line-height: 0.96;
+  letter-spacing: -0.03em;
   margin: 0 auto 40px;
-  letter-spacing: -0.02em;
   max-width: 1000px;
+}
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 38px;
+    line-height: 1.1;
+  }
 }
 .hero-prose {
   max-width: 760px;
   margin: 0 auto;
 }
 .hero-prose p {
-  font-size: 21px;
-  line-height: 1.6;
-  margin-bottom: 22px;
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.55;
+  margin-bottom: 24px;
+  color: #3a3430;
 }
 .hero-prose p b { font-weight: 600; }
 .hero .save-line {
   font-family: 'Fraunces', serif;
-  font-weight: 600;
-  font-size: 32px;
-  font-style: italic;
-  margin: 36px auto 0;
+  font-weight: 400;
+  font-size: 45px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 48px auto 56px;
   color: var(--ink);
   text-wrap: balance;
-  padding-top: 32px;
-  border-top: 1px solid var(--line);
-  max-width: 480px;
+  text-align: center;
 }
+.hero .save-line em {
+  font-style: italic;
+  color: #b8231c;
+}
+.mobile-br { display: none; }
 .hero-buttons {
   display: flex;
   gap: 12px;
@@ -453,7 +506,19 @@ section { padding: 120px 0; position: relative; }
 
 @media (max-width: 900px) {
   .thesis-track { grid-template-columns: 1fr; gap: 20px; }
-  .thesis-arrow { transform: rotate(90deg); margin: 30px auto; }
+  .thesis-arrow { 
+    width: 60px;
+    transform: rotate(90deg); 
+    margin: 60px auto 60px; 
+  }
+  .thesis-arrow-label {
+    left: -25px;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+  }
+  .thesis-arrow-label .same {
+    font-size: 14px;
+  }
 }
 
 /* TL;DR CARDS */
@@ -498,7 +563,11 @@ section { padding: 120px 0; position: relative; }
 /* SECTION HEADERS */
 .section-head { margin-bottom: 60px; }
 .section-head h2 {
-  font-size: clamp(40px, 5vw, 72px);
+  font-family: 'Fraunces', serif;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
   margin-top: 24px;
   max-width: 1000px;
 }
@@ -539,8 +608,19 @@ section { padding: 120px 0; position: relative; }
   gap: 80px;
   margin-top: 40px;
 }
-.transaction-content .lead { font-size: 20px; line-height: 1.6; margin-bottom: 26px; }
-.transaction-content p { font-size: 18px; line-height: 1.7; margin-bottom: 22px; }
+.transaction-content .lead {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.55;
+  margin-bottom: 24px;
+}
+.transaction-content p {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  line-height: 1.55;
+  margin-bottom: 24px;
+}
 .transaction-content p b { font-weight: 600; }
 .dropcap {
   float: left;
@@ -550,6 +630,16 @@ section { padding: 120px 0; position: relative; }
   font-weight: 500;
   margin: 6px 12px 0 0;
   color: var(--ink);
+}
+@media (max-width: 768px) {
+  .section-head h2, .treaty-side h2, .declaration h2 {
+    font-size: 32px;
+  }
+  .alternative h2 { font-size: 42px; }
+  .hero-prose p, .transaction-content .lead {
+    font-size: 17px;
+    line-height: 1.5;
+  }
 }
 @media (max-width: 900px) {
   .transaction-content { grid-template-columns: 1fr; gap: 40px; }
@@ -606,7 +696,12 @@ section { padding: 120px 0; position: relative; }
   grid-template-columns: 1fr 1fr;
   gap: 80px;
 }
-.backstop-content p { font-size: 18px; line-height: 1.7; margin-bottom: 22px; }
+.backstop-content p {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  line-height: 1.55;
+  margin-bottom: 24px;
+}
 .backstop-content p b { font-weight: 600; }
 .backstop-stats {
   display: grid;
@@ -733,7 +828,12 @@ section { padding: 120px 0; position: relative; }
   opacity: 1;
   transform: translateY(0);
 }
-.rhyme-content p { font-size: 18px; line-height: 1.7; margin-bottom: 22px; }
+.rhyme-content p {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  line-height: 1.55;
+  margin-bottom: 24px;
+}
 .rhyme-content p b { font-weight: 600; }
 .rhyme-conclusion {
   font-family: 'Fraunces', serif;
@@ -767,7 +867,14 @@ section { padding: 120px 0; position: relative; }
   color: var(--muted);
   margin-bottom: 14px;
 }
-.treaty-side h2 { font-size: 60px; line-height: 1; margin-bottom: 50px; }
+.treaty-side h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin-bottom: 50px;
+}
 .treaty-quote {
   border-left: 2px solid var(--rust);
   padding-left: 24px;
@@ -789,7 +896,12 @@ section { padding: 120px 0; position: relative; }
   color: var(--muted);
 }
 .treaty-body { font-size: 18px; line-height: 1.7; }
-.treaty-body p { margin-bottom: 22px; }
+.treaty-body p {
+  font-family: 'Fraunces', serif;
+  font-size: 19px;
+  line-height: 1.65;
+  margin-bottom: 22px;
+}
 .treaty-body p b { font-weight: 600; }
 .dropcap-rhyme {
   float: left;
@@ -801,7 +913,14 @@ section { padding: 120px 0; position: relative; }
 }
 @media (max-width: 900px) {
   .treaty-grid { grid-template-columns: 1fr; gap: 40px; }
-  .treaty-side h2 { font-size: 48px; }
+  .treaty-side h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin-bottom: 50px;
+}
 }
 
 /* ANIMATED TIMELINE */
@@ -989,6 +1108,7 @@ section { padding: 120px 0; position: relative; }
   background: var(--ink);
   color: var(--cream);
 }
+.compare-side.ai .compare-content { color: var(--cream); }
 .compare-era {
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
@@ -1034,7 +1154,11 @@ section { padding: 120px 0; position: relative; }
 /* THE ALTERNATIVE */
 .alternative { padding: 100px 0; }
 .alternative h2 {
-  font-size: clamp(48px, 6vw, 86px);
+  font-family: 'Fraunces', serif;
+  font-size: 63px;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
   margin-bottom: 80px;
   text-align: center;
 }
@@ -1057,7 +1181,13 @@ section { padding: 120px 0; position: relative; }
 .alt-col h3 { font-size: 44px; line-height: 1.05; margin-bottom: 30px; }
 .alt-col h3 .em { color: var(--rust); font-style: italic; }
 .alt-col.data h3 .em { color: var(--rust-soft); font-style: italic; }
-.alt-col p { font-size: 17px; line-height: 1.65; margin-bottom: 18px; }
+.alt-col p {
+  font-family: 'Fraunces', serif;
+  font-size: 19px;
+  line-height: 1.65;
+  margin-bottom: 18px;
+}
+.alt-col.data p { color: var(--cream); }
 .alt-col p b { font-weight: 600; }
 .alt-col .closer {
   font-family: 'Fraunces', serif;
@@ -1072,7 +1202,12 @@ section { padding: 120px 0; position: relative; }
 /* FUNDING - TWO STEP VISUAL */
 .funding { padding: 120px 0; }
 .funding-text-block { max-width: 900px; margin-bottom: 60px; }
-.funding-text-block p { font-size: 18px; line-height: 1.7; margin-bottom: 22px; }
+.funding-text-block p {
+  font-family: 'Fraunces', serif;
+  font-size: 19px;
+  line-height: 1.65;
+  margin-bottom: 22px;
+}
 .funding-text-block p b { font-weight: 600; }
 
 .two-step {
@@ -1357,7 +1492,12 @@ section { padding: 120px 0; position: relative; }
 /* === FUNDING SECTION === */
 .funding { padding: 120px 0; }
 .funding-text-block { max-width: 900px; margin-bottom: 60px; }
-.funding-text-block p { font-size: 18px; line-height: 1.7; margin-bottom: 22px; }
+.funding-text-block p {
+  font-family: 'Fraunces', serif;
+  font-size: 19px;
+  line-height: 1.65;
+  margin-bottom: 22px;
+}
 .funding-text-block p b { font-weight: 600; }
 
 .funding-addendum {
@@ -1392,7 +1532,7 @@ footer .container {
   align-items: center;
 }
 
-footer .left {
+footer .container > div {
   font-family: 'Fraunces', serif;
   font-size: 1.1rem;
   color: var(--ink);
@@ -1431,10 +1571,12 @@ footer .left {
 }
 
 .declaration h2 {
-  font-size: clamp(40px, 5vw, 64px);
-  line-height: 1.05;
-  margin: 0 auto 28px;
+  font-family: 'Fraunces', serif;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.08;
   letter-spacing: -0.02em;
+  margin: 0 auto 28px;
   text-wrap: balance;
   text-align: center;
   color: var(--ink);
@@ -1471,13 +1613,11 @@ footer .left {
 }
 
 .form-field label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
   color: var(--ink-soft);
   margin-bottom: 10px;
-  font-weight: 500;
 }
 .form-field label .req {
   color: var(--rust);
@@ -1627,7 +1767,7 @@ footer .left {
 
 .hero-form-title {
   font-family: 'Fraunces', serif;
-  font-size: 42px;
+  font-size: 48px;
   font-weight: 500;
   margin-bottom: 20px;
   color: #1a1a1a;
@@ -1672,7 +1812,8 @@ footer .left {
 
 #signStep2Hero h2 {
   font-family: 'Fraunces', serif;
-  font-size: 28px;
+  font-size: 30px;
+  font-weight: 500;
   margin: 0;
   color: #1a1a1a;
 }
@@ -1682,8 +1823,14 @@ footer .left {
     padding: 32px 24px;
   }
   .hero-form-title {
-    font-size: 32px;
-  }
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
 }
 .signer-name {
   display: block;
@@ -1740,10 +1887,9 @@ footer .left {
 }
 .sign-form label {
   display: block;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
   color: #7a6e54;
   margin-bottom: 14px;
 }
@@ -1751,8 +1897,8 @@ footer .left {
 .sign-form input {
   width: 100%;
   padding: 10px 12px;
-  font-family: 'Fraunces', serif;
-  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
   border: 1px solid #d0cbbd;
   background: #fff;
   margin-bottom: 14px;
@@ -1768,6 +1914,12 @@ footer .left {
 }
 .sign-col { flex: 1; }
 .sign-col-narrow { flex: 0 0 130px; }
+.sign-form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
 .sign-form-submit {
   background: #b8231c;
   color: #fff;
@@ -1784,6 +1936,28 @@ footer .left {
 }
 .sign-form-submit:hover { background: #9a1d17; }
 .sign-form-submit:active { transform: scale(0.98); }
+.sign-form-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: transparent;
+  color: #1a1a1a;
+  border: 1px solid #1a1a1a;
+  padding: 13px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.sign-form-link:hover {
+  background: #1a1a1a;
+  color: #f6f2ea;
+}
 .sign-consent {
   display: flex;
   align-items: flex-start;
@@ -1924,6 +2098,81 @@ footer .left {
   .modal { padding: 32px 20px; width: 92%; }
   .sign-row { flex-direction: column; gap: 0; }
   .sign-col-narrow { flex: none; width: 100%; }
+
+  /* Hero adjustments */
+  .hero { padding: 64px 0 60px; }
+  .hero-center { padding: 0; }
+  .hero-prose p { font-size: 18px; }
+  .save-line { font-size: 29px; margin-top: 32px; margin-bottom: 40px; }
+  .mobile-br { display: block; }
+
+  /* Pull quotes */
+  .pull-quote { padding-left: 20px; margin: 40px 0; }
+  .pull-quote-text { font-size: clamp(22px, 6vw, 32px); }
+
+  /* TL;DR */
+  .tldr { padding: 20px 18px; }
+  .tldr p { font-size: 18px; }
+
+  /* Stats */
+  .stat { padding: 28px 16px; }
+  .stat-num { font-size: 52px; }
+  .stat-caption { font-size: clamp(22px, 5vw, 30px); margin-top: 40px; }
+
+  /* Rhyme section */
+  .rhyme { padding: 80px 0; }
+  .rhyme::before { display: none; }
+  .rhyme-title { font-size: clamp(36px, 9vw, 72px); margin-bottom: 40px; }
+  .rhyme-conclusion { padding-left: 16px; font-size: clamp(22px, 5vw, 32px); }
+
+  /* Treaty */
+  .treaty-side h2 { font-size: 30px; }
+
+  /* Timeline */
+  .timeline-wrap { padding-left: 36px; }
+  .tl-row { grid-template-columns: 60px 1fr; gap: 12px; }
+  .tl-year { font-size: 22px; }
+
+  /* Comparator */
+  .compare-side { padding: 32px 20px; }
+  .compare-year { font-size: 44px; }
+
+  /* Alternative */
+  .alt-col { padding: 36px 20px; }
+  .alt-col h3 { font-size: 32px; }
+
+  /* Backstop stats */
+  .backstop-stat .num { font-size: 60px; }
+
+  /* Declaration card */
+  .declaration { padding: 60px 0; }
+  .declaration-card { padding: 32px 18px 28px; }
+  .declaration h2 { font-size: 28px; }
+
+  /* Form box */
+  .act-hero-form-box { margin: 24px 16px; padding: 28px 18px; }
+  .hero-form-title { font-size: 28px; }
+
+  /* Section heads */
+  .section-head { margin-bottom: 36px; }
+  .section-head h2 { font-size: 28px; }
+  .alternative h2 { font-size: 42px; }
+
+  /* Funding */
+  .funding { padding: 64px 0; }
+  .funding-addendum { padding: 20px 18px; font-size: 16px; }
+
+  /* Step cards */
+  .step-title { font-size: 26px; }
+
+  /* Global paragraph size */
+  p, li, dd, .lead, .stat-caption, .rhyme-conclusion, .funding-callout-text,
+  .solution-teaser-text, .pull-quote-text, .tldr p, .compare-content,
+  .thesis-asset, .treaty-quote .quote-text, .step-body, .funding-addendum,
+  .tl-desc, .right p, .phase-card p, .closer-option, .alt-col p {
+    font-size: 18px;
+  }
+  .act-lead { font-size: 18px; }
 }
 
 </style>
@@ -1932,24 +2181,29 @@ footer .left {
 
 <!-- TOP NAV (Replicado do index.html) -->
 <div class="act-topbar">
-  <div class="act-logo">
+  <a href="index.html" class="act-logo" style="text-decoration: none;">
     <div class="act-logo-mark"><img src="assets/img/logo-idr.png" alt="International Data Reserve"></div>
-  </div>
+  </a>
   <span class="act-topbar-title">The Data Savings Act</span>
-  <button class="act-sign-top" onclick="openSignModal()">Sign the Declaration</button>
+  <button class="act-sign-top" onclick="openSignModal()">Add My Name</button>
 </div>
 
 <!-- LEFT TOC removed -->
 
 <!-- HERO -->
 <section class="hero" id="hero">
+  <a href="index.html" class="hero-back-link" aria-label="Return to Data Savings Act">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+      <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
   <div class="container">
     <div class="hero-center">
       <h1 class="reveal">A Social Protection Model for the <span class="serif-italic rust">AI age.</span></h1>
       <div class="hero-prose reveal">
-        <p>To understand the Data Savings Act, start with the Treaty of Detroit. In May 1950, after a 113 day strike and three rounds of postwar negotiation, General Motors and the United Auto Workers signed a five year contract that became the template for postwar American capitalism. It did not give workers a stipend. It gave them a stake. Seventy five years later, that single decision underpins <b>$49 trillion</b> in American retirement wealth. The pages that follow show why the same architecture, applied to data, is the most credible answer to AI driven displacement.</p>
+        <p class="act-lead">To understand the <strong class="act-text-highlight">Data Savings Act</strong>, start with the <strong class="act-text-highlight">Treaty of Detroit</strong>. In May 1950, after a 113 day strike and three rounds of postwar negotiation, General Motors and the United Auto Workers signed a five year contract that became the template for postwar American capitalism. It did not give workers a stipend. It gave them a stake. Seventy five years later, that single decision underpins <b>$49 trillion</b> in American retirement wealth. The pages that follow show why the same architecture, applied to data, is the most credible answer to AI driven displacement.</p>
       </div>
-      <div class="save-line reveal">Save your data. Own your future.</div>
+      <div class="save-line reveal">Own your Data. <br class="mobile-br"><em>Save your Future.</em></div>
     </div>
 
     <div class="thesis-viz reveal">
@@ -2234,8 +2488,10 @@ footer .left {
   <div class="container">
     <div class="act-hero-form-box reveal" style="margin: 0 auto;">
       <div id="signStep1Hero">
-        <h2 class="hero-form-title">Sign the Declaration</h2>
-        <p class="hero-form-desc"><strong style="color: #ce1126; font-style: italic;">I believe</strong> that the AI economy deserves the same institutional seriousness that America once brought to the industrial one. Add my signature below as part of the public record sent to Washington, D.C. in support of the proposed <strong style="white-space: nowrap; color: #ce1126; font-style: italic;">Data Savings Act</strong>.</p>
+        <h2>Sign the Declaration</h2>
+        <p style="margin-bottom: 24px;">The AI economy does not recognize our contribution. We generate the data that powers it, but are not its owners.<br><br>
+        A <strong class="act-text-highlight">Data Savings Act</strong> would change that, giving every American an account, an asset, and a stake in the economy we are building.<br><br>
+        <strong class="act-text-highlight">Add my name to the Declaration</strong> as a public record being delivered to the Congress and the President of the United States in support of a proposed Data Savings Act.</p>
         <form id="signFormHero">
           <div class="sign-form">
             <div class="sign-row">
@@ -2260,10 +2516,13 @@ footer .left {
               </div>
             </div>
           </div>
-          <button type="submit" id="submitSignHero" class="sign-form-submit">Sign the Declaration</button>
+          <div class="sign-form-actions">
+            <button type="submit" id="submitSignHero" class="sign-form-submit">Add My Name</button>
+            <a href="Docs/Data_Savings_Act_Proposal.pdf" target="_blank" class="sign-form-link">Read the Act</a>
+          </div>
           <label class="sign-consent">
             <input type="checkbox" id="signConsentHero" name="signConsent" checked>
-            <span>I agree to receive campaign updates from the proposed <strong style="white-space: nowrap; color: #ce1126; font-style: italic;">Data Savings Act</strong>. Unsubscribe anytime.</span>
+            <span>I agree to receive campaign updates from the proposed <strong class="act-text-highlight" style="white-space: nowrap;">Data Savings Act</strong>. Unsubscribe anytime.</span>
           </label>
         </form>
 
@@ -2273,11 +2532,11 @@ footer .left {
       </div>
 
       <div id="signStep2Hero" style="display:none;">
-        <div class="success-header-hero">
-          <span class="success-icon-hero">✓</span>
-          <h2>Signature recorded.</h2>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 12px;">
+          <div class="modal-check" style="margin-bottom: 0;">✓</div>
+          <h2 style="margin-bottom: 0;">Signature recorded.</h2>
         </div>
-        <p class="share-text-hero">Now share it. Each share brings two more Americans into the fold.</p>
+        <p>Now share it. Each share brings two more Americans into the fold.</p>
         
         <div id="heroShareContainer">
           <div class="share-selector">
@@ -2294,32 +2553,31 @@ footer .left {
               <span class="selector-label">Option 2</span>
             </button>
           </div>
-          <div class="act-share-card" style="line-height: 0;">
+          <div class="modal-share-card act-share-card" style="line-height: 0;">
             <img id="shareImgPreviewHero" src="assets/img/share-option-1.jpg" alt="Share Preview" style="width: 100%; height: auto; display: block;">
           </div>
         </div>
 
         <div class="modal-share-buttons">
-          <button class="share-icon share-x" title="Share on X" onclick="shareAction('x', 'heroShareContainer')">
+          <button class="share-icon share-x" title="Share on X" aria-label="Share on X" onclick="shareAction('x', 'heroShareContainer')">
             <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           </button>
-          <button class="share-icon share-fb" title="Share on Facebook" onclick="shareAction('fb', 'heroShareContainer')">
+          <button class="share-icon share-fb" title="Share on Facebook" aria-label="Share on Facebook" onclick="shareAction('fb', 'heroShareContainer')">
             <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           </button>
-          <button class="share-icon share-ig" title="Share on Instagram" onclick="shareAction('ig', 'heroShareContainer')">
+          <button class="share-icon share-ig" title="Share on Instagram" aria-label="Share on Instagram" onclick="shareAction('ig', 'heroShareContainer')">
             <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
           </button>
-          <button class="share-icon share-li" title="Share on LinkedIn" onclick="shareAction('li', 'heroShareContainer')">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          <button class="share-icon share-li" title="Share on LinkedIn" aria-label="Share on LinkedIn" onclick="shareAction('li', 'heroShareContainer')">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           </button>
-          <button class="share-icon share-link" title="Copy link" onclick="shareAction('copy', 'heroShareContainer')">
+          <button class="share-icon share-link" title="Copy link" aria-label="Copy link" onclick="shareAction('copy', 'heroShareContainer')">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
         </div>
 
-        <div class="modal-options-stack" style="margin-top: 24px;">
-          <button class="modal-option-btn btn-primary" onclick="window.open('https://theinternationaldatareserve.org/', '_blank')">Request your AI Data</button>
-          <button class="modal-option-btn btn-ghost" onclick="location.reload()">Return to Data Savings Act</button>
+        <div class="modal-options-stack">
+          <button class="modal-option-btn btn-ghost" onclick="window.location.href='index.html'">Return to Data Savings Act</button>
         </div>
       </div>
     </div>
