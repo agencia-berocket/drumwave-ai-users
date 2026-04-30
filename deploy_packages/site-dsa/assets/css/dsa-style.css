@@ -2290,7 +2290,7 @@ html, body {
 footer {
   padding: 60px 0;
   background: var(--cream);
-  border-top: 1px solid rgba(0,0,0,0.1);
+  border-top: 2px solid rgba(0,0,0,0.1);
   color: var(--ink);
 }
 
@@ -2298,6 +2298,9 @@ footer .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 40px;
 }
 
 footer .container > div,
@@ -2312,5 +2315,6 @@ footer .left {
     flex-direction: column;
     gap: 20px;
     text-align: center;
+    padding: 0 20px;
   }
 }
