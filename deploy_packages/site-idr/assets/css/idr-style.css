@@ -117,7 +117,7 @@ p { font-size: var(--size-body); line-height: 1.6; color: var(--ink-soft); }
 .stat-value .denominator { font-size: 0.35em; color: var(--ink-muted); font-weight: 400; vertical-align: super; margin-left: 0.15em; }
 
 .reserves-section { background: var(--bg-subtle); border-radius: 12px; padding: clamp(2rem, 5vw, 4rem); margin-bottom: var(--space-lg); }
-.reserves-section h2 { color: var(--ink); margin-bottom: 0.75rem; max-width: 14ch; }
+.reserves-section h2 { font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--ink); margin-bottom: 1.5rem; max-width: 15ch; }
 .reserves-section > .subtitle { color: var(--ink-soft); margin-bottom: var(--space-lg); font-size: 1rem; max-width: 60ch; }
 .reserves-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
 .reserve-card { display: flex; flex-direction: column; gap: 0.5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
@@ -128,9 +128,10 @@ p { font-size: var(--size-body); line-height: 1.6; color: var(--ink-soft); }
 .status-dot.forming { background: var(--warning); }
 .status-dot.planned { background: var(--neutral); }
 @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(74,222,128,0.5); } 50% { box-shadow: 0 0 0 6px rgba(74,222,128,0); } }
-.reserve-card h3 { font-size: 1.0625rem; font-weight: 700; line-height: 1.25; color: var(--ink); margin-bottom: 0.25rem; }
-.reserve-card .territory, .reserve-card .hq { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.5; }
-.reserve-card .territory { color: var(--ink-soft); }
+.reserve-card h3 { font-size: 1.35rem; font-weight: 700; line-height: 1.2; color: var(--ink); margin-bottom: 1.25rem; }
+.territory-list { display: flex; flex-direction: column; gap: 0.5rem; }
+.territory-list p { font-size: 0.875rem; color: var(--ink-soft); line-height: 1.4; margin: 0; }
+.territory-list .plus { margin-top: 0.5rem; font-size: 0.9rem; color: var(--ink-muted); display: block; }
 /* .reserve-card .hq { color: var(--ink-muted); margin-top: 0.25rem; } */
 
 /* New DSA Hero Banner */
