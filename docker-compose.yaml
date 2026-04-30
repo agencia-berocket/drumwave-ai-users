@@ -7,10 +7,10 @@ services:
       - "80"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.dsa-landing-http.rule=Host(`dsa.berocket.com.br`)"
+      - "traefik.http.routers.dsa-landing-http.rule=Host(`dsa.berocket.com.br`) || Host(`signtheact.datareserve.org`)"
       - "traefik.http.routers.dsa-landing-http.entrypoints=http"
       - "traefik.http.routers.dsa-landing-http.middlewares=redirect-to-https"
-      - "traefik.http.routers.dsa-landing-https.rule=Host(`dsa.berocket.com.br`)"
+      - "traefik.http.routers.dsa-landing-https.rule=Host(`dsa.berocket.com.br`) || Host(`signtheact.datareserve.org`)"
       - "traefik.http.routers.dsa-landing-https.entrypoints=https"
       - "traefik.http.routers.dsa-landing-https.tls=true"
       - "traefik.http.routers.dsa-landing-https.tls.certresolver=letsencrypt"
